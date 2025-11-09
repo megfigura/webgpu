@@ -161,12 +161,12 @@ function $abort$$($what$$) {
   throw new WebAssembly.RuntimeError($what$$);
 }
 function $createExportWrapper$$($name$jscomp$82$$, $nargs$$) {
-  return (...$args$jscomp$7$$) => {
+  return (...$args$jscomp$111$$) => {
     $assert$$($runtimeInitialized$$, `native function \`${$name$jscomp$82$$}\` called before runtime initialization`);
     var $f$jscomp$1$$ = $wasmExports$$[$name$jscomp$82$$];
     $assert$$($f$jscomp$1$$, `exported native function \`${$name$jscomp$82$$}\` not found`);
-    $assert$$($args$jscomp$7$$.length <= $nargs$$, `native function \`${$name$jscomp$82$$}\` called with ${$args$jscomp$7$$.length} args but expects ${$nargs$$}`);
-    return $f$jscomp$1$$(...$args$jscomp$7$$);
+    $assert$$($args$jscomp$111$$.length <= $nargs$$, `native function \`${$name$jscomp$82$$}\` called with ${$args$jscomp$111$$.length} args but expects ${$nargs$$}`);
+    return $f$jscomp$1$$(...$args$jscomp$111$$);
   };
 }
 var $wasmBinaryFile$$;
@@ -247,12 +247,12 @@ var $callRuntimeCallbacks$$ = $callbacks$$ => {
       $shown$$ && $err$$("(end of list)");
     }
   }, 1e4), $runDependencyWatcher$$.unref?.());
-}, $dynCalls$$ = {}, $dynCall$$ = ($sig$jscomp$1$$, $ptr$jscomp$1_rtn$jscomp$inline_56$$, $args$jscomp$9$$ = []) => {
+}, $dynCalls$$ = {}, $dynCall$$ = ($sig$jscomp$1$$, $ptr$jscomp$1_rtn$jscomp$inline_56$$, $args$jscomp$113$$ = []) => {
   $assert$$(!0, "async dynCall is not supported in this mode");
-  var $sig$jscomp$inline_405$$ = $sig$jscomp$1$$.replace(/p/g, "i");
-  $assert$$($sig$jscomp$inline_405$$ in $dynCalls$$, `bad function pointer type - sig is not in dynCalls: '${$sig$jscomp$inline_405$$}'`);
-  $args$jscomp$9$$?.length ? $assert$$($args$jscomp$9$$.length === $sig$jscomp$inline_405$$.length - 1) : $assert$$(1 == $sig$jscomp$inline_405$$.length);
-  $ptr$jscomp$1_rtn$jscomp$inline_56$$ = (0,$dynCalls$$[$sig$jscomp$inline_405$$])($ptr$jscomp$1_rtn$jscomp$inline_56$$, ...$args$jscomp$9$$);
+  var $sig$jscomp$inline_438$$ = $sig$jscomp$1$$.replace(/p/g, "i");
+  $assert$$($sig$jscomp$inline_438$$ in $dynCalls$$, `bad function pointer type - sig is not in dynCalls: '${$sig$jscomp$inline_438$$}'`);
+  $args$jscomp$113$$?.length ? $assert$$($args$jscomp$113$$.length === $sig$jscomp$inline_438$$.length - 1) : $assert$$(1 == $sig$jscomp$inline_438$$.length);
+  $ptr$jscomp$1_rtn$jscomp$inline_56$$ = (0,$dynCalls$$[$sig$jscomp$inline_438$$])($ptr$jscomp$1_rtn$jscomp$inline_56$$, ...$args$jscomp$113$$);
   return "p" == $sig$jscomp$1$$[0] ? $ptr$jscomp$1_rtn$jscomp$inline_56$$ >>> 0 : $ptr$jscomp$1_rtn$jscomp$inline_56$$;
 }, $noExitRuntime$$ = !0, $ptrToString$$ = $ptr$jscomp$3$$ => {
   $assert$$("number" === typeof $ptr$jscomp$3$$);
@@ -365,9 +365,9 @@ var $uncaughtExceptionCount$$ = 0, $syscallGetVarargI$$ = () => {
   return $view$jscomp$6$$ => crypto.getRandomValues($view$jscomp$6$$);
 }, $randomFill$$ = $view$jscomp$7$$ => {
   ($randomFill$$ = $initRandomFill$$())($view$jscomp$7$$);
-}, $PATH_FS$resolve$$ = (...$args$jscomp$10$$) => {
-  for (var $resolvedPath$$ = "", $path$jscomp$44_resolvedAbsolute$$ = !1, $i$jscomp$5$$ = $args$jscomp$10$$.length - 1; -1 <= $i$jscomp$5$$ && !$path$jscomp$44_resolvedAbsolute$$; $i$jscomp$5$$--) {
-    $path$jscomp$44_resolvedAbsolute$$ = 0 <= $i$jscomp$5$$ ? $args$jscomp$10$$[$i$jscomp$5$$] : "/";
+}, $PATH_FS$resolve$$ = (...$args$jscomp$114$$) => {
+  for (var $resolvedPath$$ = "", $path$jscomp$44_resolvedAbsolute$$ = !1, $i$jscomp$5$$ = $args$jscomp$114$$.length - 1; -1 <= $i$jscomp$5$$ && !$path$jscomp$44_resolvedAbsolute$$; $i$jscomp$5$$--) {
+    $path$jscomp$44_resolvedAbsolute$$ = 0 <= $i$jscomp$5$$ ? $args$jscomp$114$$[$i$jscomp$5$$] : "/";
     if ("string" != typeof $path$jscomp$44_resolvedAbsolute$$) {
       throw new TypeError("Arguments to path.resolve must be strings");
     }
@@ -1085,7 +1085,7 @@ function $FS$open$$($lookup$jscomp$14_path$jscomp$65$$, $JSCompiler_temp$jscomp$
   if ("object" == typeof $lookup$jscomp$14_path$jscomp$65$$) {
     $flags$jscomp$inline_99_node$jscomp$44$$ = $lookup$jscomp$14_path$jscomp$65$$;
   } else {
-    var $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$ = $lookup$jscomp$14_path$jscomp$65$$.endsWith("/");
+    var $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$ = $lookup$jscomp$14_path$jscomp$65$$.endsWith("/");
     $lookup$jscomp$14_path$jscomp$65$$ = $FS$lookupPath$$($lookup$jscomp$14_path$jscomp$65$$, {$follow$:!($JSCompiler_temp$jscomp$5_flags$jscomp$12$$ & 131072), $noent_okay$:!0});
     $flags$jscomp$inline_99_node$jscomp$44$$ = $lookup$jscomp$14_path$jscomp$65$$.node;
     $lookup$jscomp$14_path$jscomp$65$$ = $lookup$jscomp$14_path$jscomp$65$$.path;
@@ -1097,7 +1097,7 @@ function $FS$open$$($lookup$jscomp$14_path$jscomp$65$$, $JSCompiler_temp$jscomp$
         throw new $FS$ErrnoError$$(20);
       }
     } else {
-      if ($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$) {
+      if ($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$) {
         throw new $FS$ErrnoError$$(31);
       }
       $flags$jscomp$inline_99_node$jscomp$44$$ = $FS$mknod$$($lookup$jscomp$14_path$jscomp$65$$, $mode$jscomp$48$$ | 511, 0);
@@ -1111,31 +1111,31 @@ function $FS$open$$($lookup$jscomp$14_path$jscomp$65$$, $JSCompiler_temp$jscomp$
   if ($JSCompiler_temp$jscomp$5_flags$jscomp$12$$ & 65536 && !$FS$isDir$$($flags$jscomp$inline_99_node$jscomp$44$$.mode)) {
     throw new $FS$ErrnoError$$(54);
   }
-  if (!$created$$ && ($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$ = $flags$jscomp$inline_99_node$jscomp$44$$ ? 40960 === ($flags$jscomp$inline_99_node$jscomp$44$$.mode & 61440) ? 32 : $FS$isDir$$($flags$jscomp$inline_99_node$jscomp$44$$.mode) && ("r" !== $FS$flagsToPermissionString$$($JSCompiler_temp$jscomp$5_flags$jscomp$12$$) || $JSCompiler_temp$jscomp$5_flags$jscomp$12$$ & 576) ? 31 : $FS$nodePermissions$$($flags$jscomp$inline_99_node$jscomp$44$$, 
+  if (!$created$$ && ($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$ = $flags$jscomp$inline_99_node$jscomp$44$$ ? 40960 === ($flags$jscomp$inline_99_node$jscomp$44$$.mode & 61440) ? 32 : $FS$isDir$$($flags$jscomp$inline_99_node$jscomp$44$$.mode) && ("r" !== $FS$flagsToPermissionString$$($JSCompiler_temp$jscomp$5_flags$jscomp$12$$) || $JSCompiler_temp$jscomp$5_flags$jscomp$12$$ & 576) ? 31 : $FS$nodePermissions$$($flags$jscomp$inline_99_node$jscomp$44$$, 
   $FS$flagsToPermissionString$$($JSCompiler_temp$jscomp$5_flags$jscomp$12$$)) : 44)) {
-    throw new $FS$ErrnoError$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$);
+    throw new $FS$ErrnoError$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$);
   }
   if ($JSCompiler_temp$jscomp$5_flags$jscomp$12$$ & 512 && !$created$$) {
-    $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$ = $flags$jscomp$inline_99_node$jscomp$44$$;
-    $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$ = "string" == typeof $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$ ? $FS$lookupPath$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$, {$follow$:!0}).node : $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$;
-    if ($FS$isDir$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$.mode)) {
+    $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$ = $flags$jscomp$inline_99_node$jscomp$44$$;
+    $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$ = "string" == typeof $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$ ? $FS$lookupPath$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$, {$follow$:!0}).node : $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$;
+    if ($FS$isDir$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$.mode)) {
       throw new $FS$ErrnoError$$(31);
     }
-    if (32768 !== ($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$.mode & 61440)) {
+    if (32768 !== ($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$.mode & 61440)) {
       throw new $FS$ErrnoError$$(28);
     }
-    var $errCode$jscomp$inline_411$$ = $FS$nodePermissions$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$, "w");
-    if ($errCode$jscomp$inline_411$$) {
-      throw new $FS$ErrnoError$$($errCode$jscomp$inline_411$$);
+    var $errCode$jscomp$inline_444$$ = $FS$nodePermissions$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$, "w");
+    if ($errCode$jscomp$inline_444$$) {
+      throw new $FS$ErrnoError$$($errCode$jscomp$inline_444$$);
     }
-    $FS$doSetAttr$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$, {size:0, timestamp:Date.now()});
+    $FS$doSetAttr$$($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$, {size:0, timestamp:Date.now()});
   }
   $JSCompiler_temp$jscomp$5_flags$jscomp$12$$ &= -131713;
-  $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$ = $FS$createStream$$({node:$flags$jscomp$inline_99_node$jscomp$44$$, path:$FS$getPath$$($flags$jscomp$inline_99_node$jscomp$44$$), flags:$JSCompiler_temp$jscomp$5_flags$jscomp$12$$, seekable:!0, position:0, $stream_ops$:$flags$jscomp$inline_99_node$jscomp$44$$.$stream_ops$, $ungotten$:[], error:!1});
-  $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$.$stream_ops$.open && $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$.$stream_ops$.open($errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$);
+  $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$ = $FS$createStream$$({node:$flags$jscomp$inline_99_node$jscomp$44$$, path:$FS$getPath$$($flags$jscomp$inline_99_node$jscomp$44$$), flags:$JSCompiler_temp$jscomp$5_flags$jscomp$12$$, seekable:!0, position:0, $stream_ops$:$flags$jscomp$inline_99_node$jscomp$44$$.$stream_ops$, $ungotten$:[], error:!1});
+  $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$.$stream_ops$.open && $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$.$stream_ops$.open($errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$);
   $created$$ && $FS$chmod$$($flags$jscomp$inline_99_node$jscomp$44$$, $mode$jscomp$48$$ & 511);
   !$Module$$.logReadFiles || $JSCompiler_temp$jscomp$5_flags$jscomp$12$$ & 1 || $lookup$jscomp$14_path$jscomp$65$$ in $FS$readFiles$$ || ($FS$readFiles$$[$lookup$jscomp$14_path$jscomp$65$$] = 1);
-  return $errCode$jscomp$11_isDirPath_node$jscomp$inline_409_path$jscomp$inline_101_stream$jscomp$29$$;
+  return $errCode$jscomp$11_isDirPath_node$jscomp$inline_442_path$jscomp$inline_101_stream$jscomp$29$$;
 }
 function $FS$close$$($stream$jscomp$30$$) {
   if (null === $stream$jscomp$30$$.fd) {
@@ -1382,22 +1382,22 @@ function $FS$createLazyFile$$($parent$jscomp$25$$, $name$jscomp$104$$, $url$jsco
     if (!$ENVIRONMENT_IS_WORKER$$) {
       throw "Cannot do synchronous binary XHRs outside webworkers in modern browsers. Use --embed-file or --preload-file in emcc";
     }
-    var $JSCompiler_object_inline_contents_374$$ = new $LazyUint8Array$$();
-    var $JSCompiler_object_inline_url_375$$ = void 0;
+    var $JSCompiler_object_inline_contents_407$$ = new $LazyUint8Array$$();
+    var $JSCompiler_object_inline_url_408$$ = void 0;
   } else {
-    $JSCompiler_object_inline_url_375$$ = $url$jscomp$31$$, $JSCompiler_object_inline_contents_374$$ = void 0;
+    $JSCompiler_object_inline_url_408$$ = $url$jscomp$31$$, $JSCompiler_object_inline_contents_407$$ = void 0;
   }
   var $node$jscomp$47$$ = $FS$createFile$$($parent$jscomp$25$$, $name$jscomp$104$$, $canRead$jscomp$6$$, $canWrite$jscomp$6$$);
-  $JSCompiler_object_inline_contents_374$$ ? $node$jscomp$47$$.$contents$ = $JSCompiler_object_inline_contents_374$$ : $JSCompiler_object_inline_url_375$$ && ($node$jscomp$47$$.$contents$ = null, $node$jscomp$47$$.url = $JSCompiler_object_inline_url_375$$);
+  $JSCompiler_object_inline_contents_407$$ ? $node$jscomp$47$$.$contents$ = $JSCompiler_object_inline_contents_407$$ : $JSCompiler_object_inline_url_408$$ && ($node$jscomp$47$$.$contents$ = null, $node$jscomp$47$$.url = $JSCompiler_object_inline_url_408$$);
   Object.defineProperties($node$jscomp$47$$, {$usedBytes$:{get:function() {
     return this.$contents$.length;
   }}});
   var $stream_ops$$ = {};
   Object.keys($node$jscomp$47$$.$stream_ops$).forEach($key$jscomp$42$$ => {
     var $fn$jscomp$1$$ = $node$jscomp$47$$.$stream_ops$[$key$jscomp$42$$];
-    $stream_ops$$[$key$jscomp$42$$] = (...$args$jscomp$12$$) => {
+    $stream_ops$$[$key$jscomp$42$$] = (...$args$jscomp$116$$) => {
       $FS$forceLoadFile$$($node$jscomp$47$$);
-      return $fn$jscomp$1$$(...$args$jscomp$12$$);
+      return $fn$jscomp$1$$(...$args$jscomp$116$$);
     };
   });
   $stream_ops$$.read = ($stream$jscomp$49$$, $buffer$jscomp$39$$, $offset$jscomp$81$$, $length$jscomp$42$$, $position$jscomp$13$$) => {
@@ -1496,8 +1496,8 @@ var $SYSCALLS$varargs$$ = void 0, $stringToUTF8$$ = ($str$jscomp$13$$, $outPtr$$
         $MainLoop$setImmediate$$ = $func$jscomp$9$$ => {
           $setImmediates$$.push($func$jscomp$9$$);
           if ($ENVIRONMENT_IS_WORKER$$) {
-            let $$jscomp$logical$assign$tmp2128331258$5$$;
-            ($$jscomp$logical$assign$tmp2128331258$5$$ = $Module$$).setImmediates ?? ($$jscomp$logical$assign$tmp2128331258$5$$.setImmediates = []);
+            let $$jscomp$logical$assign$tmpm1126107591$5$$;
+            ($$jscomp$logical$assign$tmpm1126107591$5$$ = $Module$$).setImmediates ?? ($$jscomp$logical$assign$tmpm1126107591$5$$.setImmediates = []);
             $Module$$.setImmediates.push($func$jscomp$9$$);
             postMessage({target:"setimmediate"});
           } else {
@@ -1521,14 +1521,14 @@ var $SYSCALLS$varargs$$ = void 0, $stringToUTF8$$ = ($str$jscomp$13$$, $outPtr$$
   $EXITSTATUS$$ = $status$jscomp$3$$;
   $noExitRuntime$$ || 0 < $runtimeKeepaliveCounter$$ || ($Module$$.onExit?.($status$jscomp$3$$), $ABORT$$ = !0);
   $quit_$$($status$jscomp$3$$, new $ExitStatus$$($status$jscomp$3$$));
-}, $handleException$$ = $e$jscomp$38$$ => {
-  $e$jscomp$38$$ instanceof $ExitStatus$$ || "unwind" == $e$jscomp$38$$ || ($checkStackCookie$$(), $e$jscomp$38$$ instanceof WebAssembly.RuntimeError && 0 >= $_emscripten_stack_get_current$$() && $err$$("Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to 65536)"), $quit_$$(1, $e$jscomp$38$$));
+}, $handleException$$ = $e$jscomp$37$$ => {
+  $e$jscomp$37$$ instanceof $ExitStatus$$ || "unwind" == $e$jscomp$37$$ || ($checkStackCookie$$(), $e$jscomp$37$$ instanceof WebAssembly.RuntimeError && 0 >= $_emscripten_stack_get_current$$() && $err$$("Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to 65536)"), $quit_$$(1, $e$jscomp$37$$));
 }, $maybeExit$$ = () => {
   if (!($noExitRuntime$$ || 0 < $runtimeKeepaliveCounter$$)) {
     try {
       $exitJS$$($EXITSTATUS$$);
-    } catch ($e$jscomp$39$$) {
-      $handleException$$($e$jscomp$39$$);
+    } catch ($e$jscomp$38$$) {
+      $handleException$$($e$jscomp$38$$);
     }
   }
 }, $setMainLoop$$ = ($iterFunc$$, $fps$$, $simulateInfiniteLoop$$, $arg$jscomp$12$$, $noSetTiming$$) => {
@@ -1589,8 +1589,8 @@ var $SYSCALLS$varargs$$ = void 0, $stringToUTF8$$ = ($str$jscomp$13$$, $outPtr$$
   } else {
     try {
       $func$jscomp$10$$(), $maybeExit$$();
-    } catch ($e$jscomp$40$$) {
-      $handleException$$($e$jscomp$40$$);
+    } catch ($e$jscomp$39$$) {
+      $handleException$$($e$jscomp$39$$);
     }
   }
 }, $MainLoop$running$$ = !1, $MainLoop$scheduler$$ = null, $MainLoop$method$$ = "", $MainLoop$currentlyRunningMainloop$$ = 0, $MainLoop$func$$ = null, $MainLoop$arg$$ = 0, $MainLoop$timingMode$$ = 0, $MainLoop$timingValue$$ = 0, $MainLoop$currentFrameNumber$$ = 0, $MainLoop$queue$$ = [], $MainLoop$preMainLoop$$ = [], $MainLoop$postMainLoop$$ = [];
@@ -1703,9 +1703,9 @@ var $JSEvents$$ = {$batteryEvent$:0, $gamepadEvent$:0, $keyEvent$:0, $mouseEvent
   $cString$jscomp$inline_138_target$jscomp$95$$ = 2 < $cString$jscomp$inline_138_target$jscomp$95$$ ? $UTF8ToString$$($cString$jscomp$inline_138_target$jscomp$95$$) : $cString$jscomp$inline_138_target$jscomp$95$$;
   return $specialHTMLTargets$$[$cString$jscomp$inline_138_target$jscomp$95$$] || ("undefined" != typeof document ? document.querySelector($cString$jscomp$inline_138_target$jscomp$95$$) : null);
 }, $stringToUTF8OnStack$$ = $str$jscomp$14$$ => {
-  var $size$jscomp$28$$ = $lengthBytesUTF8$$($str$jscomp$14$$) + 1, $ret$jscomp$8$$ = $__emscripten_stack_alloc$$($size$jscomp$28$$);
-  $stringToUTF8$$($str$jscomp$14$$, $ret$jscomp$8$$, $size$jscomp$28$$);
-  return $ret$jscomp$8$$;
+  var $size$jscomp$28$$ = $lengthBytesUTF8$$($str$jscomp$14$$) + 1, $ret$jscomp$7$$ = $__emscripten_stack_alloc$$($size$jscomp$28$$);
+  $stringToUTF8$$($str$jscomp$14$$, $ret$jscomp$7$$, $size$jscomp$28$$);
+  return $ret$jscomp$7$$;
 }, $getCanvasElementSize$$ = $target$jscomp$97_width$jscomp$inline_141$$ => {
   var $sp$$ = $_emscripten_stack_get_current$$(), $size$jscomp$29_w$jscomp$14$$ = $__emscripten_stack_alloc$$(8), $h$jscomp$10$$ = $size$jscomp$29_w$jscomp$14$$ + 4;
   var $canvas$jscomp$inline_143_target$jscomp$inline_140$$ = $stringToUTF8OnStack$$($target$jscomp$97_width$jscomp$inline_141$$.id);
@@ -1750,28 +1750,28 @@ var $setCanvasElementSize$$ = ($target$jscomp$99_targetInt$jscomp$1$$, $width$js
 }, $setLetterbox$$ = ($element$jscomp$8$$, $topBottom$$, $leftRight$$) => {
   $element$jscomp$8$$.style.paddingLeft = $element$jscomp$8$$.style.paddingRight = $leftRight$$ + "px";
   $element$jscomp$8$$.style.paddingTop = $element$jscomp$8$$.style.paddingBottom = $topBottom$$ + "px";
-}, $getBoundingClientRect$$ = $e$jscomp$41$$ => 0 > $specialHTMLTargets$$.indexOf($e$jscomp$41$$) ? $e$jscomp$41$$.getBoundingClientRect() : {left:0, top:0}, $JSEvents_requestFullscreen$$ = ($target$jscomp$101$$, $strategy$jscomp$1$$) => {
+}, $getBoundingClientRect$$ = $e$jscomp$40$$ => 0 > $specialHTMLTargets$$.indexOf($e$jscomp$40$$) ? $e$jscomp$40$$.getBoundingClientRect() : {left:0, top:0}, $JSEvents_requestFullscreen$$ = ($target$jscomp$101$$, $strategy$jscomp$1$$) => {
   if (0 != $strategy$jscomp$1$$.$scaleMode$ || 0 != $strategy$jscomp$1$$.$canvasResolutionScaleMode$) {
     $registerRestoreOldStyle$$($target$jscomp$101$$);
-    var $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ = $strategy$jscomp$1$$.$softFullscreen$ ? innerWidth : screen.width, $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ = $strategy$jscomp$1$$.$softFullscreen$ ? innerHeight : screen.height, $rect$jscomp$inline_418_windowedCssHeight$jscomp$inline_420$$ = $getBoundingClientRect$$($target$jscomp$101$$), $desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$ = $rect$jscomp$inline_418_windowedCssHeight$jscomp$inline_420$$.width;
-    $rect$jscomp$inline_418_windowedCssHeight$jscomp$inline_420$$ = $rect$jscomp$inline_418_windowedCssHeight$jscomp$inline_420$$.height;
-    var $canvasSize$jscomp$inline_421_windowedRttHeight$jscomp$inline_423$$ = $getCanvasElementSize$$($target$jscomp$101$$), $windowedRttWidth$jscomp$inline_422$$ = $canvasSize$jscomp$inline_421_windowedRttHeight$jscomp$inline_423$$[0];
-    $canvasSize$jscomp$inline_421_windowedRttHeight$jscomp$inline_423$$ = $canvasSize$jscomp$inline_421_windowedRttHeight$jscomp$inline_423$$[1];
-    3 == $strategy$jscomp$1$$.$scaleMode$ ? ($setLetterbox$$($target$jscomp$101$$, ($cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ - $rect$jscomp$inline_418_windowedCssHeight$jscomp$inline_420$$) / 2, ($cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ - $desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$) / 2), $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ = $desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$, 
-    $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ = $rect$jscomp$inline_418_windowedCssHeight$jscomp$inline_420$$) : 2 == $strategy$jscomp$1$$.$scaleMode$ && ($cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ * $canvasSize$jscomp$inline_421_windowedRttHeight$jscomp$inline_423$$ < $windowedRttWidth$jscomp$inline_422$$ * $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ ? ($desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$ = 
-    $canvasSize$jscomp$inline_421_windowedRttHeight$jscomp$inline_423$$ * $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ / $windowedRttWidth$jscomp$inline_422$$, $setLetterbox$$($target$jscomp$101$$, ($cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ - $desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$) / 2, 0), $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ = $desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$) : 
-    ($desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$ = $windowedRttWidth$jscomp$inline_422$$ * $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ / $canvasSize$jscomp$inline_421_windowedRttHeight$jscomp$inline_423$$, $setLetterbox$$($target$jscomp$101$$, 0, ($cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ - $desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$) / 2), $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ = 
-    $desiredCssHeight$jscomp$inline_424_desiredCssWidth$jscomp$inline_425_windowedCssWidth$jscomp$inline_419$$));
-    var $$jscomp$inline_426_dpiScale$jscomp$inline_428$$;
-    ($$jscomp$inline_426_dpiScale$jscomp$inline_428$$ = $target$jscomp$101$$.style).backgroundColor || ($$jscomp$inline_426_dpiScale$jscomp$inline_428$$.backgroundColor = "black");
-    let $$jscomp$inline_427$$;
-    ($$jscomp$inline_427$$ = document.body.style).backgroundColor || ($$jscomp$inline_427$$.backgroundColor = "black");
-    $target$jscomp$101$$.style.width = $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ + "px";
-    $target$jscomp$101$$.style.height = $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ + "px";
+    var $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ = $strategy$jscomp$1$$.$softFullscreen$ ? innerWidth : screen.width, $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ = $strategy$jscomp$1$$.$softFullscreen$ ? innerHeight : screen.height, $rect$jscomp$inline_451_windowedCssHeight$jscomp$inline_453$$ = $getBoundingClientRect$$($target$jscomp$101$$), $desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$ = $rect$jscomp$inline_451_windowedCssHeight$jscomp$inline_453$$.width;
+    $rect$jscomp$inline_451_windowedCssHeight$jscomp$inline_453$$ = $rect$jscomp$inline_451_windowedCssHeight$jscomp$inline_453$$.height;
+    var $canvasSize$jscomp$inline_454_windowedRttHeight$jscomp$inline_456$$ = $getCanvasElementSize$$($target$jscomp$101$$), $windowedRttWidth$jscomp$inline_455$$ = $canvasSize$jscomp$inline_454_windowedRttHeight$jscomp$inline_456$$[0];
+    $canvasSize$jscomp$inline_454_windowedRttHeight$jscomp$inline_456$$ = $canvasSize$jscomp$inline_454_windowedRttHeight$jscomp$inline_456$$[1];
+    3 == $strategy$jscomp$1$$.$scaleMode$ ? ($setLetterbox$$($target$jscomp$101$$, ($cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ - $rect$jscomp$inline_451_windowedCssHeight$jscomp$inline_453$$) / 2, ($cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ - $desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$) / 2), $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ = $desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$, 
+    $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ = $rect$jscomp$inline_451_windowedCssHeight$jscomp$inline_453$$) : 2 == $strategy$jscomp$1$$.$scaleMode$ && ($cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ * $canvasSize$jscomp$inline_454_windowedRttHeight$jscomp$inline_456$$ < $windowedRttWidth$jscomp$inline_455$$ * $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ ? ($desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$ = 
+    $canvasSize$jscomp$inline_454_windowedRttHeight$jscomp$inline_456$$ * $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ / $windowedRttWidth$jscomp$inline_455$$, $setLetterbox$$($target$jscomp$101$$, ($cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ - $desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$) / 2, 0), $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ = $desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$) : 
+    ($desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$ = $windowedRttWidth$jscomp$inline_455$$ * $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ / $canvasSize$jscomp$inline_454_windowedRttHeight$jscomp$inline_456$$, $setLetterbox$$($target$jscomp$101$$, 0, ($cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ - $desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$) / 2), $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ = 
+    $desiredCssHeight$jscomp$inline_457_desiredCssWidth$jscomp$inline_458_windowedCssWidth$jscomp$inline_452$$));
+    var $$jscomp$inline_459_dpiScale$jscomp$inline_461$$;
+    ($$jscomp$inline_459_dpiScale$jscomp$inline_461$$ = $target$jscomp$101$$.style).backgroundColor || ($$jscomp$inline_459_dpiScale$jscomp$inline_461$$.backgroundColor = "black");
+    let $$jscomp$inline_460$$;
+    ($$jscomp$inline_460$$ = document.body.style).backgroundColor || ($$jscomp$inline_460$$.backgroundColor = "black");
+    $target$jscomp$101$$.style.width = $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ + "px";
+    $target$jscomp$101$$.style.height = $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ + "px";
     1 == $strategy$jscomp$1$$.$filteringMode$ && ($target$jscomp$101$$.style.$imageRendering$ = "optimizeSpeed", $target$jscomp$101$$.style.$imageRendering$ = "-moz-crisp-edges", $target$jscomp$101$$.style.$imageRendering$ = "-o-crisp-edges", $target$jscomp$101$$.style.$imageRendering$ = "-webkit-optimize-contrast", $target$jscomp$101$$.style.$imageRendering$ = "optimize-contrast", $target$jscomp$101$$.style.$imageRendering$ = "crisp-edges", $target$jscomp$101$$.style.$imageRendering$ = "pixelated");
-    $$jscomp$inline_426_dpiScale$jscomp$inline_428$$ = 2 == $strategy$jscomp$1$$.$canvasResolutionScaleMode$ ? devicePixelRatio : 1;
-    0 != $strategy$jscomp$1$$.$canvasResolutionScaleMode$ && ($cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ = $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$ * $$jscomp$inline_426_dpiScale$jscomp$inline_428$$ | 0, $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ = $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$ * $$jscomp$inline_426_dpiScale$jscomp$inline_428$$ | 0, $setCanvasElementSize$$($target$jscomp$101$$, $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$, 
-    $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$), $target$jscomp$101$$.$GLctxObject$ && $target$jscomp$101$$.$GLctxObject$.$GLctx$.viewport(0, 0, $cssWidth$jscomp$inline_416_newWidth$jscomp$inline_429$$, $cssHeight$jscomp$inline_417_newHeight$jscomp$inline_430$$));
+    $$jscomp$inline_459_dpiScale$jscomp$inline_461$$ = 2 == $strategy$jscomp$1$$.$canvasResolutionScaleMode$ ? devicePixelRatio : 1;
+    0 != $strategy$jscomp$1$$.$canvasResolutionScaleMode$ && ($cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ = $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$ * $$jscomp$inline_459_dpiScale$jscomp$inline_461$$ | 0, $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ = $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$ * $$jscomp$inline_459_dpiScale$jscomp$inline_461$$ | 0, $setCanvasElementSize$$($target$jscomp$101$$, $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$, 
+    $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$), $target$jscomp$101$$.$GLctxObject$ && $target$jscomp$101$$.$GLctxObject$.$GLctx$.viewport(0, 0, $cssWidth$jscomp$inline_449_newWidth$jscomp$inline_462$$, $cssHeight$jscomp$inline_450_newHeight$jscomp$inline_463$$));
   }
   if ($target$jscomp$101$$.requestFullscreen) {
     $target$jscomp$101$$.requestFullscreen();
@@ -1790,23 +1790,23 @@ var $setCanvasElementSize$$ = ($target$jscomp$99_targetInt$jscomp$1$$, $width$js
     return document.body.requestPointerLock ? -3 : -1;
   }
   return 0;
-}, $fillGamepadEventData$$ = ($eventStruct$$, $e$jscomp$42$$) => {
-  $HEAPF64$$[$eventStruct$$ >>> 3 >>> 0] = $e$jscomp$42$$.timestamp;
-  for (var $i$jscomp$26$$ = 0; $i$jscomp$26$$ < $e$jscomp$42$$.axes.length; ++$i$jscomp$26$$) {
-    $HEAPF64$$[$eventStruct$$ + 8 * $i$jscomp$26$$ + 16 >>> 3 >>> 0] = $e$jscomp$42$$.axes[$i$jscomp$26$$];
+}, $fillGamepadEventData$$ = ($eventStruct$$, $e$jscomp$41$$) => {
+  $HEAPF64$$[$eventStruct$$ >>> 3 >>> 0] = $e$jscomp$41$$.timestamp;
+  for (var $i$jscomp$26$$ = 0; $i$jscomp$26$$ < $e$jscomp$41$$.axes.length; ++$i$jscomp$26$$) {
+    $HEAPF64$$[$eventStruct$$ + 8 * $i$jscomp$26$$ + 16 >>> 3 >>> 0] = $e$jscomp$41$$.axes[$i$jscomp$26$$];
   }
-  for ($i$jscomp$26$$ = 0; $i$jscomp$26$$ < $e$jscomp$42$$.buttons.length; ++$i$jscomp$26$$) {
-    $HEAPF64$$[$eventStruct$$ + 8 * $i$jscomp$26$$ + 528 >>> 3 >>> 0] = "object" == typeof $e$jscomp$42$$.buttons[$i$jscomp$26$$] ? $e$jscomp$42$$.buttons[$i$jscomp$26$$].value : $e$jscomp$42$$.buttons[$i$jscomp$26$$];
+  for ($i$jscomp$26$$ = 0; $i$jscomp$26$$ < $e$jscomp$41$$.buttons.length; ++$i$jscomp$26$$) {
+    $HEAPF64$$[$eventStruct$$ + 8 * $i$jscomp$26$$ + 528 >>> 3 >>> 0] = "object" == typeof $e$jscomp$41$$.buttons[$i$jscomp$26$$] ? $e$jscomp$41$$.buttons[$i$jscomp$26$$].value : $e$jscomp$41$$.buttons[$i$jscomp$26$$];
   }
-  for ($i$jscomp$26$$ = 0; $i$jscomp$26$$ < $e$jscomp$42$$.buttons.length; ++$i$jscomp$26$$) {
-    $HEAP8$$[$eventStruct$$ + $i$jscomp$26$$ + 1040 >>> 0] = "object" == typeof $e$jscomp$42$$.buttons[$i$jscomp$26$$] ? $e$jscomp$42$$.buttons[$i$jscomp$26$$].pressed : 1 == $e$jscomp$42$$.buttons[$i$jscomp$26$$];
+  for ($i$jscomp$26$$ = 0; $i$jscomp$26$$ < $e$jscomp$41$$.buttons.length; ++$i$jscomp$26$$) {
+    $HEAP8$$[$eventStruct$$ + $i$jscomp$26$$ + 1040 >>> 0] = "object" == typeof $e$jscomp$41$$.buttons[$i$jscomp$26$$] ? $e$jscomp$41$$.buttons[$i$jscomp$26$$].pressed : 1 == $e$jscomp$41$$.buttons[$i$jscomp$26$$];
   }
-  $HEAP8$$[$eventStruct$$ + 1104 >>> 0] = $e$jscomp$42$$.connected;
-  $HEAP32$$[$eventStruct$$ + 1108 >>> 2 >>> 0] = $e$jscomp$42$$.index;
-  $HEAP32$$[$eventStruct$$ + 8 >>> 2 >>> 0] = $e$jscomp$42$$.axes.length;
-  $HEAP32$$[$eventStruct$$ + 12 >>> 2 >>> 0] = $e$jscomp$42$$.buttons.length;
-  $stringToUTF8$$($e$jscomp$42$$.id, $eventStruct$$ + 1112, 64);
-  $stringToUTF8$$($e$jscomp$42$$.mapping, $eventStruct$$ + 1176, 64);
+  $HEAP8$$[$eventStruct$$ + 1104 >>> 0] = $e$jscomp$41$$.connected;
+  $HEAP32$$[$eventStruct$$ + 1108 >>> 2 >>> 0] = $e$jscomp$41$$.index;
+  $HEAP32$$[$eventStruct$$ + 8 >>> 2 >>> 0] = $e$jscomp$41$$.axes.length;
+  $HEAP32$$[$eventStruct$$ + 12 >>> 2 >>> 0] = $e$jscomp$41$$.buttons.length;
+  $stringToUTF8$$($e$jscomp$41$$.id, $eventStruct$$ + 1112, 64);
+  $stringToUTF8$$($e$jscomp$41$$.mapping, $eventStruct$$ + 1176, 64);
 };
 function $getFullscreenElement$$() {
   return document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.webkitCurrentFullScreenElement || document.msFullscreenElement;
@@ -1954,10 +1954,10 @@ var $Browser$$ = {}, $Browser$initted$$, $GLctx$$, $webgl_enable_ANGLE_instanced
   var $supportedExtensions$$ = "ANGLE_instanced_arrays EXT_blend_minmax EXT_disjoint_timer_query EXT_frag_depth EXT_shader_texture_lod EXT_sRGB OES_element_index_uint OES_fbo_render_mipmap OES_standard_derivatives OES_texture_float OES_texture_half_float OES_texture_half_float_linear OES_vertex_array_object WEBGL_color_buffer_float WEBGL_depth_texture WEBGL_draw_buffers EXT_clip_control EXT_color_buffer_half_float EXT_depth_clamp EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic KHR_parallel_shader_compile OES_texture_float_linear WEBGL_blend_func_extended WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode".split(" ");
   return ($ctx$jscomp$9$$.getSupportedExtensions() || []).filter($ext$jscomp$4$$ => $supportedExtensions$$.includes($ext$jscomp$4$$));
 }, $GL$counter$$ = 1, $GL$buffers$$ = [], $GL$programs$$ = [], $GL$framebuffers$$ = [], $GL$renderbuffers$$ = [], $GL$textures$$ = [], $GL$shaders$$ = [], $GL$vaos$$ = [], $GL$contexts$$ = [], $GL$queries$$ = [], $GL$stringCache$$ = {}, $GL$unpackAlignment$$ = 4, $GL$unpackRowLength$$ = 0, $GL$getNewId$$ = $table$$ => {
-  for (var $ret$jscomp$11$$ = $GL$counter$$++, $i$jscomp$28$$ = $table$$.length; $i$jscomp$28$$ < $ret$jscomp$11$$; $i$jscomp$28$$++) {
+  for (var $ret$jscomp$10$$ = $GL$counter$$++, $i$jscomp$28$$ = $table$$.length; $i$jscomp$28$$ < $ret$jscomp$10$$; $i$jscomp$28$$++) {
     $table$$[$i$jscomp$28$$] = null;
   }
-  return $ret$jscomp$11$$;
+  return $ret$jscomp$10$$;
 }, $GL$genObject$$ = ($n$jscomp$6$$, $buffers$jscomp$2$$, $createFunction$$, $objectTable$$) => {
   for (var $i$jscomp$29$$ = 0; $i$jscomp$29$$ < $n$jscomp$6$$; $i$jscomp$29$$++) {
     var $buffer$jscomp$41$$ = $GLctx$$[$createFunction$$](), $id$jscomp$12$$ = $buffer$jscomp$41$$ && $GL$getNewId$$($objectTable$$);
@@ -2003,36 +2003,36 @@ var $Browser$$ = {}, $Browser$initted$$, $GLctx$$, $webgl_enable_ANGLE_instanced
   if ($funcName_info$jscomp$2$$ = $GLctx$$[$funcName_info$jscomp$2$$]($program$jscomp$68$$, $index$jscomp$107$$)) {
     $bufSize_numBytesWrittenExclNull$$ = $name$jscomp$113$$ && $stringToUTF8$$($funcName_info$jscomp$2$$.name, $name$jscomp$113$$, $bufSize_numBytesWrittenExclNull$$), $length$jscomp$45$$ && ($HEAP32$$[$length$jscomp$45$$ >>> 2 >>> 0] = $bufSize_numBytesWrittenExclNull$$), $size$jscomp$32$$ && ($HEAP32$$[$size$jscomp$32$$ >>> 2 >>> 0] = $funcName_info$jscomp$2$$.size), $type$jscomp$180$$ && ($HEAP32$$[$type$jscomp$180$$ >>> 2 >>> 0] = $funcName_info$jscomp$2$$.type);
   }
-}, $writeI53ToI64$$ = ($offset$jscomp$85_ptr$jscomp$13$$, $num$jscomp$7$$) => {
+}, $readI53FromI64$$ = $ptr$jscomp$11$$ => $HEAPU32$$[$ptr$jscomp$11$$ >>> 2 >>> 0] + 4294967296 * $HEAP32$$[$ptr$jscomp$11$$ + 4 >>> 2 >>> 0], $writeI53ToI64$$ = ($offset$jscomp$85_ptr$jscomp$13$$, $num$jscomp$7$$) => {
   $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ >>> 2 >>> 0] = $num$jscomp$7$$;
   $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ + 4 >>> 2 >>> 0] = ($num$jscomp$7$$ - $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ >>> 2 >>> 0]) / 4294967296;
-  var $deserialized$$ = 0 <= $num$jscomp$7$$ ? $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ >>> 2 >>> 0] + 4294967296 * $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ + 4 >>> 2 >>> 0] : $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ >>> 2 >>> 0] + 4294967296 * $HEAP32$$[$offset$jscomp$85_ptr$jscomp$13$$ + 4 >>> 2 >>> 0];
+  var $deserialized$$ = 0 <= $num$jscomp$7$$ ? $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ >>> 2 >>> 0] + 4294967296 * $HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ + 4 >>> 2 >>> 0] : $readI53FromI64$$($offset$jscomp$85_ptr$jscomp$13$$);
   $offset$jscomp$85_ptr$jscomp$13$$ >>>= 2;
   $deserialized$$ != $num$jscomp$7$$ && $warnOnce$$(`writeI53ToI64() out of range: serialized JS Number ${$num$jscomp$7$$} to Wasm heap as bytes lo=${$ptrToString$$($HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ >>> 0])}, hi=${$ptrToString$$($HEAPU32$$[$offset$jscomp$85_ptr$jscomp$13$$ + 1 >>> 0])}, which deserializes back to ${$deserialized$$} instead!`);
 }, $emscriptenWebGLGet$$ = ($i$jscomp$40_name_$$, $p$jscomp$7$$, $type$jscomp$183$$) => {
   if ($p$jscomp$7$$) {
-    var $ret$jscomp$12$$ = void 0;
+    var $ret$jscomp$11$$ = void 0;
     switch($i$jscomp$40_name_$$) {
       case 36346:
-        $ret$jscomp$12$$ = 1;
+        $ret$jscomp$11$$ = 1;
         break;
       case 36344:
         0 != $type$jscomp$183$$ && 1 != $type$jscomp$183$$ && ($GL$lastError$$ ||= 1280);
         return;
       case 36345:
-        $ret$jscomp$12$$ = 0;
+        $ret$jscomp$11$$ = 0;
         break;
       case 34466:
         var $formats_result$jscomp$8$$ = $GLctx$$.getParameter(34467);
-        $ret$jscomp$12$$ = $formats_result$jscomp$8$$ ? $formats_result$jscomp$8$$.length : 0;
+        $ret$jscomp$11$$ = $formats_result$jscomp$8$$ ? $formats_result$jscomp$8$$.length : 0;
     }
-    if (void 0 === $ret$jscomp$12$$) {
+    if (void 0 === $ret$jscomp$11$$) {
       switch($formats_result$jscomp$8$$ = $GLctx$$.getParameter($i$jscomp$40_name_$$), typeof $formats_result$jscomp$8$$) {
         case "number":
-          $ret$jscomp$12$$ = $formats_result$jscomp$8$$;
+          $ret$jscomp$11$$ = $formats_result$jscomp$8$$;
           break;
         case "boolean":
-          $ret$jscomp$12$$ = $formats_result$jscomp$8$$ ? 1 : 0;
+          $ret$jscomp$11$$ = $formats_result$jscomp$8$$ ? 1 : 0;
           break;
         case "string":
           $GL$lastError$$ ||= 1280;
@@ -2048,7 +2048,7 @@ var $Browser$$ = {}, $Browser$initted$$, $GLctx$$, $webgl_enable_ANGLE_instanced
               case 32873:
               case 34229:
               case 34068:
-                $ret$jscomp$12$$ = 0;
+                $ret$jscomp$11$$ = 0;
                 break;
               default:
                 $GL$lastError$$ ||= 1280;
@@ -2071,10 +2071,10 @@ var $Browser$$ = {}, $Browser$initted$$, $GLctx$$, $webgl_enable_ANGLE_instanced
               return;
             }
             try {
-              $ret$jscomp$12$$ = $formats_result$jscomp$8$$.name | 0;
-            } catch ($e$jscomp$43$$) {
+              $ret$jscomp$11$$ = $formats_result$jscomp$8$$.name | 0;
+            } catch ($e$jscomp$42$$) {
               $GL$lastError$$ ||= 1280;
-              $err$$(`GL_INVALID_ENUM in glGet${$type$jscomp$183$$}v: Unknown object returned from WebGL getParameter(${$i$jscomp$40_name_$$})! (error: ${$e$jscomp$43$$})`);
+              $err$$(`GL_INVALID_ENUM in glGet${$type$jscomp$183$$}v: Unknown object returned from WebGL getParameter(${$i$jscomp$40_name_$$})! (error: ${$e$jscomp$42$$})`);
               return;
             }
           }
@@ -2087,16 +2087,16 @@ var $Browser$$ = {}, $Browser$initted$$, $GLctx$$, $webgl_enable_ANGLE_instanced
     }
     switch($type$jscomp$183$$) {
       case 1:
-        $writeI53ToI64$$($p$jscomp$7$$, $ret$jscomp$12$$);
+        $writeI53ToI64$$($p$jscomp$7$$, $ret$jscomp$11$$);
         break;
       case 0:
-        $HEAP32$$[$p$jscomp$7$$ >>> 2 >>> 0] = $ret$jscomp$12$$;
+        $HEAP32$$[$p$jscomp$7$$ >>> 2 >>> 0] = $ret$jscomp$11$$;
         break;
       case 2:
-        $HEAPF32$$[$p$jscomp$7$$ >>> 2 >>> 0] = $ret$jscomp$12$$;
+        $HEAPF32$$[$p$jscomp$7$$ >>> 2 >>> 0] = $ret$jscomp$11$$;
         break;
       case 4:
-        $HEAP8$$[$p$jscomp$7$$ >>> 0] = $ret$jscomp$12$$ ? 1 : 0;
+        $HEAP8$$[$p$jscomp$7$$ >>> 0] = $ret$jscomp$11$$ ? 1 : 0;
     }
   } else {
     $GL$lastError$$ ||= 1281;
@@ -2105,9 +2105,9 @@ var $Browser$$ = {}, $Browser$initted$$, $GLctx$$, $webgl_enable_ANGLE_instanced
 function $_glGetQueryObjecti64vEXT$$($id$jscomp$26_param$jscomp$7$$, $pname$jscomp$28$$, $params$jscomp$2$$) {
   if ($params$jscomp$2$$ >>>= 0) {
     $id$jscomp$26_param$jscomp$7$$ = $GLctx$$.$disjointTimerQueryExt$.getQueryObjectEXT($GL$queries$$[$id$jscomp$26_param$jscomp$7$$], $pname$jscomp$28$$);
-    var $ret$jscomp$13$$;
-    "boolean" == typeof $id$jscomp$26_param$jscomp$7$$ ? $ret$jscomp$13$$ = $id$jscomp$26_param$jscomp$7$$ ? 1 : 0 : $ret$jscomp$13$$ = $id$jscomp$26_param$jscomp$7$$;
-    $writeI53ToI64$$($params$jscomp$2$$, $ret$jscomp$13$$);
+    var $ret$jscomp$12$$;
+    "boolean" == typeof $id$jscomp$26_param$jscomp$7$$ ? $ret$jscomp$12$$ = $id$jscomp$26_param$jscomp$7$$ ? 1 : 0 : $ret$jscomp$12$$ = $id$jscomp$26_param$jscomp$7$$;
+    $writeI53ToI64$$($params$jscomp$2$$, $ret$jscomp$12$$);
   } else {
     $GL$lastError$$ ||= 1281;
   }
@@ -2115,20 +2115,20 @@ function $_glGetQueryObjecti64vEXT$$($id$jscomp$26_param$jscomp$7$$, $pname$jsco
 function $_glGetQueryObjectivEXT$$($id$jscomp$27_param$jscomp$8$$, $pname$jscomp$29$$, $params$jscomp$3$$) {
   if ($params$jscomp$3$$ >>>= 0) {
     $id$jscomp$27_param$jscomp$8$$ = $GLctx$$.$disjointTimerQueryExt$.getQueryObjectEXT($GL$queries$$[$id$jscomp$27_param$jscomp$8$$], $pname$jscomp$29$$);
-    var $ret$jscomp$14$$;
-    "boolean" == typeof $id$jscomp$27_param$jscomp$8$$ ? $ret$jscomp$14$$ = $id$jscomp$27_param$jscomp$8$$ ? 1 : 0 : $ret$jscomp$14$$ = $id$jscomp$27_param$jscomp$8$$;
-    $HEAP32$$[$params$jscomp$3$$ >>> 2 >>> 0] = $ret$jscomp$14$$;
+    var $ret$jscomp$13$$;
+    "boolean" == typeof $id$jscomp$27_param$jscomp$8$$ ? $ret$jscomp$13$$ = $id$jscomp$27_param$jscomp$8$$ ? 1 : 0 : $ret$jscomp$13$$ = $id$jscomp$27_param$jscomp$8$$;
+    $HEAP32$$[$params$jscomp$3$$ >>> 2 >>> 0] = $ret$jscomp$13$$;
   } else {
     $GL$lastError$$ ||= 1281;
   }
 }
 var $stringToNewUTF8$$ = $str$jscomp$15$$ => {
-  var $size$jscomp$35$$ = $lengthBytesUTF8$$($str$jscomp$15$$) + 1, $ret$jscomp$15$$ = $_malloc$$($size$jscomp$35$$);
-  $ret$jscomp$15$$ && $stringToUTF8$$($str$jscomp$15$$, $ret$jscomp$15$$, $size$jscomp$35$$);
-  return $ret$jscomp$15$$;
+  var $size$jscomp$35$$ = $lengthBytesUTF8$$($str$jscomp$15$$) + 1, $ret$jscomp$14$$ = $_malloc$$($size$jscomp$35$$);
+  $ret$jscomp$14$$ && $stringToUTF8$$($str$jscomp$15$$, $ret$jscomp$14$$, $size$jscomp$35$$);
+  return $ret$jscomp$14$$;
 }, $webglGetExtensions$$ = () => {
   var $exts$$ = $getEmscriptenSupportedExtensions$$($GLctx$$);
-  return $exts$$ = $exts$$.concat($exts$$.map($e$jscomp$44$$ => "GL_" + $e$jscomp$44$$));
+  return $exts$$ = $exts$$.concat($exts$$.map($e$jscomp$43$$ => "GL_" + $e$jscomp$43$$));
 }, $webglGetLeftBracePos$$ = $name$jscomp$117$$ => "]" == $name$jscomp$117$$.slice(-1) && $name$jscomp$117$$.lastIndexOf("["), $webglPrepareUniformLocationsBeforeFirstUse$$ = $program$jscomp$75$$ => {
   var $uniformLocsById$$ = $program$jscomp$75$$.$uniformLocsById$, $uniformSizeAndIdsByName$$ = $program$jscomp$75$$.$uniformSizeAndIdsByName$, $i$jscomp$42$$;
   if (!$uniformLocsById$$) {
@@ -2229,128 +2229,128 @@ var $stringToNewUTF8$$ = $str$jscomp$15$$ => {
     if (navigator.getGamepads) {
       return ($JSEvents$$.$lastGamepadState$ = navigator.getGamepads()) ? 0 : -1;
     }
-  } catch ($e$jscomp$46$$) {
-    $err$$(`navigator.getGamepads() exists, but failed to execute with exception ${$e$jscomp$46$$}. Disabling Gamepad access.`), navigator.getGamepads = null;
+  } catch ($e$jscomp$45$$) {
+    $err$$(`navigator.getGamepads() exists, but failed to execute with exception ${$e$jscomp$45$$}. Disabling Gamepad access.`), navigator.getGamepads = null;
   }
   return -1;
 }, $registerBeforeUnloadEventCallback$$ = ($userData$$, $callbackfunc$$) => {
-  var $eventHandler$jscomp$1$$ = {target:$findEventTarget$$(2), $eventTypeString$:"beforeunload", $callbackfunc$:$callbackfunc$$, $handlerFunc$:($e$jscomp$47$$ = event) => {
+  var $eventHandler$jscomp$1$$ = {target:$findEventTarget$$(2), $eventTypeString$:"beforeunload", $callbackfunc$:$callbackfunc$$, $handlerFunc$:($e$jscomp$46$$ = event) => {
     var $confirmationMessage$$ = $dynCall_iiii$$($callbackfunc$$, 28, 0, $userData$$);
     $confirmationMessage$$ &&= $UTF8ToString$$($confirmationMessage$$);
     if ($confirmationMessage$$) {
-      return $e$jscomp$47$$.preventDefault(), $e$jscomp$47$$.returnValue = $confirmationMessage$$;
+      return $e$jscomp$46$$.preventDefault(), $e$jscomp$46$$.returnValue = $confirmationMessage$$;
     }
   }, $useCapture$:!0};
   return $JSCompiler_StaticMethods_registerOrRemoveHandler$$($eventHandler$jscomp$1$$);
 }, $registerFocusEventCallback$$ = ($eventHandler$jscomp$2_target$jscomp$131$$, $userData$jscomp$2$$, $useCapture$jscomp$1$$, $callbackfunc$jscomp$2$$, $eventTypeId$jscomp$1$$, $eventTypeString$jscomp$2$$) => {
   $JSEvents$$.$focusEvent$ || ($JSEvents$$.$focusEvent$ = $_malloc$$(256));
-  $eventHandler$jscomp$2_target$jscomp$131$$ = {target:$findEventTarget$$($eventHandler$jscomp$2_target$jscomp$131$$), $eventTypeString$:$eventTypeString$jscomp$2$$, $callbackfunc$:$callbackfunc$jscomp$2$$, $handlerFunc$:($e$jscomp$48$$ = event) => {
-    var $id$jscomp$32$$ = $e$jscomp$48$$.target.id ? $e$jscomp$48$$.target.id : "", $focusEvent$$ = $JSEvents$$.$focusEvent$;
-    $stringToUTF8$$($JSCompiler_StaticMethods_getNodeNameForTarget$$($e$jscomp$48$$.target), $focusEvent$$ + 0, 128);
+  $eventHandler$jscomp$2_target$jscomp$131$$ = {target:$findEventTarget$$($eventHandler$jscomp$2_target$jscomp$131$$), $eventTypeString$:$eventTypeString$jscomp$2$$, $callbackfunc$:$callbackfunc$jscomp$2$$, $handlerFunc$:($e$jscomp$47$$ = event) => {
+    var $id$jscomp$32$$ = $e$jscomp$47$$.target.id ? $e$jscomp$47$$.target.id : "", $focusEvent$$ = $JSEvents$$.$focusEvent$;
+    $stringToUTF8$$($JSCompiler_StaticMethods_getNodeNameForTarget$$($e$jscomp$47$$.target), $focusEvent$$ + 0, 128);
     $stringToUTF8$$($id$jscomp$32$$, $focusEvent$$ + 128, 128);
-    $dynCall_iiii$$($callbackfunc$jscomp$2$$, $eventTypeId$jscomp$1$$, $focusEvent$$, $userData$jscomp$2$$) && $e$jscomp$48$$.preventDefault();
+    $dynCall_iiii$$($callbackfunc$jscomp$2$$, $eventTypeId$jscomp$1$$, $focusEvent$$, $userData$jscomp$2$$) && $e$jscomp$47$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$1$$};
   return $JSCompiler_StaticMethods_registerOrRemoveHandler$$($eventHandler$jscomp$2_target$jscomp$131$$);
 }, $registerFullscreenChangeEventCallback$$ = ($target$jscomp$135$$, $userData$jscomp$5$$, $useCapture$jscomp$4$$, $callbackfunc$jscomp$5$$, $eventTypeString$jscomp$3$$) => {
   $JSEvents$$.$fullscreenChangeEvent$ || ($JSEvents$$.$fullscreenChangeEvent$ = $_malloc$$(276));
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$135$$, $eventTypeString$:$eventTypeString$jscomp$3$$, $callbackfunc$:$callbackfunc$jscomp$5$$, $handlerFunc$:($e$jscomp$49$$ = event) => {
-    var $fullscreenChangeEvent$$ = $JSEvents$$.$fullscreenChangeEvent$, $fullscreenElement$jscomp$inline_437$$ = $getFullscreenElement$$(), $isFullscreen$jscomp$inline_438$$ = !!$fullscreenElement$jscomp$inline_437$$;
-    $HEAP8$$[$fullscreenChangeEvent$$ >>> 0] = $isFullscreen$jscomp$inline_438$$;
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$135$$, $eventTypeString$:$eventTypeString$jscomp$3$$, $callbackfunc$:$callbackfunc$jscomp$5$$, $handlerFunc$:($e$jscomp$48$$ = event) => {
+    var $fullscreenChangeEvent$$ = $JSEvents$$.$fullscreenChangeEvent$, $fullscreenElement$jscomp$inline_470$$ = $getFullscreenElement$$(), $isFullscreen$jscomp$inline_471$$ = !!$fullscreenElement$jscomp$inline_470$$;
+    $HEAP8$$[$fullscreenChangeEvent$$ >>> 0] = $isFullscreen$jscomp$inline_471$$;
     $HEAP8$$[$fullscreenChangeEvent$$ + 1 >>> 0] = $JSEvents$$.fullscreenEnabled();
-    var $reportedElement$jscomp$inline_439$$ = $isFullscreen$jscomp$inline_438$$ ? $fullscreenElement$jscomp$inline_437$$ : $JSEvents$$.$previousFullscreenElement$, $id$jscomp$inline_440$$ = $reportedElement$jscomp$inline_439$$?.id || "";
-    $stringToUTF8$$($JSCompiler_StaticMethods_getNodeNameForTarget$$($reportedElement$jscomp$inline_439$$), $fullscreenChangeEvent$$ + 2, 128);
-    $stringToUTF8$$($id$jscomp$inline_440$$, $fullscreenChangeEvent$$ + 130, 128);
-    $HEAP32$$[$fullscreenChangeEvent$$ + 260 >>> 2 >>> 0] = $reportedElement$jscomp$inline_439$$ ? $reportedElement$jscomp$inline_439$$.clientWidth : 0;
-    $HEAP32$$[$fullscreenChangeEvent$$ + 264 >>> 2 >>> 0] = $reportedElement$jscomp$inline_439$$ ? $reportedElement$jscomp$inline_439$$.clientHeight : 0;
+    var $reportedElement$jscomp$inline_472$$ = $isFullscreen$jscomp$inline_471$$ ? $fullscreenElement$jscomp$inline_470$$ : $JSEvents$$.$previousFullscreenElement$, $id$jscomp$inline_473$$ = $reportedElement$jscomp$inline_472$$?.id || "";
+    $stringToUTF8$$($JSCompiler_StaticMethods_getNodeNameForTarget$$($reportedElement$jscomp$inline_472$$), $fullscreenChangeEvent$$ + 2, 128);
+    $stringToUTF8$$($id$jscomp$inline_473$$, $fullscreenChangeEvent$$ + 130, 128);
+    $HEAP32$$[$fullscreenChangeEvent$$ + 260 >>> 2 >>> 0] = $reportedElement$jscomp$inline_472$$ ? $reportedElement$jscomp$inline_472$$.clientWidth : 0;
+    $HEAP32$$[$fullscreenChangeEvent$$ + 264 >>> 2 >>> 0] = $reportedElement$jscomp$inline_472$$ ? $reportedElement$jscomp$inline_472$$.clientHeight : 0;
     $HEAP32$$[$fullscreenChangeEvent$$ + 268 >>> 2 >>> 0] = screen.width;
     $HEAP32$$[$fullscreenChangeEvent$$ + 272 >>> 2 >>> 0] = screen.height;
-    $isFullscreen$jscomp$inline_438$$ && ($JSEvents$$.$previousFullscreenElement$ = $fullscreenElement$jscomp$inline_437$$);
-    $dynCall_iiii$$($callbackfunc$jscomp$5$$, 19, $fullscreenChangeEvent$$, $userData$jscomp$5$$) && $e$jscomp$49$$.preventDefault();
+    $isFullscreen$jscomp$inline_471$$ && ($JSEvents$$.$previousFullscreenElement$ = $fullscreenElement$jscomp$inline_470$$);
+    $dynCall_iiii$$($callbackfunc$jscomp$5$$, 19, $fullscreenChangeEvent$$, $userData$jscomp$5$$) && $e$jscomp$48$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$4$$});
 }, $registerGamepadEventCallback$$ = ($userData$jscomp$7$$, $eventHandler$jscomp$4_useCapture$jscomp$6$$, $callbackfunc$jscomp$7$$, $eventTypeId$jscomp$3$$, $eventTypeString$jscomp$4$$) => {
   $JSEvents$$.$gamepadEvent$ || ($JSEvents$$.$gamepadEvent$ = $_malloc$$(1240));
-  $eventHandler$jscomp$4_useCapture$jscomp$6$$ = {target:$findEventTarget$$(2), $allowsDeferredCalls$:!0, $eventTypeString$:$eventTypeString$jscomp$4$$, $callbackfunc$:$callbackfunc$jscomp$7$$, $handlerFunc$:($e$jscomp$50$$ = event) => {
+  $eventHandler$jscomp$4_useCapture$jscomp$6$$ = {target:$findEventTarget$$(2), $allowsDeferredCalls$:!0, $eventTypeString$:$eventTypeString$jscomp$4$$, $callbackfunc$:$callbackfunc$jscomp$7$$, $handlerFunc$:($e$jscomp$49$$ = event) => {
     var $gamepadEvent$$ = $JSEvents$$.$gamepadEvent$;
-    $fillGamepadEventData$$($gamepadEvent$$, $e$jscomp$50$$.gamepad);
-    $dynCall_iiii$$($callbackfunc$jscomp$7$$, $eventTypeId$jscomp$3$$, $gamepadEvent$$, $userData$jscomp$7$$) && $e$jscomp$50$$.preventDefault();
+    $fillGamepadEventData$$($gamepadEvent$$, $e$jscomp$49$$.gamepad);
+    $dynCall_iiii$$($callbackfunc$jscomp$7$$, $eventTypeId$jscomp$3$$, $gamepadEvent$$, $userData$jscomp$7$$) && $e$jscomp$49$$.preventDefault();
   }, $useCapture$:$eventHandler$jscomp$4_useCapture$jscomp$6$$};
   return $JSCompiler_StaticMethods_registerOrRemoveHandler$$($eventHandler$jscomp$4_useCapture$jscomp$6$$);
 }, $registerKeyEventCallback$$ = ($eventHandler$jscomp$5_target$jscomp$138$$, $userData$jscomp$10$$, $useCapture$jscomp$9$$, $callbackfunc$jscomp$10$$, $eventTypeId$jscomp$4$$, $eventTypeString$jscomp$5$$) => {
   $JSEvents$$.$keyEvent$ || ($JSEvents$$.$keyEvent$ = $_malloc$$(160));
-  $eventHandler$jscomp$5_target$jscomp$138$$ = {target:$findEventTarget$$($eventHandler$jscomp$5_target$jscomp$138$$), $eventTypeString$:$eventTypeString$jscomp$5$$, $callbackfunc$:$callbackfunc$jscomp$10$$, $handlerFunc$:$e$jscomp$51$$ => {
-    $assert$$($e$jscomp$51$$);
+  $eventHandler$jscomp$5_target$jscomp$138$$ = {target:$findEventTarget$$($eventHandler$jscomp$5_target$jscomp$138$$), $eventTypeString$:$eventTypeString$jscomp$5$$, $callbackfunc$:$callbackfunc$jscomp$10$$, $handlerFunc$:$e$jscomp$50$$ => {
+    $assert$$($e$jscomp$50$$);
     var $keyEventData$$ = $JSEvents$$.$keyEvent$;
-    $HEAPF64$$[$keyEventData$$ >>> 3 >>> 0] = $e$jscomp$51$$.timeStamp;
+    $HEAPF64$$[$keyEventData$$ >>> 3 >>> 0] = $e$jscomp$50$$.timeStamp;
     var $idx$jscomp$5$$ = $keyEventData$$ >>> 2;
-    $HEAP32$$[$idx$jscomp$5$$ + 2 >>> 0] = $e$jscomp$51$$.location;
-    $HEAP8$$[$keyEventData$$ + 12 >>> 0] = $e$jscomp$51$$.ctrlKey;
-    $HEAP8$$[$keyEventData$$ + 13 >>> 0] = $e$jscomp$51$$.shiftKey;
-    $HEAP8$$[$keyEventData$$ + 14 >>> 0] = $e$jscomp$51$$.altKey;
-    $HEAP8$$[$keyEventData$$ + 15 >>> 0] = $e$jscomp$51$$.metaKey;
-    $HEAP8$$[$keyEventData$$ + 16 >>> 0] = $e$jscomp$51$$.repeat;
-    $HEAP32$$[$idx$jscomp$5$$ + 5 >>> 0] = $e$jscomp$51$$.charCode;
-    $HEAP32$$[$idx$jscomp$5$$ + 6 >>> 0] = $e$jscomp$51$$.keyCode;
-    $HEAP32$$[$idx$jscomp$5$$ + 7 >>> 0] = $e$jscomp$51$$.which;
-    $stringToUTF8$$($e$jscomp$51$$.key || "", $keyEventData$$ + 32, 32);
-    $stringToUTF8$$($e$jscomp$51$$.code || "", $keyEventData$$ + 64, 32);
-    $stringToUTF8$$($e$jscomp$51$$.char || "", $keyEventData$$ + 96, 32);
-    $stringToUTF8$$($e$jscomp$51$$.locale || "", $keyEventData$$ + 128, 32);
-    $dynCall_iiii$$($callbackfunc$jscomp$10$$, $eventTypeId$jscomp$4$$, $keyEventData$$, $userData$jscomp$10$$) && $e$jscomp$51$$.preventDefault();
+    $HEAP32$$[$idx$jscomp$5$$ + 2 >>> 0] = $e$jscomp$50$$.location;
+    $HEAP8$$[$keyEventData$$ + 12 >>> 0] = $e$jscomp$50$$.ctrlKey;
+    $HEAP8$$[$keyEventData$$ + 13 >>> 0] = $e$jscomp$50$$.shiftKey;
+    $HEAP8$$[$keyEventData$$ + 14 >>> 0] = $e$jscomp$50$$.altKey;
+    $HEAP8$$[$keyEventData$$ + 15 >>> 0] = $e$jscomp$50$$.metaKey;
+    $HEAP8$$[$keyEventData$$ + 16 >>> 0] = $e$jscomp$50$$.repeat;
+    $HEAP32$$[$idx$jscomp$5$$ + 5 >>> 0] = $e$jscomp$50$$.charCode;
+    $HEAP32$$[$idx$jscomp$5$$ + 6 >>> 0] = $e$jscomp$50$$.keyCode;
+    $HEAP32$$[$idx$jscomp$5$$ + 7 >>> 0] = $e$jscomp$50$$.which;
+    $stringToUTF8$$($e$jscomp$50$$.key || "", $keyEventData$$ + 32, 32);
+    $stringToUTF8$$($e$jscomp$50$$.code || "", $keyEventData$$ + 64, 32);
+    $stringToUTF8$$($e$jscomp$50$$.char || "", $keyEventData$$ + 96, 32);
+    $stringToUTF8$$($e$jscomp$50$$.locale || "", $keyEventData$$ + 128, 32);
+    $dynCall_iiii$$($callbackfunc$jscomp$10$$, $eventTypeId$jscomp$4$$, $keyEventData$$, $userData$jscomp$10$$) && $e$jscomp$50$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$9$$};
   return $JSCompiler_StaticMethods_registerOrRemoveHandler$$($eventHandler$jscomp$5_target$jscomp$138$$);
-}, $fillMouseEventData$$ = ($eventStruct$jscomp$2_rect$jscomp$3$$, $e$jscomp$52$$, $target$jscomp$142$$) => {
+}, $fillMouseEventData$$ = ($eventStruct$jscomp$2_rect$jscomp$3$$, $e$jscomp$51$$, $target$jscomp$142$$) => {
   $assert$$(0 == $eventStruct$jscomp$2_rect$jscomp$3$$ % 4);
-  $HEAPF64$$[$eventStruct$jscomp$2_rect$jscomp$3$$ >>> 3 >>> 0] = $e$jscomp$52$$.timeStamp;
+  $HEAPF64$$[$eventStruct$jscomp$2_rect$jscomp$3$$ >>> 3 >>> 0] = $e$jscomp$51$$.timeStamp;
   var $idx$jscomp$6$$ = $eventStruct$jscomp$2_rect$jscomp$3$$ >>> 2;
-  $HEAP32$$[$idx$jscomp$6$$ + 2 >>> 0] = $e$jscomp$52$$.screenX;
-  $HEAP32$$[$idx$jscomp$6$$ + 3 >>> 0] = $e$jscomp$52$$.screenY;
-  $HEAP32$$[$idx$jscomp$6$$ + 4 >>> 0] = $e$jscomp$52$$.clientX;
-  $HEAP32$$[$idx$jscomp$6$$ + 5 >>> 0] = $e$jscomp$52$$.clientY;
-  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 24 >>> 0] = $e$jscomp$52$$.ctrlKey;
-  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 25 >>> 0] = $e$jscomp$52$$.shiftKey;
-  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 26 >>> 0] = $e$jscomp$52$$.altKey;
-  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 27 >>> 0] = $e$jscomp$52$$.metaKey;
-  $HEAP16$$[2 * $idx$jscomp$6$$ + 14 >>> 0] = $e$jscomp$52$$.button;
-  $HEAP16$$[2 * $idx$jscomp$6$$ + 15 >>> 0] = $e$jscomp$52$$.buttons;
-  $HEAP32$$[$idx$jscomp$6$$ + 8 >>> 0] = $e$jscomp$52$$.movementX;
-  $HEAP32$$[$idx$jscomp$6$$ + 9 >>> 0] = $e$jscomp$52$$.movementY;
+  $HEAP32$$[$idx$jscomp$6$$ + 2 >>> 0] = $e$jscomp$51$$.screenX;
+  $HEAP32$$[$idx$jscomp$6$$ + 3 >>> 0] = $e$jscomp$51$$.screenY;
+  $HEAP32$$[$idx$jscomp$6$$ + 4 >>> 0] = $e$jscomp$51$$.clientX;
+  $HEAP32$$[$idx$jscomp$6$$ + 5 >>> 0] = $e$jscomp$51$$.clientY;
+  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 24 >>> 0] = $e$jscomp$51$$.ctrlKey;
+  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 25 >>> 0] = $e$jscomp$51$$.shiftKey;
+  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 26 >>> 0] = $e$jscomp$51$$.altKey;
+  $HEAP8$$[$eventStruct$jscomp$2_rect$jscomp$3$$ + 27 >>> 0] = $e$jscomp$51$$.metaKey;
+  $HEAP16$$[2 * $idx$jscomp$6$$ + 14 >>> 0] = $e$jscomp$51$$.button;
+  $HEAP16$$[2 * $idx$jscomp$6$$ + 15 >>> 0] = $e$jscomp$51$$.buttons;
+  $HEAP32$$[$idx$jscomp$6$$ + 8 >>> 0] = $e$jscomp$51$$.movementX;
+  $HEAP32$$[$idx$jscomp$6$$ + 9 >>> 0] = $e$jscomp$51$$.movementY;
   $eventStruct$jscomp$2_rect$jscomp$3$$ = $getBoundingClientRect$$($target$jscomp$142$$);
-  $HEAP32$$[$idx$jscomp$6$$ + 10 >>> 0] = $e$jscomp$52$$.clientX - ($eventStruct$jscomp$2_rect$jscomp$3$$.left | 0);
-  $HEAP32$$[$idx$jscomp$6$$ + 11 >>> 0] = $e$jscomp$52$$.clientY - ($eventStruct$jscomp$2_rect$jscomp$3$$.top | 0);
+  $HEAP32$$[$idx$jscomp$6$$ + 10 >>> 0] = $e$jscomp$51$$.clientX - ($eventStruct$jscomp$2_rect$jscomp$3$$.left | 0);
+  $HEAP32$$[$idx$jscomp$6$$ + 11 >>> 0] = $e$jscomp$51$$.clientY - ($eventStruct$jscomp$2_rect$jscomp$3$$.top | 0);
 }, $registerMouseEventCallback$$ = ($target$jscomp$143$$, $userData$jscomp$14$$, $useCapture$jscomp$13$$, $callbackfunc$jscomp$14$$, $eventTypeId$jscomp$5$$, $eventTypeString$jscomp$6$$) => {
   $JSEvents$$.$mouseEvent$ || ($JSEvents$$.$mouseEvent$ = $_malloc$$(64));
   $target$jscomp$143$$ = $findEventTarget$$($target$jscomp$143$$);
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$143$$, $allowsDeferredCalls$:"mousemove" != $eventTypeString$jscomp$6$$ && "mouseenter" != $eventTypeString$jscomp$6$$ && "mouseleave" != $eventTypeString$jscomp$6$$, $eventTypeString$:$eventTypeString$jscomp$6$$, $callbackfunc$:$callbackfunc$jscomp$14$$, $handlerFunc$:($e$jscomp$53$$ = event) => {
-    $fillMouseEventData$$($JSEvents$$.$mouseEvent$, $e$jscomp$53$$, $target$jscomp$143$$);
-    $dynCall_iiii$$($callbackfunc$jscomp$14$$, $eventTypeId$jscomp$5$$, $JSEvents$$.$mouseEvent$, $userData$jscomp$14$$) && $e$jscomp$53$$.preventDefault();
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$143$$, $allowsDeferredCalls$:"mousemove" != $eventTypeString$jscomp$6$$ && "mouseenter" != $eventTypeString$jscomp$6$$ && "mouseleave" != $eventTypeString$jscomp$6$$, $eventTypeString$:$eventTypeString$jscomp$6$$, $callbackfunc$:$callbackfunc$jscomp$14$$, $handlerFunc$:($e$jscomp$52$$ = event) => {
+    $fillMouseEventData$$($JSEvents$$.$mouseEvent$, $e$jscomp$52$$, $target$jscomp$143$$);
+    $dynCall_iiii$$($callbackfunc$jscomp$14$$, $eventTypeId$jscomp$5$$, $JSEvents$$.$mouseEvent$, $userData$jscomp$14$$) && $e$jscomp$52$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$13$$});
 }, $registerOrientationChangeEventCallback$$ = ($userData$jscomp$20$$, $useCapture$jscomp$19$$, $callbackfunc$jscomp$20$$) => {
   var $target$jscomp$149$$ = screen.orientation;
   $JSEvents$$.$orientationChangeEvent$ || ($JSEvents$$.$orientationChangeEvent$ = $_malloc$$(8));
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$149$$, $eventTypeString$:"change", $callbackfunc$:$callbackfunc$jscomp$20$$, $handlerFunc$:($e$jscomp$54$$ = event) => {
-    var $orientationChangeEvent$$ = $JSEvents$$.$orientationChangeEvent$, $orientationAngle$jscomp$inline_446_orientationsType1$jscomp$inline_443$$ = ["portrait-primary", "portrait-secondary", "landscape-primary", "landscape-secondary"], $orientationsType2$jscomp$inline_444$$ = ["portrait", "portrait", "landscape", "landscape"], $orientationIndex$jscomp$inline_445$$ = 0;
-    var $screenOrientObj$jscomp$inline_447$$ = window.screen ? screen.orientation || screen.mozOrientation || screen.webkitOrientation : void 0;
-    "object" === typeof $screenOrientObj$jscomp$inline_447$$ ? ($orientationIndex$jscomp$inline_445$$ = $orientationAngle$jscomp$inline_446_orientationsType1$jscomp$inline_443$$.indexOf($screenOrientObj$jscomp$inline_447$$.type), 0 > $orientationIndex$jscomp$inline_445$$ && ($orientationIndex$jscomp$inline_445$$ = $orientationsType2$jscomp$inline_444$$.indexOf($screenOrientObj$jscomp$inline_447$$.type)), 0 <= $orientationIndex$jscomp$inline_445$$ && ($orientationIndex$jscomp$inline_445$$ = 1 << $orientationIndex$jscomp$inline_445$$), 
-    $orientationAngle$jscomp$inline_446_orientationsType1$jscomp$inline_443$$ = $screenOrientObj$jscomp$inline_447$$.angle) : $orientationAngle$jscomp$inline_446_orientationsType1$jscomp$inline_443$$ = window.orientation;
-    $HEAP32$$[$orientationChangeEvent$$ >>> 2 >>> 0] = $orientationIndex$jscomp$inline_445$$;
-    $HEAP32$$[$orientationChangeEvent$$ + 4 >>> 2 >>> 0] = $orientationAngle$jscomp$inline_446_orientationsType1$jscomp$inline_443$$;
-    $dynCall_iiii$$($callbackfunc$jscomp$20$$, 18, $orientationChangeEvent$$, $userData$jscomp$20$$) && $e$jscomp$54$$.preventDefault();
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$149$$, $eventTypeString$:"change", $callbackfunc$:$callbackfunc$jscomp$20$$, $handlerFunc$:($e$jscomp$53$$ = event) => {
+    var $orientationChangeEvent$$ = $JSEvents$$.$orientationChangeEvent$, $orientationAngle$jscomp$inline_479_orientationsType1$jscomp$inline_476$$ = ["portrait-primary", "portrait-secondary", "landscape-primary", "landscape-secondary"], $orientationsType2$jscomp$inline_477$$ = ["portrait", "portrait", "landscape", "landscape"], $orientationIndex$jscomp$inline_478$$ = 0;
+    var $screenOrientObj$jscomp$inline_480$$ = window.screen ? screen.orientation || screen.mozOrientation || screen.webkitOrientation : void 0;
+    "object" === typeof $screenOrientObj$jscomp$inline_480$$ ? ($orientationIndex$jscomp$inline_478$$ = $orientationAngle$jscomp$inline_479_orientationsType1$jscomp$inline_476$$.indexOf($screenOrientObj$jscomp$inline_480$$.type), 0 > $orientationIndex$jscomp$inline_478$$ && ($orientationIndex$jscomp$inline_478$$ = $orientationsType2$jscomp$inline_477$$.indexOf($screenOrientObj$jscomp$inline_480$$.type)), 0 <= $orientationIndex$jscomp$inline_478$$ && ($orientationIndex$jscomp$inline_478$$ = 1 << $orientationIndex$jscomp$inline_478$$), 
+    $orientationAngle$jscomp$inline_479_orientationsType1$jscomp$inline_476$$ = $screenOrientObj$jscomp$inline_480$$.angle) : $orientationAngle$jscomp$inline_479_orientationsType1$jscomp$inline_476$$ = window.orientation;
+    $HEAP32$$[$orientationChangeEvent$$ >>> 2 >>> 0] = $orientationIndex$jscomp$inline_478$$;
+    $HEAP32$$[$orientationChangeEvent$$ + 4 >>> 2 >>> 0] = $orientationAngle$jscomp$inline_479_orientationsType1$jscomp$inline_476$$;
+    $dynCall_iiii$$($callbackfunc$jscomp$20$$, 18, $orientationChangeEvent$$, $userData$jscomp$20$$) && $e$jscomp$53$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$19$$});
 }, $registerPointerlockChangeEventCallback$$ = ($target$jscomp$150$$, $userData$jscomp$22$$, $useCapture$jscomp$21$$, $callbackfunc$jscomp$22$$) => {
   $JSEvents$$.$pointerlockChangeEvent$ || ($JSEvents$$.$pointerlockChangeEvent$ = $_malloc$$(257));
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$150$$, $eventTypeString$:"pointerlockchange", $callbackfunc$:$callbackfunc$jscomp$22$$, $handlerFunc$:($e$jscomp$55$$ = event) => {
-    var $pointerlockChangeEvent$$ = $JSEvents$$.$pointerlockChangeEvent$, $pointerLockElement$jscomp$inline_451$$ = document.pointerLockElement;
-    $HEAP8$$[$pointerlockChangeEvent$$ >>> 0] = !!$pointerLockElement$jscomp$inline_451$$;
-    var $id$jscomp$inline_452$$ = $pointerLockElement$jscomp$inline_451$$?.id || "";
-    $stringToUTF8$$($JSCompiler_StaticMethods_getNodeNameForTarget$$($pointerLockElement$jscomp$inline_451$$), $pointerlockChangeEvent$$ + 1, 128);
-    $stringToUTF8$$($id$jscomp$inline_452$$, $pointerlockChangeEvent$$ + 129, 128);
-    $dynCall_iiii$$($callbackfunc$jscomp$22$$, 20, $pointerlockChangeEvent$$, $userData$jscomp$22$$) && $e$jscomp$55$$.preventDefault();
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$150$$, $eventTypeString$:"pointerlockchange", $callbackfunc$:$callbackfunc$jscomp$22$$, $handlerFunc$:($e$jscomp$54$$ = event) => {
+    var $pointerlockChangeEvent$$ = $JSEvents$$.$pointerlockChangeEvent$, $pointerLockElement$jscomp$inline_484$$ = document.pointerLockElement;
+    $HEAP8$$[$pointerlockChangeEvent$$ >>> 0] = !!$pointerLockElement$jscomp$inline_484$$;
+    var $id$jscomp$inline_485$$ = $pointerLockElement$jscomp$inline_484$$?.id || "";
+    $stringToUTF8$$($JSCompiler_StaticMethods_getNodeNameForTarget$$($pointerLockElement$jscomp$inline_484$$), $pointerlockChangeEvent$$ + 1, 128);
+    $stringToUTF8$$($id$jscomp$inline_485$$, $pointerlockChangeEvent$$ + 129, 128);
+    $dynCall_iiii$$($callbackfunc$jscomp$22$$, 20, $pointerlockChangeEvent$$, $userData$jscomp$22$$) && $e$jscomp$54$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$21$$});
 }, $registerUiEventCallback$$ = ($target$jscomp$152$$, $userData$jscomp$24$$, $useCapture$jscomp$23$$, $callbackfunc$jscomp$24$$) => {
   $JSEvents$$.$uiEvent$ || ($JSEvents$$.$uiEvent$ = $_malloc$$(36));
   $target$jscomp$152$$ = $findEventTarget$$($target$jscomp$152$$);
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$152$$, $eventTypeString$:"resize", $callbackfunc$:$callbackfunc$jscomp$24$$, $handlerFunc$:($e$jscomp$56$$ = event) => {
-    if ($e$jscomp$56$$.target == $target$jscomp$152$$) {
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$152$$, $eventTypeString$:"resize", $callbackfunc$:$callbackfunc$jscomp$24$$, $handlerFunc$:($e$jscomp$55$$ = event) => {
+    if ($e$jscomp$55$$.target == $target$jscomp$152$$) {
       var $b$jscomp$5$$ = document.body;
       if ($b$jscomp$5$$) {
         var $uiEvent$$ = $JSEvents$$.$uiEvent$;
@@ -2363,31 +2363,31 @@ var $stringToNewUTF8$$ = $str$jscomp$15$$ => {
         $HEAP32$$[$uiEvent$$ + 24 >>> 2 >>> 0] = outerHeight;
         $HEAP32$$[$uiEvent$$ + 28 >>> 2 >>> 0] = pageXOffset | 0;
         $HEAP32$$[$uiEvent$$ + 32 >>> 2 >>> 0] = pageYOffset | 0;
-        $dynCall_iiii$$($callbackfunc$jscomp$24$$, 10, $uiEvent$$, $userData$jscomp$24$$) && $e$jscomp$56$$.preventDefault();
+        $dynCall_iiii$$($callbackfunc$jscomp$24$$, 10, $uiEvent$$, $userData$jscomp$24$$) && $e$jscomp$55$$.preventDefault();
       }
     }
   }, $useCapture$:$useCapture$jscomp$23$$});
 }, $registerTouchEventCallback$$ = ($target$jscomp$154$$, $userData$jscomp$26$$, $useCapture$jscomp$25$$, $callbackfunc$jscomp$26$$, $eventTypeId$jscomp$9$$, $eventTypeString$jscomp$10$$) => {
   $JSEvents$$.$touchEvent$ || ($JSEvents$$.$touchEvent$ = $_malloc$$(1552));
   $target$jscomp$154$$ = $findEventTarget$$($target$jscomp$154$$);
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$154$$, $allowsDeferredCalls$:"touchstart" == $eventTypeString$jscomp$10$$ || "touchend" == $eventTypeString$jscomp$10$$, $eventTypeString$:$eventTypeString$jscomp$10$$, $callbackfunc$:$callbackfunc$jscomp$26$$, $handlerFunc$:$e$jscomp$57$$ => {
-    $assert$$($e$jscomp$57$$);
-    var $idx32_touches$jscomp$2$$ = {}, $et_touchEvent$$ = $e$jscomp$57$$.touches;
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$154$$, $allowsDeferredCalls$:"touchstart" == $eventTypeString$jscomp$10$$ || "touchend" == $eventTypeString$jscomp$10$$, $eventTypeString$:$eventTypeString$jscomp$10$$, $callbackfunc$:$callbackfunc$jscomp$26$$, $handlerFunc$:$e$jscomp$56$$ => {
+    $assert$$($e$jscomp$56$$);
+    var $idx32_touches$jscomp$2$$ = {}, $et_touchEvent$$ = $e$jscomp$56$$.touches;
     for (var $idx$jscomp$7_t$jscomp$1$$ of $et_touchEvent$$) {
       $idx$jscomp$7_t$jscomp$1$$.$isChanged$ = $idx$jscomp$7_t$jscomp$1$$.$onTarget$ = 0, $idx32_touches$jscomp$2$$[$idx$jscomp$7_t$jscomp$1$$.identifier] = $idx$jscomp$7_t$jscomp$1$$;
     }
-    for (var $t$jscomp$2_targetRect$$ of $e$jscomp$57$$.changedTouches) {
+    for (var $t$jscomp$2_targetRect$$ of $e$jscomp$56$$.changedTouches) {
       $t$jscomp$2_targetRect$$.$isChanged$ = 1, $idx32_touches$jscomp$2$$[$t$jscomp$2_targetRect$$.identifier] = $t$jscomp$2_targetRect$$;
     }
-    for (var $numTouches_t$jscomp$3$$ of $e$jscomp$57$$.targetTouches) {
+    for (var $numTouches_t$jscomp$3$$ of $e$jscomp$56$$.targetTouches) {
       $idx32_touches$jscomp$2$$[$numTouches_t$jscomp$3$$.identifier].$onTarget$ = 1;
     }
     $et_touchEvent$$ = $JSEvents$$.$touchEvent$;
-    $HEAPF64$$[$et_touchEvent$$ >>> 3 >>> 0] = $e$jscomp$57$$.timeStamp;
-    $HEAP8$$[$et_touchEvent$$ + 12 >>> 0] = $e$jscomp$57$$.ctrlKey;
-    $HEAP8$$[$et_touchEvent$$ + 13 >>> 0] = $e$jscomp$57$$.shiftKey;
-    $HEAP8$$[$et_touchEvent$$ + 14 >>> 0] = $e$jscomp$57$$.altKey;
-    $HEAP8$$[$et_touchEvent$$ + 15 >>> 0] = $e$jscomp$57$$.metaKey;
+    $HEAPF64$$[$et_touchEvent$$ >>> 3 >>> 0] = $e$jscomp$56$$.timeStamp;
+    $HEAP8$$[$et_touchEvent$$ + 12 >>> 0] = $e$jscomp$56$$.ctrlKey;
+    $HEAP8$$[$et_touchEvent$$ + 13 >>> 0] = $e$jscomp$56$$.shiftKey;
+    $HEAP8$$[$et_touchEvent$$ + 14 >>> 0] = $e$jscomp$56$$.altKey;
+    $HEAP8$$[$et_touchEvent$$ + 15 >>> 0] = $e$jscomp$56$$.metaKey;
     $idx$jscomp$7_t$jscomp$1$$ = $et_touchEvent$$ + 16;
     $t$jscomp$2_targetRect$$ = $getBoundingClientRect$$($target$jscomp$154$$);
     $numTouches_t$jscomp$3$$ = 0;
@@ -2398,37 +2398,37 @@ var $stringToNewUTF8$$ = $str$jscomp$15$$ => {
       }
     }
     $HEAP32$$[$et_touchEvent$$ + 8 >>> 2 >>> 0] = $numTouches_t$jscomp$3$$;
-    $dynCall_iiii$$($callbackfunc$jscomp$26$$, $eventTypeId$jscomp$9$$, $et_touchEvent$$, $userData$jscomp$26$$) && $e$jscomp$57$$.preventDefault();
+    $dynCall_iiii$$($callbackfunc$jscomp$26$$, $eventTypeId$jscomp$9$$, $et_touchEvent$$, $userData$jscomp$26$$) && $e$jscomp$56$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$25$$});
 }, $registerVisibilityChangeEventCallback$$ = ($userData$jscomp$31$$, $useCapture$jscomp$30$$, $callbackfunc$jscomp$31$$) => {
   var $target$jscomp$159$$ = $specialHTMLTargets$$[1];
   $JSEvents$$.$visibilityChangeEvent$ || ($JSEvents$$.$visibilityChangeEvent$ = $_malloc$$(8));
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$159$$, $eventTypeString$:"visibilitychange", $callbackfunc$:$callbackfunc$jscomp$31$$, $handlerFunc$:($e$jscomp$58$$ = event) => {
-    var $visibilityChangeEvent$$ = $JSEvents$$.$visibilityChangeEvent$, $visibilityState$jscomp$inline_455$$ = ["hidden", "visible", "prerender", "unloaded"].indexOf(document.visibilityState);
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$159$$, $eventTypeString$:"visibilitychange", $callbackfunc$:$callbackfunc$jscomp$31$$, $handlerFunc$:($e$jscomp$57$$ = event) => {
+    var $visibilityChangeEvent$$ = $JSEvents$$.$visibilityChangeEvent$, $visibilityState$jscomp$inline_488$$ = ["hidden", "visible", "prerender", "unloaded"].indexOf(document.visibilityState);
     $HEAP8$$[$visibilityChangeEvent$$ >>> 0] = document.hidden;
-    $HEAP32$$[$visibilityChangeEvent$$ + 4 >>> 2 >>> 0] = $visibilityState$jscomp$inline_455$$;
-    $dynCall_iiii$$($callbackfunc$jscomp$31$$, 21, $visibilityChangeEvent$$, $userData$jscomp$31$$) && $e$jscomp$58$$.preventDefault();
+    $HEAP32$$[$visibilityChangeEvent$$ + 4 >>> 2 >>> 0] = $visibilityState$jscomp$inline_488$$;
+    $dynCall_iiii$$($callbackfunc$jscomp$31$$, 21, $visibilityChangeEvent$$, $userData$jscomp$31$$) && $e$jscomp$57$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$30$$});
 }, $registerWheelEventCallback$$ = ($target$jscomp$160$$, $userData$jscomp$33$$, $useCapture$jscomp$32$$, $callbackfunc$jscomp$33$$) => {
   $JSEvents$$.$wheelEvent$ || ($JSEvents$$.$wheelEvent$ = $_malloc$$(96));
-  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$160$$, $allowsDeferredCalls$:!0, $eventTypeString$:"wheel", $callbackfunc$:$callbackfunc$jscomp$33$$, $handlerFunc$:($e$jscomp$59$$ = event) => {
+  return $JSCompiler_StaticMethods_registerOrRemoveHandler$$({target:$target$jscomp$160$$, $allowsDeferredCalls$:!0, $eventTypeString$:"wheel", $callbackfunc$:$callbackfunc$jscomp$33$$, $handlerFunc$:($e$jscomp$58$$ = event) => {
     var $wheelEvent$$ = $JSEvents$$.$wheelEvent$;
-    $fillMouseEventData$$($wheelEvent$$, $e$jscomp$59$$, $target$jscomp$160$$);
-    $HEAPF64$$[$wheelEvent$$ + 64 >>> 3 >>> 0] = $e$jscomp$59$$.deltaX;
-    $HEAPF64$$[$wheelEvent$$ + 72 >>> 3 >>> 0] = $e$jscomp$59$$.deltaY;
-    $HEAPF64$$[$wheelEvent$$ + 80 >>> 3 >>> 0] = $e$jscomp$59$$.deltaZ;
-    $HEAP32$$[$wheelEvent$$ + 88 >>> 2 >>> 0] = $e$jscomp$59$$.deltaMode;
-    $dynCall_iiii$$($callbackfunc$jscomp$33$$, 9, $wheelEvent$$, $userData$jscomp$33$$) && $e$jscomp$59$$.preventDefault();
+    $fillMouseEventData$$($wheelEvent$$, $e$jscomp$58$$, $target$jscomp$160$$);
+    $HEAPF64$$[$wheelEvent$$ + 64 >>> 3 >>> 0] = $e$jscomp$58$$.deltaX;
+    $HEAPF64$$[$wheelEvent$$ + 72 >>> 3 >>> 0] = $e$jscomp$58$$.deltaY;
+    $HEAPF64$$[$wheelEvent$$ + 80 >>> 3 >>> 0] = $e$jscomp$58$$.deltaZ;
+    $HEAP32$$[$wheelEvent$$ + 88 >>> 2 >>> 0] = $e$jscomp$58$$.deltaMode;
+    $dynCall_iiii$$($callbackfunc$jscomp$33$$, 9, $wheelEvent$$, $userData$jscomp$33$$) && $e$jscomp$58$$.preventDefault();
   }, $useCapture$:$useCapture$jscomp$32$$});
 }, $_emscripten_sleep$$ = $ms$$ => $Asyncify$handleSleep$$($wakeUp$$ => $safeSetTimeout$$($wakeUp$$, $ms$$));
 $_emscripten_sleep$$.$isAsync$ = !0;
 var $webglPowerPreferences$$ = ["default", "low-power", "high-performance"], $WebGPU$Internals$jsObjects$$ = [], $WebGPU$Internals$jsObjectInsert$$ = ($ptr$jscomp$15$$, $jsObject$$) => {
-  $WebGPU$Internals$jsObjects$$[$ptr$jscomp$15$$ >>>= 0] = $jsObject$$;
+  $WebGPU$Internals$jsObjects$$[$ptr$jscomp$15$$ >>> 0] = $jsObject$$;
 }, $WebGPU$Internals$futureInsert$$ = ($futureId$$, $promise$$) => {
   new Promise($resolve$jscomp$4$$ => $promise$$.finally(() => $resolve$jscomp$4$$($futureId$$)));
-}, $WebGPU$getJsObject$$ = $key$jscomp$43_ptr$jscomp$16$$ => {
-  if ($key$jscomp$43_ptr$jscomp$16$$) {
-    return $key$jscomp$43_ptr$jscomp$16$$ >>>= 0, $assert$$($key$jscomp$43_ptr$jscomp$16$$ in $WebGPU$Internals$jsObjects$$), $WebGPU$Internals$jsObjects$$[$key$jscomp$43_ptr$jscomp$16$$];
+}, $WebGPU$getJsObject$$ = $ptr$jscomp$16$$ => {
+  if ($ptr$jscomp$16$$) {
+    return $ptr$jscomp$16$$ >>>= 0, $assert$$($ptr$jscomp$16$$ in $WebGPU$Internals$jsObjects$$), $WebGPU$Internals$jsObjects$$[$ptr$jscomp$16$$];
   }
 }, $WebGPU$makeStringFromStringView$$ = $stringViewPtr$$ => $UTF8ToString$$($HEAPU32$$[$stringViewPtr$$ >>> 2 >>> 0], $HEAPU32$$[$stringViewPtr$$ + 4 >>> 2 >>> 0]), $WebGPU$makeStringFromOptionalStringView$$ = $length$jscomp$55_stringViewPtr$jscomp$1$$ => {
   var $ptr$jscomp$38$$ = $HEAPU32$$[$length$jscomp$55_stringViewPtr$jscomp$1$$ >>> 2 >>> 0];
@@ -2442,20 +2442,20 @@ var $webglPowerPreferences$$ = ["default", "low-power", "high-performance"], $We
 }, $WebGPU$makeExtent3D$$ = $ptr$jscomp$40$$ => ({width:$HEAPU32$$[$ptr$jscomp$40$$ >>> 2 >>> 0], height:$HEAPU32$$[$ptr$jscomp$40$$ + 4 >>> 2 >>> 0], depthOrArrayLayers:$HEAPU32$$[$ptr$jscomp$40$$ + 8 >>> 2 >>> 0]}), $WebGPU$makePipelineConstants$$ = ($constantCount$$, $constantsPtr$$) => {
   if ($constantCount$$) {
     for (var $constants$$ = {}, $i$jscomp$56$$ = 0; $i$jscomp$56$$ < $constantCount$$; ++$i$jscomp$56$$) {
-      var $entryPtr$$ = $constantsPtr$$ + 24 * $i$jscomp$56$$, $key$jscomp$44$$ = $WebGPU$makeStringFromStringView$$($entryPtr$$ + 4);
-      $constants$$[$key$jscomp$44$$] = $HEAPF64$$[$entryPtr$$ + 16 >>> 3 >>> 0];
+      var $entryPtr$$ = $constantsPtr$$ + 24 * $i$jscomp$56$$, $key$jscomp$43$$ = $WebGPU$makeStringFromStringView$$($entryPtr$$ + 4);
+      $constants$$[$key$jscomp$43$$] = $HEAPF64$$[$entryPtr$$ + 16 >>> 3 >>> 0];
     }
     return $constants$$;
   }
 }, $WebGPU$makePipelineLayout$$ = $layoutPtr$jscomp$1$$ => $layoutPtr$jscomp$1$$ ? $WebGPU$getJsObject$$($layoutPtr$jscomp$1$$) : "auto", $WebGPU$makeRenderPipelineDesc$$ = $descriptor$jscomp$2$$ => {
   function $makeBlendComponent$$($bdPtr$$) {
     if ($bdPtr$$) {
-      return {operation:$WebGPU$BlendOperation$$[$HEAPU32$$[$bdPtr$$ >>> 2 >>> 0]], srcFactor:$WebGPU$BlendFactor$$[$HEAPU32$$[$bdPtr$$ + 4 >>> 2 >>> 0]], dstFactor:$WebGPU$BlendFactor$$[$HEAPU32$$[$bdPtr$$ + 8 >>> 2 >>> 0]]};
+      return {operation:$WebGPU$BlendOperation$$[$HEAP32$$[$bdPtr$$ >>> 2 >>> 0]], srcFactor:$WebGPU$BlendFactor$$[$HEAP32$$[$bdPtr$$ + 4 >>> 2 >>> 0]], dstFactor:$WebGPU$BlendFactor$$[$HEAP32$$[$bdPtr$$ + 8 >>> 2 >>> 0]]};
     }
   }
   function $makeStencilStateFace$$($ssfPtr$$) {
     $assert$$($ssfPtr$$);
-    return {compare:$WebGPU$CompareFunction$$[$HEAPU32$$[$ssfPtr$$ >>> 2 >>> 0]], failOp:$WebGPU$StencilOperation$$[$HEAPU32$$[$ssfPtr$$ + 4 >>> 2 >>> 0]], depthFailOp:$WebGPU$StencilOperation$$[$HEAPU32$$[$ssfPtr$$ + 8 >>> 2 >>> 0]], passOp:$WebGPU$StencilOperation$$[$HEAPU32$$[$ssfPtr$$ + 12 >>> 2 >>> 0]]};
+    return {compare:$WebGPU$CompareFunction$$[$HEAP32$$[$ssfPtr$$ >>> 2 >>> 0]], failOp:$WebGPU$StencilOperation$$[$HEAP32$$[$ssfPtr$$ + 4 >>> 2 >>> 0]], depthFailOp:$WebGPU$StencilOperation$$[$HEAP32$$[$ssfPtr$$ + 8 >>> 2 >>> 0]], passOp:$WebGPU$StencilOperation$$[$HEAP32$$[$ssfPtr$$ + 12 >>> 2 >>> 0]]};
   }
   $assert$$($descriptor$jscomp$2$$);
   $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$2$$ >>> 2 >>> 0]);
@@ -2468,30 +2468,27 @@ var $webglPowerPreferences$$ = ["default", "low-power", "high-performance"], $We
       var $vbArrayPtr$jscomp$inline_192$$ = $HEAPU32$$[$viPtr$$ + 28 >>> 2 >>> 0];
       if ($JSCompiler_inline_result$jscomp$44_count$jscomp$inline_191$$) {
         for (var $vbs$jscomp$inline_193$$ = [], $i$jscomp$inline_194$$ = 0; $i$jscomp$inline_194$$ < $JSCompiler_inline_result$jscomp$44_count$jscomp$inline_191$$; ++$i$jscomp$inline_194$$) {
-          var $JSCompiler_temp_const$jscomp$388$$ = $vbs$jscomp$inline_193$$, $JSCompiler_temp_const$jscomp$387$$ = $JSCompiler_temp_const$jscomp$388$$.push;
-          var $vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ = $vbArrayPtr$jscomp$inline_192$$ + 24 * $i$jscomp$inline_194$$;
-          if ($vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$) {
-            var $JSCompiler_temp_const$jscomp$539_stepModeInt$jscomp$inline_458$$ = $HEAPU32$$[$vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ + 4 >>> 2 >>> 0], $attributeCountInt$jscomp$inline_459_count$jscomp$inline_544$$ = $HEAPU32$$[$vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ + 16 >>> 2 >>> 0];
-            if (0 === $JSCompiler_temp_const$jscomp$539_stepModeInt$jscomp$inline_458$$ && 0 === $attributeCountInt$jscomp$inline_459_count$jscomp$inline_544$$) {
-              var $JSCompiler_inline_result$jscomp$389_JSCompiler_temp$jscomp$538_JSCompiler_temp_const$jscomp$540$$ = null;
-            } else {
-              $JSCompiler_inline_result$jscomp$389_JSCompiler_temp$jscomp$538_JSCompiler_temp_const$jscomp$540$$ = 4294967296 * $HEAPU32$$[$vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ + 4 + 8 >>> 2 >>> 0] + $HEAPU32$$[$vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ + 8 >>> 2 >>> 0];
-              $JSCompiler_temp_const$jscomp$539_stepModeInt$jscomp$inline_458$$ = $WebGPU$VertexStepMode$$[$JSCompiler_temp_const$jscomp$539_stepModeInt$jscomp$inline_458$$];
-              $vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ = $HEAPU32$$[$vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ + 20 >>> 2 >>> 0];
-              for (var $vas$jscomp$inline_546$$ = [], $i$jscomp$inline_547$$ = 0; $i$jscomp$inline_547$$ < $attributeCountInt$jscomp$inline_459_count$jscomp$inline_544$$; ++$i$jscomp$inline_547$$) {
-                var $JSCompiler_temp_const$jscomp$605$$ = $vas$jscomp$inline_546$$, $JSCompiler_temp_const$jscomp$604$$ = $JSCompiler_temp_const$jscomp$605$$.push;
-                var $JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$ = $vaArrayPtr$jscomp$inline_545_vbPtr$jscomp$inline_457$$ + 24 * $i$jscomp$inline_547$$;
-                $assert$$($JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$);
-                $JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$ = {format:$WebGPU$VertexFormat$$[$HEAPU32$$[$JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$ + 4 >>> 2 >>> 0]], offset:4294967296 * $HEAPU32$$[$JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$ + 4 + 8 >>> 2 >>> 0] + $HEAPU32$$[$JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$ + 8 >>> 2 >>> 0], shaderLocation:$HEAPU32$$[$JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$ + 
-                16 >>> 2 >>> 0]};
-                $JSCompiler_temp_const$jscomp$604$$.call($JSCompiler_temp_const$jscomp$605$$, $JSCompiler_inline_result$jscomp$606_vaPtr$jscomp$inline_607$$);
+          var $JSCompiler_temp_const$jscomp$421$$ = $vbs$jscomp$inline_193$$, $JSCompiler_temp_const$jscomp$420$$ = $JSCompiler_temp_const$jscomp$421$$.push;
+          var $vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$ = $vbArrayPtr$jscomp$inline_192$$ + 24 * $i$jscomp$inline_194$$;
+          if ($vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$) {
+            var $JSCompiler_inline_result$jscomp$422_JSCompiler_temp$jscomp$567_stepMode$jscomp$inline_491$$ = $WebGPU$VertexStepMode$$[$HEAP32$$[$vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$ + 4 >>> 2 >>> 0]];
+            var $attributeCount$jscomp$inline_492_count$jscomp$inline_572$$ = $HEAPU32$$[$vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$ + 16 >>> 2 >>> 0];
+            if ($JSCompiler_inline_result$jscomp$422_JSCompiler_temp$jscomp$567_stepMode$jscomp$inline_491$$ || $attributeCount$jscomp$inline_492_count$jscomp$inline_572$$) {
+              var $JSCompiler_temp_const$jscomp$568$$ = $readI53FromI64$$($vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$ + 8);
+              $vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$ = $HEAPU32$$[$vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$ + 20 >>> 2 >>> 0];
+              for (var $vas$jscomp$inline_574$$ = [], $i$jscomp$inline_575$$ = 0; $i$jscomp$inline_575$$ < $attributeCount$jscomp$inline_492_count$jscomp$inline_572$$; ++$i$jscomp$inline_575$$) {
+                var $JSCompiler_temp_const$jscomp$635$$ = $vas$jscomp$inline_574$$, $JSCompiler_temp_const$jscomp$634$$ = $JSCompiler_temp_const$jscomp$635$$.push, $vaPtr$jscomp$inline_637$$ = $vaArrayPtr$jscomp$inline_573_vbPtr$jscomp$inline_490$$ + 24 * $i$jscomp$inline_575$$;
+                $assert$$($vaPtr$jscomp$inline_637$$);
+                $JSCompiler_temp_const$jscomp$634$$.call($JSCompiler_temp_const$jscomp$635$$, {format:$WebGPU$VertexFormat$$[$HEAP32$$[$vaPtr$jscomp$inline_637$$ + 4 >>> 2 >>> 0]], offset:$readI53FromI64$$($vaPtr$jscomp$inline_637$$ + 8), shaderLocation:$HEAPU32$$[$vaPtr$jscomp$inline_637$$ + 16 >>> 2 >>> 0]});
               }
-              $JSCompiler_inline_result$jscomp$389_JSCompiler_temp$jscomp$538_JSCompiler_temp_const$jscomp$540$$ = {arrayStride:$JSCompiler_inline_result$jscomp$389_JSCompiler_temp$jscomp$538_JSCompiler_temp_const$jscomp$540$$, stepMode:$JSCompiler_temp_const$jscomp$539_stepModeInt$jscomp$inline_458$$, attributes:$vas$jscomp$inline_546$$};
+              $JSCompiler_inline_result$jscomp$422_JSCompiler_temp$jscomp$567_stepMode$jscomp$inline_491$$ = {arrayStride:$JSCompiler_temp_const$jscomp$568$$, stepMode:$JSCompiler_inline_result$jscomp$422_JSCompiler_temp$jscomp$567_stepMode$jscomp$inline_491$$, attributes:$vas$jscomp$inline_574$$};
+            } else {
+              $JSCompiler_inline_result$jscomp$422_JSCompiler_temp$jscomp$567_stepMode$jscomp$inline_491$$ = null;
             }
           } else {
-            $JSCompiler_inline_result$jscomp$389_JSCompiler_temp$jscomp$538_JSCompiler_temp_const$jscomp$540$$ = void 0;
+            $JSCompiler_inline_result$jscomp$422_JSCompiler_temp$jscomp$567_stepMode$jscomp$inline_491$$ = void 0;
           }
-          $JSCompiler_temp_const$jscomp$387$$.call($JSCompiler_temp_const$jscomp$388$$, $JSCompiler_inline_result$jscomp$389_JSCompiler_temp$jscomp$538_JSCompiler_temp_const$jscomp$540$$);
+          $JSCompiler_temp_const$jscomp$420$$.call($JSCompiler_temp_const$jscomp$421$$, $JSCompiler_inline_result$jscomp$422_JSCompiler_temp$jscomp$567_stepMode$jscomp$inline_491$$);
         }
         $JSCompiler_inline_result$jscomp$44_count$jscomp$inline_191$$ = $vbs$jscomp$inline_193$$;
       } else {
@@ -2501,11 +2498,11 @@ var $webglPowerPreferences$$ = ["default", "low-power", "high-performance"], $We
     }
   }($descriptor$jscomp$2$$ + 16), primitive:function($psPtr$$) {
     if ($psPtr$$) {
-      return $assert$$($psPtr$$), $assert$$(0 === $HEAPU32$$[$psPtr$$ >>> 2 >>> 0]), {topology:$WebGPU$PrimitiveTopology$$[$HEAPU32$$[$psPtr$$ + 4 >>> 2 >>> 0]], stripIndexFormat:$WebGPU$IndexFormat$$[$HEAPU32$$[$psPtr$$ + 8 >>> 2 >>> 0]], frontFace:$WebGPU$FrontFace$$[$HEAPU32$$[$psPtr$$ + 12 >>> 2 >>> 0]], cullMode:$WebGPU$CullMode$$[$HEAPU32$$[$psPtr$$ + 16 >>> 2 >>> 0]], unclippedDepth:!!$HEAPU32$$[$psPtr$$ + 20 >>> 2 >>> 0]};
+      return $assert$$($psPtr$$), $assert$$(0 === $HEAPU32$$[$psPtr$$ >>> 2 >>> 0]), {topology:$WebGPU$PrimitiveTopology$$[$HEAP32$$[$psPtr$$ + 4 >>> 2 >>> 0]], stripIndexFormat:$WebGPU$IndexFormat$$[$HEAP32$$[$psPtr$$ + 8 >>> 2 >>> 0]], frontFace:$WebGPU$FrontFace$$[$HEAP32$$[$psPtr$$ + 12 >>> 2 >>> 0]], cullMode:$WebGPU$CullMode$$[$HEAP32$$[$psPtr$$ + 16 >>> 2 >>> 0]], unclippedDepth:!!$HEAPU32$$[$psPtr$$ + 20 >>> 2 >>> 0]};
     }
   }($descriptor$jscomp$2$$ + 48), depthStencil:function($dssPtr$$) {
     if ($dssPtr$$) {
-      return $assert$$($dssPtr$$), {format:$WebGPU$TextureFormat$$[$HEAPU32$$[$dssPtr$$ + 4 >>> 2 >>> 0]], depthWriteEnabled:!!$HEAPU32$$[$dssPtr$$ + 8 >>> 2 >>> 0], depthCompare:$WebGPU$CompareFunction$$[$HEAPU32$$[$dssPtr$$ + 12 >>> 2 >>> 0]], stencilFront:$makeStencilStateFace$$($dssPtr$$ + 16), stencilBack:$makeStencilStateFace$$($dssPtr$$ + 32), stencilReadMask:$HEAPU32$$[$dssPtr$$ + 48 >>> 2 >>> 0], stencilWriteMask:$HEAPU32$$[$dssPtr$$ + 52 >>> 2 >>> 0], depthBias:$HEAP32$$[$dssPtr$$ + 56 >>> 
+      return $assert$$($dssPtr$$), {format:$WebGPU$TextureFormat$$[$HEAP32$$[$dssPtr$$ + 4 >>> 2 >>> 0]], depthWriteEnabled:!!$HEAPU32$$[$dssPtr$$ + 8 >>> 2 >>> 0], depthCompare:$WebGPU$CompareFunction$$[$HEAP32$$[$dssPtr$$ + 12 >>> 2 >>> 0]], stencilFront:$makeStencilStateFace$$($dssPtr$$ + 16), stencilBack:$makeStencilStateFace$$($dssPtr$$ + 32), stencilReadMask:$HEAPU32$$[$dssPtr$$ + 48 >>> 2 >>> 0], stencilWriteMask:$HEAPU32$$[$dssPtr$$ + 52 >>> 2 >>> 0], depthBias:$HEAP32$$[$dssPtr$$ + 56 >>> 
       2 >>> 0], depthBiasSlopeScale:$HEAPF32$$[$dssPtr$$ + 60 >>> 2 >>> 0], depthBiasClamp:$HEAPF32$$[$dssPtr$$ + 64 >>> 2 >>> 0]};
     }
   }($HEAPU32$$[$descriptor$jscomp$2$$ + 72 >>> 2 >>> 0]), multisample:function($msPtr$$) {
@@ -2517,33 +2514,32 @@ var $webglPowerPreferences$$ = ["default", "low-power", "high-performance"], $We
       $assert$$($fsPtr$$);
       $assert$$(0 === $HEAPU32$$[$fsPtr$$ >>> 2 >>> 0]);
       for (var $JSCompiler_temp_const$jscomp$40$$ = $WebGPU$getJsObject$$($HEAPU32$$[$fsPtr$$ + 4 >>> 2 >>> 0]), $JSCompiler_temp_const$jscomp$39$$ = $WebGPU$makePipelineConstants$$($HEAPU32$$[$fsPtr$$ + 16 >>> 2 >>> 0], $HEAPU32$$[$fsPtr$$ + 20 >>> 2 >>> 0]), $count$jscomp$inline_196$$ = $HEAPU32$$[$fsPtr$$ + 24 >>> 2 >>> 0], $csArrayPtr$jscomp$inline_197$$ = $HEAPU32$$[$fsPtr$$ + 28 >>> 2 >>> 0], $states$jscomp$inline_198$$ = [], $i$jscomp$inline_199$$ = 0; $i$jscomp$inline_199$$ < $count$jscomp$inline_196$$; ++$i$jscomp$inline_199$$) {
-        var $JSCompiler_temp_const$jscomp$385$$ = $states$jscomp$inline_198$$, $JSCompiler_temp_const$jscomp$384$$ = $JSCompiler_temp_const$jscomp$385$$.push, $JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$ = $csArrayPtr$jscomp$inline_197$$ + 24 * $i$jscomp$inline_199$$;
-        $assert$$($JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$);
-        $assert$$(0 === $HEAPU32$$[$JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$ >>> 2 >>> 0]);
-        var $JSCompiler_temp_const$jscomp$536_formatInt$jscomp$inline_462$$ = $HEAPU32$$[$JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$ + 4 >>> 2 >>> 0];
-        if (0 === $JSCompiler_temp_const$jscomp$536_formatInt$jscomp$inline_462$$) {
-          $JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$ = void 0;
+        var $JSCompiler_temp_const$jscomp$418$$ = $states$jscomp$inline_198$$, $JSCompiler_temp_const$jscomp$417$$ = $JSCompiler_temp_const$jscomp$418$$.push, $JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$ = $csArrayPtr$jscomp$inline_197$$ + 24 * $i$jscomp$inline_199$$;
+        $assert$$($JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$);
+        $assert$$(0 === $HEAPU32$$[$JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$ >>> 2 >>> 0]);
+        var $format$jscomp$inline_495$$ = $WebGPU$TextureFormat$$[$HEAP32$$[$JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$ + 4 >>> 2 >>> 0]];
+        if ($format$jscomp$inline_495$$) {
+          var $JSCompiler_inline_result$jscomp$566_bsPtr$jscomp$inline_577$$ = ($JSCompiler_inline_result$jscomp$566_bsPtr$jscomp$inline_577$$ = $HEAPU32$$[$JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$ + 8 >>> 2 >>> 0]) ? {alpha:$makeBlendComponent$$($JSCompiler_inline_result$jscomp$566_bsPtr$jscomp$inline_577$$ + 12), color:$makeBlendComponent$$($JSCompiler_inline_result$jscomp$566_bsPtr$jscomp$inline_577$$ + 0)} : void 0;
+          $JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$ = {format:$format$jscomp$inline_495$$, blend:$JSCompiler_inline_result$jscomp$566_bsPtr$jscomp$inline_577$$, writeMask:$HEAPU32$$[$JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$ + 16 >>> 2 >>> 0]};
         } else {
-          $JSCompiler_temp_const$jscomp$536_formatInt$jscomp$inline_462$$ = $WebGPU$TextureFormat$$[$JSCompiler_temp_const$jscomp$536_formatInt$jscomp$inline_462$$];
-          var $JSCompiler_inline_result$jscomp$537_bsPtr$jscomp$inline_549$$ = ($JSCompiler_inline_result$jscomp$537_bsPtr$jscomp$inline_549$$ = $HEAPU32$$[$JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$ + 8 >>> 2 >>> 0]) ? {alpha:$makeBlendComponent$$($JSCompiler_inline_result$jscomp$537_bsPtr$jscomp$inline_549$$ + 12), color:$makeBlendComponent$$($JSCompiler_inline_result$jscomp$537_bsPtr$jscomp$inline_549$$ + 0)} : void 0;
-          $JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$ = {format:$JSCompiler_temp_const$jscomp$536_formatInt$jscomp$inline_462$$, blend:$JSCompiler_inline_result$jscomp$537_bsPtr$jscomp$inline_549$$, writeMask:$HEAPU32$$[$JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$ + 16 >>> 2 >>> 0]};
+          $JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$ = void 0;
         }
-        $JSCompiler_temp_const$jscomp$384$$.call($JSCompiler_temp_const$jscomp$385$$, $JSCompiler_temp$jscomp$535_csPtr$jscomp$inline_461$$);
+        $JSCompiler_temp_const$jscomp$417$$.call($JSCompiler_temp_const$jscomp$418$$, $JSCompiler_temp$jscomp$565_csPtr$jscomp$inline_494$$);
       }
       return {module:$JSCompiler_temp_const$jscomp$40$$, constants:$JSCompiler_temp_const$jscomp$39$$, targets:$states$jscomp$inline_198$$, entryPoint:$WebGPU$makeStringFromOptionalStringView$$($fsPtr$$ + 8)};
     }
   }($HEAPU32$$[$descriptor$jscomp$2$$ + 92 >>> 2 >>> 0])};
-}, $WebGPU$BlendFactor$$ = [, "zero", "one", "src", "one-minus-src", "src-alpha", "one-minus-src-alpha", "dst", "one-minus-dst", "dst-alpha", "one-minus-dst-alpha", "src-alpha-saturated", "constant", "one-minus-constant", "src1", "one-minus-src1", "src1alpha", "one-minus-src1alpha"], $WebGPU$BlendOperation$$ = [, "add", "subtract", "reverse-subtract", "min", "max"], $WebGPU$BufferBindingType$$ = ["binding-not-used", , "uniform", "storage", "read-only-storage"], $WebGPU$CompareFunction$$ = [, "never", 
-"less", "equal", "less-equal", "greater", "not-equal", "greater-equal", "always"], $WebGPU$CompositeAlphaMode$$ = [, "opaque", "premultiplied", "unpremultiplied", "inherit"], $WebGPU$CullMode$$ = [, "none", "front", "back"], $WebGPU$FeatureLevel$$ = [, "compatibility", "core"], $WebGPU$FeatureName$$ = {1:"core-features-and-limits", 2:"depth-clip-control", 3:"depth32float-stencil8", 4:"texture-compression-bc", 5:"texture-compression-bc-sliced-3d", 6:"texture-compression-etc2", 7:"texture-compression-astc", 
-8:"texture-compression-astc-sliced-3d", 9:"timestamp-query", 10:"indirect-first-instance", 11:"shader-f16", 12:"rg11b10ufloat-renderable", 13:"bgra8unorm-storage", 14:"float32-filterable", 15:"float32-blendable", 16:"clip-distances", 17:"dual-source-blending", 18:"subgroups", 19:"texture-formats-tier1", 20:"texture-formats-tier2", 21:"primitive-index", 327692:"chromium-experimental-unorm16-texture-formats", 327693:"chromium-experimental-snorm16-texture-formats", 327732:"chromium-experimental-multi-draw-indirect"}, 
-$WebGPU$FrontFace$$ = [, "ccw", "cw"], $WebGPU$IndexFormat$$ = [, "uint16", "uint32"], $WebGPU$LoadOp$$ = [, "load", "clear"], $WebGPU$PowerPreference$$ = [, "low-power", "high-performance"], $WebGPU$PredefinedColorSpace$$ = [, "srgb", "display-p3"], $WebGPU$PrimitiveTopology$$ = [, "point-list", "line-list", "line-strip", "triangle-list", "triangle-strip"], $WebGPU$SamplerBindingType$$ = ["binding-not-used", , "filtering", "non-filtering", "comparison"], $WebGPU$StencilOperation$$ = [, "keep", "zero", 
-"replace", "invert", "increment-clamp", "decrement-clamp", "increment-wrap", "decrement-wrap"], $WebGPU$StorageTextureAccess$$ = ["binding-not-used", , "write-only", "read-only", "read-write"], $WebGPU$StoreOp$$ = [, "store", "discard"], $WebGPU$TextureAspect$$ = [, "all", "stencil-only", "depth-only"], $WebGPU$TextureDimension$$ = [, "1d", "2d", "3d"], $WebGPU$TextureFormat$$ = [, "r8unorm", "r8snorm", "r8uint", "r8sint", "r16unorm", "r16snorm", "r16uint", "r16sint", "r16float", "rg8unorm", "rg8snorm", 
+}, $WebGPU$BlendFactor$$ = [, "zero", "one", "src", "one-minus-src", "src-alpha", "one-minus-src-alpha", "dst", "one-minus-dst", "dst-alpha", "one-minus-dst-alpha", "src-alpha-saturated", "constant", "one-minus-constant", "src1", "one-minus-src1", "src1alpha", "one-minus-src1alpha"], $WebGPU$BlendOperation$$ = [, "add", "subtract", "reverse-subtract", "min", "max"], $WebGPU$BufferBindingType$$ = [, , "uniform", "storage", "read-only-storage"], $WebGPU$CompareFunction$$ = [, "never", "less", "equal", 
+"less-equal", "greater", "not-equal", "greater-equal", "always"], $WebGPU$ComponentSwizzle$$ = [, "0", "1", "r", "g", "b", "a"], $WebGPU$CompositeAlphaMode$$ = [, "opaque", "premultiplied", "unpremultiplied", "inherit"], $WebGPU$CullMode$$ = [, "none", "front", "back"], $WebGPU$FeatureLevel$$ = [, "compatibility", "core"], $WebGPU$FeatureName$$ = {1:"core-features-and-limits", 2:"depth-clip-control", 3:"depth32float-stencil8", 4:"texture-compression-bc", 5:"texture-compression-bc-sliced-3d", 6:"texture-compression-etc2", 
+7:"texture-compression-astc", 8:"texture-compression-astc-sliced-3d", 9:"timestamp-query", 10:"indirect-first-instance", 11:"shader-f16", 12:"rg11b10ufloat-renderable", 13:"bgra8unorm-storage", 14:"float32-filterable", 15:"float32-blendable", 16:"clip-distances", 17:"dual-source-blending", 18:"subgroups", 19:"texture-formats-tier1", 20:"texture-formats-tier2", 21:"primitive-index", 22:"texture-component-swizzle", 327692:"chromium-experimental-unorm16-texture-formats", 327693:"chromium-experimental-snorm16-texture-formats", 
+327732:"chromium-experimental-multi-draw-indirect"}, $WebGPU$FrontFace$$ = [, "ccw", "cw"], $WebGPU$IndexFormat$$ = [, "uint16", "uint32"], $WebGPU$LoadOp$$ = [, "load", "clear"], $WebGPU$PowerPreference$$ = [, "low-power", "high-performance"], $WebGPU$PredefinedColorSpace$$ = [, "srgb", "display-p3"], $WebGPU$PrimitiveTopology$$ = [, "point-list", "line-list", "line-strip", "triangle-list", "triangle-strip"], $WebGPU$SamplerBindingType$$ = [, , "filtering", "non-filtering", "comparison"], $WebGPU$StencilOperation$$ = 
+[, "keep", "zero", "replace", "invert", "increment-clamp", "decrement-clamp", "increment-wrap", "decrement-wrap"], $WebGPU$StorageTextureAccess$$ = [, , "write-only", "read-only", "read-write"], $WebGPU$StoreOp$$ = [, "store", "discard"], $WebGPU$TextureAspect$$ = [, "all", "stencil-only", "depth-only"], $WebGPU$TextureDimension$$ = [, "1d", "2d", "3d"], $WebGPU$TextureFormat$$ = [, "r8unorm", "r8snorm", "r8uint", "r8sint", "r16unorm", "r16snorm", "r16uint", "r16sint", "r16float", "rg8unorm", "rg8snorm", 
 "rg8uint", "rg8sint", "r32float", "r32uint", "r32sint", "rg16unorm", "rg16snorm", "rg16uint", "rg16sint", "rg16float", "rgba8unorm", "rgba8unorm-srgb", "rgba8snorm", "rgba8uint", "rgba8sint", "bgra8unorm", "bgra8unorm-srgb", "rgb10a2uint", "rgb10a2unorm", "rg11b10ufloat", "rgb9e5ufloat", "rg32float", "rg32uint", "rg32sint", "rgba16unorm", "rgba16snorm", "rgba16uint", "rgba16sint", "rgba16float", "rgba32float", "rgba32uint", "rgba32sint", "stencil8", "depth16unorm", "depth24plus", "depth24plus-stencil8", 
 "depth32float", "depth32float-stencil8", "bc1-rgba-unorm", "bc1-rgba-unorm-srgb", "bc2-rgba-unorm", "bc2-rgba-unorm-srgb", "bc3-rgba-unorm", "bc3-rgba-unorm-srgb", "bc4-r-unorm", "bc4-r-snorm", "bc5-rg-unorm", "bc5-rg-snorm", "bc6h-rgb-ufloat", "bc6h-rgb-float", "bc7-rgba-unorm", "bc7-rgba-unorm-srgb", "etc2-rgb8unorm", "etc2-rgb8unorm-srgb", "etc2-rgb8a1unorm", "etc2-rgb8a1unorm-srgb", "etc2-rgba8unorm", "etc2-rgba8unorm-srgb", "eac-r11unorm", "eac-r11snorm", "eac-rg11unorm", "eac-rg11snorm", "astc-4x4-unorm", 
 "astc-4x4-unorm-srgb", "astc-5x4-unorm", "astc-5x4-unorm-srgb", "astc-5x5-unorm", "astc-5x5-unorm-srgb", "astc-6x5-unorm", "astc-6x5-unorm-srgb", "astc-6x6-unorm", "astc-6x6-unorm-srgb", "astc-8x5-unorm", "astc-8x5-unorm-srgb", "astc-8x6-unorm", "astc-8x6-unorm-srgb", "astc-8x8-unorm", "astc-8x8-unorm-srgb", "astc-10x5-unorm", "astc-10x5-unorm-srgb", "astc-10x6-unorm", "astc-10x6-unorm-srgb", "astc-10x8-unorm", "astc-10x8-unorm-srgb", "astc-10x10-unorm", "astc-10x10-unorm-srgb", "astc-12x10-unorm", 
-"astc-12x10-unorm-srgb", "astc-12x12-unorm", "astc-12x12-unorm-srgb"], $WebGPU$TextureSampleType$$ = ["binding-not-used", , "float", "unfilterable-float", "depth", "sint", "uint"], $WebGPU$TextureViewDimension$$ = [, "1d", "2d", "2d-array", "cube", "cube-array", "3d"], $WebGPU$ToneMappingMode$$ = [, "standard", "extended"], $WebGPU$VertexFormat$$ = [, "uint8", "uint8x2", "uint8x4", "sint8", "sint8x2", "sint8x4", "unorm8", "unorm8x2", "unorm8x4", "snorm8", "snorm8x2", "snorm8x4", "uint16", "uint16x2", 
-"uint16x4", "sint16", "sint16x2", "sint16x4", "unorm16", "unorm16x2", "unorm16x4", "snorm16", "snorm16x2", "snorm16x4", "float16", "float16x2", "float16x4", "float32", "float32x2", "float32x3", "float32x4", "uint32", "uint32x2", "uint32x3", "uint32x4", "sint32", "sint32x2", "sint32x3", "sint32x4", "unorm10-10-10-2", "unorm8x4-bgra"], $WebGPU$VertexStepMode$$ = [, "vertex", "instance"], $emwgpuStringToInt_DeviceLostReason$$ = {undefined:1, unknown:1, destroyed:2}, $emwgpuStringToInt_PreferredFormat$$ = 
-{rgba8unorm:22, bgra8unorm:27}, $ENV$$ = {}, $getEnvStrings$$ = () => {
+"astc-12x10-unorm-srgb", "astc-12x12-unorm", "astc-12x12-unorm-srgb"], $WebGPU$TextureSampleType$$ = [, , "float", "unfilterable-float", "depth", "sint", "uint"], $WebGPU$TextureViewDimension$$ = [, "1d", "2d", "2d-array", "cube", "cube-array", "3d"], $WebGPU$ToneMappingMode$$ = [, "standard", "extended"], $WebGPU$VertexFormat$$ = [, "uint8", "uint8x2", "uint8x4", "sint8", "sint8x2", "sint8x4", "unorm8", "unorm8x2", "unorm8x4", "snorm8", "snorm8x2", "snorm8x4", "uint16", "uint16x2", "uint16x4", "sint16", 
+"sint16x2", "sint16x4", "unorm16", "unorm16x2", "unorm16x4", "snorm16", "snorm16x2", "snorm16x4", "float16", "float16x2", "float16x4", "float32", "float32x2", "float32x3", "float32x4", "uint32", "uint32x2", "uint32x3", "uint32x4", "sint32", "sint32x2", "sint32x3", "sint32x4", "unorm10-10-10-2", "unorm8x4-bgra"], $WebGPU$VertexStepMode$$ = [, "vertex", "instance"], $emwgpuStringToInt_DeviceLostReason$$ = {undefined:1, unknown:1, destroyed:2}, $emwgpuStringToInt_PreferredFormat$$ = {rgba8unorm:22, 
+bgra8unorm:27}, $ENV$$ = {}, $getEnvStrings$$ = () => {
   if (!$getEnvStrings$strings$$) {
     var $env$jscomp$1$$ = {USER:"web_user", LOGNAME:"web_user", PATH:"/", PWD:"/", HOME:"/home/web_user", LANG:("object" == typeof navigator && navigator.language || "C").replace("-", "_") + ".UTF-8", _:$thisProgram$$ || "./this.program"}, $x$jscomp$96$$;
     for ($x$jscomp$96$$ in $ENV$$) {
@@ -2569,8 +2565,8 @@ $WebGPU$FrontFace$$ = [, "ccw", "cw"], $WebGPU$IndexFormat$$ = [, "uint16", "uin
 }, $runAndAbortIfError$$ = $func$jscomp$19$$ => {
   try {
     $func$jscomp$19$$();
-  } catch ($e$jscomp$65$$) {
-    $abort$$($e$jscomp$65$$);
+  } catch ($e$jscomp$64$$) {
+    $abort$$($e$jscomp$64$$);
   }
 };
 function $Asyncify$instrumentWasmImports$$() {
@@ -2578,14 +2574,14 @@ function $Asyncify$instrumentWasmImports$$() {
   for (let [$x$jscomp$97$$, $original$$] of Object.entries($imports$jscomp$2$$)) {
     if ("function" == typeof $original$$) {
       let $isAsyncifyImport$$ = $original$$.$isAsync$ || $importPattern$$.test($x$jscomp$97$$);
-      $imports$jscomp$2$$[$x$jscomp$97$$] = (...$args$jscomp$14_changedToDisabled$$) => {
+      $imports$jscomp$2$$[$x$jscomp$97$$] = (...$args$jscomp$118_changedToDisabled$$) => {
         var $originalAsyncifyState$$ = $Asyncify$state$$;
         try {
-          return $original$$(...$args$jscomp$14_changedToDisabled$$);
+          return $original$$(...$args$jscomp$118_changedToDisabled$$);
         } finally {
-          $args$jscomp$14_changedToDisabled$$ = $originalAsyncifyState$$ === $Asyncify$State$Normal$$ && $Asyncify$state$$ === $Asyncify$State$Disabled$$;
+          $args$jscomp$118_changedToDisabled$$ = $originalAsyncifyState$$ === $Asyncify$State$Normal$$ && $Asyncify$state$$ === $Asyncify$State$Disabled$$;
           var $ignoredInvoke$$ = $x$jscomp$97$$.startsWith("invoke_") && !0;
-          if ($Asyncify$state$$ !== $originalAsyncifyState$$ && !$isAsyncifyImport$$ && !$args$jscomp$14_changedToDisabled$$ && !$ignoredInvoke$$) {
+          if ($Asyncify$state$$ !== $originalAsyncifyState$$ && !$isAsyncifyImport$$ && !$args$jscomp$118_changedToDisabled$$ && !$ignoredInvoke$$) {
             throw Error(`import ${$x$jscomp$97$$} was not in ASYNCIFY_IMPORTS, but changed the state`);
           }
         }
@@ -2594,12 +2590,12 @@ function $Asyncify$instrumentWasmImports$$() {
   }
 }
 function $Asyncify$instrumentFunction$$($original$jscomp$1$$) {
-  var $wrapper$jscomp$1$$ = (...$args$jscomp$15_top$jscomp$3$$) => {
+  var $wrapper$jscomp$1$$ = (...$args$jscomp$119_top$jscomp$3$$) => {
     $Asyncify$exportCallStack$$.push($original$jscomp$1$$);
     try {
-      return $original$jscomp$1$$(...$args$jscomp$15_top$jscomp$3$$);
+      return $original$jscomp$1$$(...$args$jscomp$119_top$jscomp$3$$);
     } finally {
-      $ABORT$$ || ($args$jscomp$15_top$jscomp$3$$ = $Asyncify$exportCallStack$$.pop(), $assert$$($args$jscomp$15_top$jscomp$3$$ === $original$jscomp$1$$), $Asyncify$currData$$ && 1 === $Asyncify$state$$ && 0 === $Asyncify$exportCallStack$$.length && ($Asyncify$state$$ = $Asyncify$State$Normal$$, $runAndAbortIfError$$($_asyncify_stop_unwind$$), "undefined" != typeof Fibers && Fibers.$trampoline$()));
+      $ABORT$$ || ($args$jscomp$119_top$jscomp$3$$ = $Asyncify$exportCallStack$$.pop(), $assert$$($args$jscomp$119_top$jscomp$3$$ === $original$jscomp$1$$), $Asyncify$currData$$ && 1 === $Asyncify$state$$ && 0 === $Asyncify$exportCallStack$$.length && ($Asyncify$state$$ = $Asyncify$State$Normal$$, $runAndAbortIfError$$($_asyncify_stop_unwind$$), "undefined" != typeof Fibers && Fibers.$trampoline$()));
     }
   };
   $Asyncify$funcWrappers$$.set($original$jscomp$1$$, $wrapper$jscomp$1$$);
@@ -2614,9 +2610,9 @@ function $Asyncify$allocateData$$() {
   $assert$$($bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$, "exportCallStack is empty");
   $assert$$($bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$);
   if (!$Asyncify$callstackFuncToId$$.has($bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$)) {
-    var $id$jscomp$inline_465$$ = $Asyncify$callStackId$$++;
-    $Asyncify$callstackFuncToId$$.set($bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$, $id$jscomp$inline_465$$);
-    $Asyncify$callStackIdToFunc$$.set($id$jscomp$inline_465$$, $bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$);
+    var $id$jscomp$inline_498$$ = $Asyncify$callStackId$$++;
+    $Asyncify$callstackFuncToId$$.set($bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$, $id$jscomp$inline_498$$);
+    $Asyncify$callStackIdToFunc$$.set($id$jscomp$inline_498$$, $bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$);
   }
   $bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$ = $Asyncify$callstackFuncToId$$.get($bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$);
   $HEAP32$$[$ptr$jscomp$63$$ + 8 >>> 2 >>> 0] = $bottomOfCallStack$jscomp$inline_207_rewindId$jscomp$inline_208_stack$jscomp$inline_203$$;
@@ -2769,11 +2765,11 @@ $Module$$.FS_preloadFile = async($parent$jscomp$10$$, $name$jscomp$88$$, $url$js
     $removeRunDependency$$($dep$jscomp$1_id$jscomp$inline_217$$);
   }
 };
-$Module$$.FS_unlink = (...$args$jscomp$17$$) => $FS$unlink$$(...$args$jscomp$17$$);
-$Module$$.FS_createPath = (...$args$jscomp$16$$) => $FS$createPath$$(...$args$jscomp$16$$);
-$Module$$.FS_createDevice = (...$args$jscomp$19$$) => $FS$createDevice$$(...$args$jscomp$19$$);
-$Module$$.FS_createDataFile = (...$args$jscomp$11$$) => $FS$createDataFile$$(...$args$jscomp$11$$);
-$Module$$.FS_createLazyFile = (...$args$jscomp$18$$) => $FS$createLazyFile$$(...$args$jscomp$18$$);
+$Module$$.FS_unlink = (...$args$jscomp$121$$) => $FS$unlink$$(...$args$jscomp$121$$);
+$Module$$.FS_createPath = (...$args$jscomp$120$$) => $FS$createPath$$(...$args$jscomp$120$$);
+$Module$$.FS_createDevice = (...$args$jscomp$123$$) => $FS$createDevice$$(...$args$jscomp$123$$);
+$Module$$.FS_createDataFile = (...$args$jscomp$115$$) => $FS$createDataFile$$(...$args$jscomp$115$$);
+$Module$$.FS_createLazyFile = (...$args$jscomp$122$$) => $FS$createLazyFile$$(...$args$jscomp$122$$);
 "writeI53ToI64Clamped writeI53ToI64Signaling writeI53ToU64Clamped writeI53ToU64Signaling convertI32PairToI53 convertI32PairToI53Checked convertU32PairToI53 getTempRet0 setTempRet0 zeroMemory withStackSave inetPton4 inetNtop4 inetPton6 inetNtop6 readSockaddr writeSockaddr runEmAsmFunction getDynCaller asmjsMangle HandleAllocator getNativeTypeSize addOnInit addOnPostCtor addOnPreMain STACK_SIZE STACK_ALIGN POINTER_SIZE ASSERTIONS ccall cwrap convertJsFunctionToWasm getEmptyTableSlot updateTableMap getFunctionAddress addFunction removeFunction intArrayToString AsciiToString stringToAscii UTF16ToString stringToUTF16 lengthBytesUTF16 UTF32ToString stringToUTF32 lengthBytesUTF32 fillDeviceOrientationEventData registerDeviceOrientationEventCallback fillDeviceMotionEventData registerDeviceMotionEventCallback hideEverythingExceptGivenElement restoreHiddenElements softFullscreenResizeWebGLRenderTarget registerPointerlockErrorEventCallback fillBatteryEventData registerBatteryEventCallback jsStackTrace getCallstack convertPCtoSourceLocation wasiRightsToMuslOFlags wasiOFlagsToMuslOFlags setImmediateWrapped safeRequestAnimationFrame clearImmediateWrapped registerPostMainLoop registerPreMainLoop getPromise makePromise idsToPromises makePromiseCallback findMatchingCatch Browser_asyncPrepareDataCounter arraySum addDays getSocketFromFD getSocketAddress FS_mkdirTree _setNetworkCallback writeGLArray registerWebGlEventCallback ALLOC_NORMAL ALLOC_STACK allocate writeStringToMemory writeAsciiToMemory demangle stackTrace".split(" ").forEach(function($sym$jscomp$4$$) {
   $hookGlobalSymbolAccess$$($sym$jscomp$4$$, () => {
     var $msg$jscomp$1$$ = `\`${$sym$jscomp$4$$}\` is a library symbol and not included by default; add it to your library.js __deps or to DEFAULT_LIBRARY_FUNCS_TO_INCLUDE on the command line`, $librarySymbol$$ = $sym$jscomp$4$$;
@@ -2806,34 +2802,34 @@ $Module$$.requestFullscreen = function($lockPointer$$, $resizeCanvas$$) {
   $canvasContainer$$.requestFullscreen = $canvasContainer$$.requestFullscreen || $canvasContainer$$.mozRequestFullScreen || $canvasContainer$$.msRequestFullscreen || ($canvasContainer$$.webkitRequestFullscreen ? () => $canvasContainer$$.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT) : null) || ($canvasContainer$$.webkitRequestFullScreen ? () => $canvasContainer$$.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT) : null);
   $canvasContainer$$.requestFullscreen();
 };
-var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
+var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
   $$0_reply_str$jscomp$17$$ = $UTF8ToString$$($$0_reply_str$jscomp$17$$) + "\n\nAbort/Retry/Ignore/AlwaysIgnore? [ariA] :";
   $$0_reply_str$jscomp$17$$ = window.prompt($$0_reply_str$jscomp$17$$, "i");
   null === $$0_reply_str$jscomp$17$$ && ($$0_reply_str$jscomp$17$$ = "i");
   return 1 === $$0_reply_str$jscomp$17$$.length ? $$0_reply_str$jscomp$17$$.charCodeAt(0) : -1;
-}, 1004195:() => {
+}, 1003875:() => {
   "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
   $Module$$.SDL3.$dummy_audio$ = {};
   $Module$$.SDL3.$dummy_audio$.$timers$ = [];
   $Module$$.SDL3.$dummy_audio$.$timers$[0] = void 0;
   $Module$$.SDL3.$dummy_audio$.$timers$[1] = void 0;
-}, 1004441:($$0$jscomp$1$$, $$1$$, $$2$$, $$3$$, $$4$$) => {
-  var $a$jscomp$1$$ = $Module$$.SDL3.$dummy_audio$;
-  void 0 !== $a$jscomp$1$$.$timers$[$$0$jscomp$1$$] && clearInterval($a$jscomp$1$$.$timers$[$$0$jscomp$1$$]);
-  $a$jscomp$1$$.$timers$[$$0$jscomp$1$$] = setInterval(function() {
+}, 1004121:($$0$jscomp$1$$, $$1$$, $$2$$, $$3$$, $$4$$) => {
+  var $a$jscomp$2$$ = $Module$$.SDL3.$dummy_audio$;
+  void 0 !== $a$jscomp$2$$.$timers$[$$0$jscomp$1$$] && clearInterval($a$jscomp$2$$.$timers$[$$0$jscomp$1$$]);
+  $a$jscomp$2$$.$timers$[$$0$jscomp$1$$] = setInterval(function() {
     $dynCall$$("vi", $$3$$, [$$4$$]);
   }, $$1$$ / $$2$$ * 1e3);
-}, 1004633:$$0$jscomp$2$$ => {
-  var $a$jscomp$2$$ = $Module$$.SDL3.$dummy_audio$;
-  void 0 !== $a$jscomp$2$$.$timers$[$$0$jscomp$2$$] && clearInterval($a$jscomp$2$$.$timers$[$$0$jscomp$2$$]);
-  $a$jscomp$2$$.$timers$[$$0$jscomp$2$$] = void 0;
-}, 1004764:() => "undefined" !== typeof AudioContext || "undefined" !== typeof webkitAudioContext ? !0 : !1, 1004911:() => "undefined" !== typeof navigator.mediaDevices && "undefined" !== typeof navigator.mediaDevices.getUserMedia || "undefined" !== typeof navigator.webkitGetUserMedia ? !0 : !1, 1005145:$$0$jscomp$3$$ => {
+}, 1004313:$$0$jscomp$2$$ => {
+  var $a$jscomp$3$$ = $Module$$.SDL3.$dummy_audio$;
+  void 0 !== $a$jscomp$3$$.$timers$[$$0$jscomp$2$$] && clearInterval($a$jscomp$3$$.$timers$[$$0$jscomp$2$$]);
+  $a$jscomp$3$$.$timers$[$$0$jscomp$2$$] = void 0;
+}, 1004444:() => "undefined" !== typeof AudioContext || "undefined" !== typeof webkitAudioContext ? !0 : !1, 1004591:() => "undefined" !== typeof navigator.mediaDevices && "undefined" !== typeof navigator.mediaDevices.getUserMedia || "undefined" !== typeof navigator.webkitGetUserMedia ? !0 : !1, 1004825:$$0$jscomp$3$$ => {
   "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
   var $SDL3$$ = $Module$$.SDL3;
   $$0$jscomp$3$$ ? $SDL3$$.$audio_recording$ = {} : $SDL3$$.$audio_playback$ = {};
   $SDL3$$.$audioContext$ || ("undefined" !== typeof AudioContext ? $SDL3$$.$audioContext$ = new AudioContext() : "undefined" !== typeof webkitAudioContext && ($SDL3$$.$audioContext$ = new webkitAudioContext()), $SDL3$$.$audioContext$ && "undefined" === typeof navigator.userActivation && $autoResumeAudioContext$$($SDL3$$.$audioContext$));
   return void 0 !== $SDL3$$.$audioContext$;
-}, 1005708:() => $Module$$.SDL3.$audioContext$.sampleRate, 1005759:($$0$jscomp$4$$, $$1$jscomp$1$$, $$2$jscomp$1$$, $$3$jscomp$1$$) => {
+}, 1005388:() => $Module$$.SDL3.$audioContext$.sampleRate, 1005439:($$0$jscomp$4$$, $$1$jscomp$1$$, $$2$jscomp$1$$, $$3$jscomp$1$$) => {
   function $no_microphone$$() {
   }
   function $have_microphone$$($stream$jscomp$64$$) {
@@ -2855,11 +2851,11 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     $dynCall$$("ip", $$2$jscomp$1$$, [$$3$jscomp$1$$]);
   }, $$1$jscomp$1$$ / $SDL3$jscomp$1$$.$audioContext$.sampleRate * 1e3);
   void 0 !== navigator.mediaDevices && void 0 !== navigator.mediaDevices.getUserMedia ? navigator.mediaDevices.getUserMedia({audio:!0, video:!1}).then($have_microphone$$).catch($no_microphone$$) : void 0 !== navigator.webkitGetUserMedia && navigator.webkitGetUserMedia({audio:!0, video:!1}, $have_microphone$$, $no_microphone$$);
-}, 1007600:($$0$jscomp$5$$, $$1$jscomp$2$$, $$2$jscomp$2$$, $$3$jscomp$2$$) => {
+}, 1007280:($$0$jscomp$5$$, $$1$jscomp$2$$, $$2$jscomp$2$$, $$3$jscomp$2$$) => {
   var $SDL3$jscomp$2$$ = $Module$$.SDL3;
   $SDL3$jscomp$2$$.$audio_playback$.$scriptProcessorNode$ = $SDL3$jscomp$2$$.$audioContext$.createScriptProcessor($$1$jscomp$2$$, 0, $$0$jscomp$5$$);
-  $SDL3$jscomp$2$$.$audio_playback$.$scriptProcessorNode$.onaudioprocess = function($e$jscomp$66$$) {
-    void 0 !== $SDL3$jscomp$2$$ && void 0 !== $SDL3$jscomp$2$$.$audio_playback$ && (void 0 !== $SDL3$jscomp$2$$.$audio_playback$.$silenceTimer$ && (clearInterval($SDL3$jscomp$2$$.$audio_playback$.$silenceTimer$), $SDL3$jscomp$2$$.$audio_playback$.$silenceTimer$ = void 0, $SDL3$jscomp$2$$.$audio_playback$.$silenceBuffer$ = void 0), $SDL3$jscomp$2$$.$audio_playback$.$currentPlaybackBuffer$ = $e$jscomp$66$$.outputBuffer, $dynCall$$("ip", $$2$jscomp$2$$, [$$3$jscomp$2$$]));
+  $SDL3$jscomp$2$$.$audio_playback$.$scriptProcessorNode$.onaudioprocess = function($e$jscomp$65$$) {
+    void 0 !== $SDL3$jscomp$2$$ && void 0 !== $SDL3$jscomp$2$$.$audio_playback$ && (void 0 !== $SDL3$jscomp$2$$.$audio_playback$.$silenceTimer$ && (clearInterval($SDL3$jscomp$2$$.$audio_playback$.$silenceTimer$), $SDL3$jscomp$2$$.$audio_playback$.$silenceTimer$ = void 0, $SDL3$jscomp$2$$.$audio_playback$.$silenceBuffer$ = void 0), $SDL3$jscomp$2$$.$audio_playback$.$currentPlaybackBuffer$ = $e$jscomp$65$$.outputBuffer, $dynCall$$("ip", $$2$jscomp$2$$, [$$3$jscomp$2$$]));
   };
   $SDL3$jscomp$2$$.$audio_playback$.$scriptProcessorNode$.connect($SDL3$jscomp$2$$.$audioContext$.destination);
   "suspended" === $SDL3$jscomp$2$$.$audioContext$.state && ($SDL3$jscomp$2$$.$audio_playback$.$silenceBuffer$ = $SDL3$jscomp$2$$.$audioContext$.createBuffer($$0$jscomp$5$$, $$1$jscomp$2$$, $SDL3$jscomp$2$$.$audioContext$.sampleRate), $SDL3$jscomp$2$$.$audio_playback$.$silenceBuffer$.getChannelData(0).fill(0), $SDL3$jscomp$2$$.$audio_playback$.$silenceTimer$ = setInterval(function() {
@@ -2868,7 +2864,7 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     $dynCall$$("ip", $$2$jscomp$2$$, [$$3$jscomp$2$$]);
     $SDL3$jscomp$2$$.$audio_playback$.$currentPlaybackBuffer$ = void 0;
   }, $$1$jscomp$2$$ / $SDL3$jscomp$2$$.$audioContext$.sampleRate * 1e3));
-}, 1008916:$$0$jscomp$6_tracks$$ => {
+}, 1008596:$$0$jscomp$6_tracks$$ => {
   var $SDL3$jscomp$3$$ = $Module$$.SDL3;
   if ($$0$jscomp$6_tracks$$) {
     void 0 !== $SDL3$jscomp$3$$.$audio_recording$.$silenceTimer$ && clearInterval($SDL3$jscomp$3$$.$audio_recording$.$silenceTimer$);
@@ -2886,18 +2882,18 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     void 0 != $SDL3$jscomp$3$$.$audio_playback$.$scriptProcessorNode$ && $SDL3$jscomp$3$$.$audio_playback$.$scriptProcessorNode$.disconnect(), void 0 !== $SDL3$jscomp$3$$.$audio_playback$.$silenceTimer$ && clearInterval($SDL3$jscomp$3$$.$audio_playback$.$silenceTimer$), $SDL3$jscomp$3$$.$audio_playback$ = void 0;
   }
   void 0 !== $SDL3$jscomp$3$$.$audioContext$ && void 0 === $SDL3$jscomp$3$$.$audio_playback$ && void 0 === $SDL3$jscomp$3$$.$audio_recording$ && ($SDL3$jscomp$3$$.$audioContext$.close(), $SDL3$jscomp$3$$.$audioContext$ = void 0);
-}, 1010072:($$0$jscomp$7_buf$jscomp$19$$, $$1$jscomp$3$$) => {
-  $$0$jscomp$7_buf$jscomp$19$$ >>>= 2;
+}, 1009752:($$0$jscomp$7_buf$jscomp$18$$, $$1$jscomp$3$$) => {
+  $$0$jscomp$7_buf$jscomp$18$$ >>>= 2;
   for (var $SDL3$jscomp$4$$ = $Module$$.SDL3, $numChannels$$ = $SDL3$jscomp$4$$.$audio_playback$.$currentPlaybackBuffer$.numberOfChannels, $c$jscomp$1$$ = 0; $c$jscomp$1$$ < $numChannels$$; ++$c$jscomp$1$$) {
     var $channelData$$ = $SDL3$jscomp$4$$.$audio_playback$.$currentPlaybackBuffer$.getChannelData($c$jscomp$1$$);
     if ($channelData$$.length != $$1$jscomp$3$$) {
       throw "Web Audio playback buffer length mismatch! Destination size: " + $channelData$$.length + " samples vs expected " + $$1$jscomp$3$$ + " samples!";
     }
     for (var $j$jscomp$1$$ = 0; $j$jscomp$1$$ < $$1$jscomp$3$$; ++$j$jscomp$1$$) {
-      $channelData$$[$j$jscomp$1$$] = $HEAPF32$$[$$0$jscomp$7_buf$jscomp$19$$ + ($j$jscomp$1$$ * $numChannels$$ + $c$jscomp$1$$) >>> 0];
+      $channelData$$[$j$jscomp$1$$] = $HEAPF32$$[$$0$jscomp$7_buf$jscomp$18$$ + ($j$jscomp$1$$ * $numChannels$$ + $c$jscomp$1$$) >>> 0];
     }
   }
-}, 1010585:($$0$jscomp$8$$, $$1$jscomp$4$$) => {
+}, 1010265:($$0$jscomp$8$$, $$1$jscomp$4$$) => {
   for (var $SDL3$jscomp$5$$ = $Module$$.SDL3, $numChannels$jscomp$1$$ = $SDL3$jscomp$5$$.$audio_recording$.$currentRecordingBuffer$.numberOfChannels, $c$jscomp$2$$ = 0; $c$jscomp$2$$ < $numChannels$jscomp$1$$; ++$c$jscomp$2$$) {
     var $channelData$jscomp$1$$ = $SDL3$jscomp$5$$.$audio_recording$.$currentRecordingBuffer$.getChannelData($c$jscomp$2$$);
     if ($channelData$jscomp$1$$.length != $$1$jscomp$4$$) {
@@ -2913,10 +2909,10 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
       }
     }
   }
-}, 1011212:() => {
+}, 1010892:() => {
   "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
   $Module$$.SDL3.$camera$ = {};
-}, 1011313:() => void 0 === navigator.mediaDevices ? 0 : 1, 1011372:($$0$jscomp$9_constraints$jscomp$8$$, $$1$jscomp$5$$, $$2$jscomp$3$$, $$3$jscomp$3$$, $$4$jscomp$1$$, $$5$$, $$6$$) => {
+}, 1010993:() => void 0 === navigator.mediaDevices ? 0 : 1, 1011052:($$0$jscomp$9_constraints$jscomp$8$$, $$1$jscomp$5$$, $$2$jscomp$3$$, $$3$jscomp$3$$, $$4$jscomp$1$$, $$5$$, $$6$$) => {
   function $grabNextCameraFrame$$() {
     const $SDL3$jscomp$6$$ = $Module$$.SDL3;
     if ("undefined" !== typeof $SDL3$jscomp$6$$ && "undefined" !== typeof $SDL3$jscomp$6$$.$camera$ && "undefined" !== typeof $SDL3$jscomp$6$$.$camera$.stream) {
@@ -2967,10 +2963,10 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     console.error("Tried to open camera but it threw an error! " + $err$jscomp$6$$.name + ": " + $err$jscomp$6$$.message);
     $dynCall$$("iiiiii", $$5$$, [$device$jscomp$12$$, 0, 0, 0, 0]);
   });
-}, 1013663:() => {
+}, 1013343:() => {
   const $SDL3$jscomp$8$$ = $Module$$.SDL3;
   "undefined" !== typeof $SDL3$jscomp$8$$ && "undefined" !== typeof $SDL3$jscomp$8$$.$camera$ && "undefined" !== typeof $SDL3$jscomp$8$$.$camera$.stream && ($SDL3$jscomp$8$$.$camera$.stream.getTracks().forEach($track$jscomp$4$$ => $track$jscomp$4$$.stop()), $SDL3$jscomp$8$$.$camera$ = {});
-}, 1013914:($$0$jscomp$10_imgrgba$$, $$1$jscomp$6$$, $$2$jscomp$4$$) => {
+}, 1013594:($$0$jscomp$10_imgrgba$$, $$1$jscomp$6$$, $$2$jscomp$4$$) => {
   const $SDL3$jscomp$9$$ = $Module$$.SDL3;
   if ("undefined" === typeof $SDL3$jscomp$9$$ || "undefined" === typeof $SDL3$jscomp$9$$.$camera$ || "undefined" === typeof $SDL3$jscomp$9$$.$camera$.$ctx2d$) {
     return 0;
@@ -2979,9 +2975,9 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
   $$0$jscomp$10_imgrgba$$ = $SDL3$jscomp$9$$.$camera$.$ctx2d$.getImageData(0, 0, $$0$jscomp$10_imgrgba$$, $$1$jscomp$6$$).data;
   $HEAPU8$$.set($$0$jscomp$10_imgrgba$$, $$2$jscomp$4$$ >>> 0);
   return 1;
-}, 1014292:() => {
+}, 1013972:() => {
   "undefined" !== typeof $Module$$.SDL3 && ($Module$$.SDL3.$camera$ = void 0);
-}, 1014379:($$0$jscomp$11_data8_src$jscomp$5$$, $$1$jscomp$7_data$jscomp$104_data32_i$jscomp$68$$, $$2$jscomp$5_num$jscomp$10$$, $$3$jscomp$4_SDL3$jscomp$10_canvasId$$) => {
+}, 1014059:($$0$jscomp$11_data8_src$jscomp$5$$, $$1$jscomp$7_data$jscomp$104_data32_i$jscomp$68$$, $$2$jscomp$5_num$jscomp$10$$, $$3$jscomp$4_SDL3$jscomp$10_canvasId$$) => {
   $$3$jscomp$4_SDL3$jscomp$10_canvasId$$ = $UTF8ToString$$($$3$jscomp$4_SDL3$jscomp$10_canvasId$$);
   var $canvas$jscomp$16_j$jscomp$3$$ = document.querySelector($$3$jscomp$4_SDL3$jscomp$10_canvasId$$);
   $Module$$.SDL3 || ($Module$$.SDL3 = {});
@@ -3012,7 +3008,7 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     }
   }
   $$3$jscomp$4_SDL3$jscomp$10_canvasId$$.$ctx$.putImageData($$3$jscomp$4_SDL3$jscomp$10_canvasId$$.image, 0, 0);
-}, 1015608:($$0$jscomp$12_image$jscomp$3$$, $$1$jscomp$8_data32$jscomp$1$$, $$2$jscomp$6_url$jscomp$34$$, $$3$jscomp$5_urlBuf$$, $$4$jscomp$2_src$jscomp$6$$) => {
+}, 1015288:($$0$jscomp$12_image$jscomp$3$$, $$1$jscomp$8_data32$jscomp$1$$, $$2$jscomp$6_url$jscomp$34$$, $$3$jscomp$5_urlBuf$$, $$4$jscomp$2_src$jscomp$6$$) => {
   var $canvas$jscomp$17$$ = document.createElement("canvas");
   $canvas$jscomp$17$$.width = $$0$jscomp$12_image$jscomp$3$$;
   $canvas$jscomp$17$$.height = $$1$jscomp$8_data32$jscomp$1$$;
@@ -3026,11 +3022,11 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
   $$3$jscomp$5_urlBuf$$ = $_SDL_malloc$$($$2$jscomp$6_url$jscomp$34$$.length + 1);
   $stringToUTF8$$($$2$jscomp$6_url$jscomp$34$$, $$3$jscomp$5_urlBuf$$, $$2$jscomp$6_url$jscomp$34$$.length + 1);
   return $$3$jscomp$5_urlBuf$$;
-}, 1016266:$$0$jscomp$13$$ => {
+}, 1015946:$$0$jscomp$13$$ => {
   $Module$$.canvas && ($Module$$.canvas.style.cursor = $UTF8ToString$$($$0$jscomp$13$$));
-}, 1016349:() => {
+}, 1016029:() => {
   $Module$$.canvas && ($Module$$.canvas.style.cursor = "none");
-}, 1016418:($$0$jscomp$14$$, $$1$jscomp$9_SDL3$jscomp$11$$, $$2$jscomp$7$$) => {
+}, 1016098:($$0$jscomp$14$$, $$1$jscomp$9_SDL3$jscomp$11$$, $$2$jscomp$7$$) => {
   var $target$jscomp$163$$ = document.querySelector($UTF8ToString$$($$1$jscomp$9_SDL3$jscomp$11$$));
   if ($target$jscomp$163$$) {
     "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
@@ -3073,7 +3069,7 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     $target$jscomp$163$$.addEventListener("pointerup", $$1$jscomp$9_SDL3$jscomp$11$$.$eventHandlerPointerGeneric$);
     $target$jscomp$163$$.addEventListener("pointermove", $$1$jscomp$9_SDL3$jscomp$11$$.$eventHandlerPointerGeneric$);
   }
-}, 1018211:($$0$jscomp$15$$, $$1$jscomp$10$$, $$2$jscomp$8$$) => {
+}, 1017891:($$0$jscomp$15$$, $$1$jscomp$10$$, $$2$jscomp$8$$) => {
   var $target$jscomp$164$$ = document.querySelector($UTF8ToString$$($$1$jscomp$10$$));
   if ($target$jscomp$164$$) {
     "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
@@ -3127,7 +3123,7 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     $target$jscomp$164$$.addEventListener("dragend", $SDL3$jscomp$12$$.$eventHandlerDropDragend$);
     $target$jscomp$164$$.addEventListener("dragleave", $SDL3$jscomp$12$$.$eventHandlerDropDragend$);
   }
-}, 1020364:$$0$jscomp$16_target$jscomp$165$$ => {
+}, 1020044:$$0$jscomp$16_target$jscomp$165$$ => {
   if ($$0$jscomp$16_target$jscomp$165$$ = document.querySelector($UTF8ToString$$($$0$jscomp$16_target$jscomp$165$$))) {
     var $SDL3$jscomp$13$$ = $Module$$.SDL3;
     $$0$jscomp$16_target$jscomp$165$$.removeEventListener("dragleave", $SDL3$jscomp$13$$.$eventHandlerDropDragend$);
@@ -3152,7 +3148,7 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     $SDL3$jscomp$13$$.$eventHandlerDropDrop$ = void 0;
     $SDL3$jscomp$13$$.$eventHandlerDropDragend$ = void 0;
   }
-}, 1021194:$$0$jscomp$17_target$jscomp$166$$ => {
+}, 1020874:$$0$jscomp$17_target$jscomp$166$$ => {
   if ($$0$jscomp$17_target$jscomp$166$$ = document.querySelector($UTF8ToString$$($$0$jscomp$17_target$jscomp$166$$))) {
     var $SDL3$jscomp$14$$ = $Module$$.SDL3;
     $$0$jscomp$17_target$jscomp$166$$.removeEventListener("pointerenter", $SDL3$jscomp$14$$.$eventHandlerPointerEnter$);
@@ -3165,21 +3161,21 @@ var $ASM_CONSTS$$ = {1003980:$$0_reply_str$jscomp$17$$ => {
     $SDL3$jscomp$14$$.$eventHandlerPointerLeave$ = void 0;
     $SDL3$jscomp$14$$.$eventHandlerPointerGeneric$ = void 0;
   }
-}, 1021879:() => window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)").matches ? 0 : window.matchMedia("(prefers-color-scheme: dark)").matches ? 1 : -1 : -1, 1022088:() => {
+}, 1021559:() => window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)").matches ? 0 : window.matchMedia("(prefers-color-scheme: dark)").matches ? 1 : -1 : -1, 1021768:() => {
   if ("undefined" !== typeof $Module$$.SDL3) {
     var $SDL3$jscomp$15$$ = $Module$$.SDL3;
     $SDL3$jscomp$15$$.$themeChangedMatchMedia$.removeEventListener("change", $SDL3$jscomp$15$$.$eventHandlerThemeChanged$);
     $SDL3$jscomp$15$$.$themeChangedMatchMedia$ = void 0;
     $SDL3$jscomp$15$$.$eventHandlerThemeChanged$ = void 0;
   }
-}, 1022341:() => window.innerWidth, 1022371:() => window.innerHeight, 1022402:$$0$jscomp$18$$ => {
+}, 1022021:() => window.innerWidth, 1022051:() => window.innerHeight, 1022082:$$0$jscomp$18$$ => {
   $Module$$.requestFullscreen = function() {
     $_requestFullscreenThroughSDL$$($$0$jscomp$18$$);
   };
-}, 1022511:() => {
+}, 1022191:() => {
   $Module$$.requestFullscreen = function() {
   };
-}, 1022585:() => {
+}, 1022265:() => {
   if (window.matchMedia) {
     "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
     var $SDL3$jscomp$16$$ = $Module$$.SDL3;
@@ -3333,11 +3329,11 @@ $wasmImports$$ = {__assert_fail:function($condition$jscomp$3$$, $filename$jscomp
     }
     return -$e$jscomp$31$$.$errno$;
   }
-}, __syscall_ioctl:function($fd$jscomp$37$$, $JSCompiler_object_inline_c_cc_380_c_cc_op$jscomp$1$$, $varargs$jscomp$1$$) {
+}, __syscall_ioctl:function($fd$jscomp$37$$, $JSCompiler_object_inline_c_cc_413_c_cc_op$jscomp$1$$, $varargs$jscomp$1$$) {
   $SYSCALLS$varargs$$ = $varargs$jscomp$1$$ >>> 0;
   try {
     var $stream$jscomp$56$$ = $FS$getStreamChecked$$($fd$jscomp$37$$);
-    switch($JSCompiler_object_inline_c_cc_380_c_cc_op$jscomp$1$$) {
+    switch($JSCompiler_object_inline_c_cc_413_c_cc_op$jscomp$1$$) {
       case 21509:
         return $stream$jscomp$56$$.tty ? 0 : -59;
       case 21505:
@@ -3345,14 +3341,14 @@ $wasmImports$$ = {__assert_fail:function($condition$jscomp$3$$, $filename$jscomp
           return -59;
         }
         if ($stream$jscomp$56$$.tty.$ops$.$ioctl_tcgets$) {
-          $JSCompiler_object_inline_c_cc_380_c_cc_op$jscomp$1$$ = [3, 28, 127, 21, 4, 0, 1, 0, 17, 19, 26, 0, 18, 15, 23, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+          $JSCompiler_object_inline_c_cc_413_c_cc_op$jscomp$1$$ = [3, 28, 127, 21, 4, 0, 1, 0, 17, 19, 26, 0, 18, 15, 23, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
           var $arg$jscomp$inline_245_argp$$ = $syscallGetVarargI$$();
           $HEAP32$$[$arg$jscomp$inline_245_argp$$ >>> 2 >>> 0] = 25856;
           $HEAP32$$[$arg$jscomp$inline_245_argp$$ + 4 >>> 2 >>> 0] = 5;
           $HEAP32$$[$arg$jscomp$inline_245_argp$$ + 8 >>> 2 >>> 0] = 191;
           $HEAP32$$[$arg$jscomp$inline_245_argp$$ + 12 >>> 2 >>> 0] = 35387;
           for (var $i$jscomp$21_winsize$$ = 0; 32 > $i$jscomp$21_winsize$$; $i$jscomp$21_winsize$$++) {
-            $HEAP8$$[$arg$jscomp$inline_245_argp$$ + $i$jscomp$21_winsize$$ + 17 >>> 0] = $JSCompiler_object_inline_c_cc_380_c_cc_op$jscomp$1$$[$i$jscomp$21_winsize$$] || 0;
+            $HEAP8$$[$arg$jscomp$inline_245_argp$$ + $i$jscomp$21_winsize$$ + 17 >>> 0] = $JSCompiler_object_inline_c_cc_413_c_cc_op$jscomp$1$$[$i$jscomp$21_winsize$$] || 0;
           }
         }
         return 0;
@@ -3367,8 +3363,8 @@ $wasmImports$$ = {__assert_fail:function($condition$jscomp$3$$, $filename$jscomp
           return -59;
         }
         if ($stream$jscomp$56$$.tty.$ops$.$ioctl_tcsets$) {
-          for ($arg$jscomp$inline_245_argp$$ = $syscallGetVarargI$$(), $JSCompiler_object_inline_c_cc_380_c_cc_op$jscomp$1$$ = [], $i$jscomp$21_winsize$$ = 0; 32 > $i$jscomp$21_winsize$$; $i$jscomp$21_winsize$$++) {
-            $JSCompiler_object_inline_c_cc_380_c_cc_op$jscomp$1$$.push($HEAP8$$[$arg$jscomp$inline_245_argp$$ + $i$jscomp$21_winsize$$ + 17 >>> 0]);
+          for ($arg$jscomp$inline_245_argp$$ = $syscallGetVarargI$$(), $JSCompiler_object_inline_c_cc_413_c_cc_op$jscomp$1$$ = [], $i$jscomp$21_winsize$$ = 0; 32 > $i$jscomp$21_winsize$$; $i$jscomp$21_winsize$$++) {
+            $JSCompiler_object_inline_c_cc_413_c_cc_op$jscomp$1$$.push($HEAP8$$[$arg$jscomp$inline_245_argp$$ + $i$jscomp$21_winsize$$ + 17 >>> 0]);
           }
         }
         return 0;
@@ -3386,7 +3382,7 @@ $wasmImports$$ = {__assert_fail:function($condition$jscomp$3$$, $filename$jscomp
         if (!$stream$jscomp$56$$.$stream_ops$.$ioctl$) {
           throw new $FS$ErrnoError$$(59);
         }
-        return $stream$jscomp$56$$.$stream_ops$.$ioctl$($stream$jscomp$56$$, $JSCompiler_object_inline_c_cc_380_c_cc_op$jscomp$1$$, $arg$jscomp$inline_245_argp$$);
+        return $stream$jscomp$56$$.$stream_ops$.$ioctl$($stream$jscomp$56$$, $JSCompiler_object_inline_c_cc_413_c_cc_op$jscomp$1$$, $arg$jscomp$inline_245_argp$$);
       case 21523:
         if (!$stream$jscomp$56$$.tty) {
           return -59;
@@ -3447,57 +3443,29 @@ $wasmImports$$ = {__assert_fail:function($condition$jscomp$3$$, $filename$jscomp
     }
     return -$e$jscomp$35$$.$errno$;
   }
-}, __syscall_readlinkat:function($dirfd$jscomp$3$$, $path$jscomp$79$$, $buf$jscomp$16$$, $bufsize$$) {
+}, __syscall_stat64:function($path$jscomp$79$$, $buf$jscomp$16$$) {
   $path$jscomp$79$$ >>>= 0;
   $buf$jscomp$16$$ >>>= 0;
-  $bufsize$$ >>>= 0;
   try {
-    $path$jscomp$79$$ = $UTF8ToString$$($path$jscomp$79$$);
-    $path$jscomp$79$$ = $SYSCALLS$calculateAt$$($dirfd$jscomp$3$$, $path$jscomp$79$$);
-    if (0 >= $bufsize$$) {
-      return -28;
-    }
-    var $link$jscomp$inline_248$$ = $FS$lookupPath$$($path$jscomp$79$$).node;
-    if (!$link$jscomp$inline_248$$) {
-      throw new $FS$ErrnoError$$(44);
-    }
-    if (!$link$jscomp$inline_248$$.$node_ops$.readlink) {
-      throw new $FS$ErrnoError$$(28);
-    }
-    var $ret$jscomp$7$$ = $link$jscomp$inline_248$$.$node_ops$.readlink($link$jscomp$inline_248$$);
-    var $len$jscomp$10$$ = Math.min($bufsize$$, $lengthBytesUTF8$$($ret$jscomp$7$$)), $endChar$$ = $HEAP8$$[$buf$jscomp$16$$ + $len$jscomp$10$$ >>> 0];
-    $stringToUTF8$$($ret$jscomp$7$$, $buf$jscomp$16$$, $bufsize$$ + 1);
-    $HEAP8$$[$buf$jscomp$16$$ + $len$jscomp$10$$ >>> 0] = $endChar$$;
-    return $len$jscomp$10$$;
+    return $path$jscomp$79$$ = $UTF8ToString$$($path$jscomp$79$$), $SYSCALLS$writeStat$$($buf$jscomp$16$$, $FS$stat$$($path$jscomp$79$$));
   } catch ($e$jscomp$36$$) {
     if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$36$$.name) {
       throw $e$jscomp$36$$;
     }
     return -$e$jscomp$36$$.$errno$;
   }
-}, __syscall_stat64:function($path$jscomp$80$$, $buf$jscomp$17$$) {
-  $path$jscomp$80$$ >>>= 0;
-  $buf$jscomp$17$$ >>>= 0;
-  try {
-    return $path$jscomp$80$$ = $UTF8ToString$$($path$jscomp$80$$), $SYSCALLS$writeStat$$($buf$jscomp$17$$, $FS$stat$$($path$jscomp$80$$));
-  } catch ($e$jscomp$37$$) {
-    if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$37$$.name) {
-      throw $e$jscomp$37$$;
-    }
-    return -$e$jscomp$37$$.$errno$;
-  }
 }, _abort_js:() => $abort$$("native code called abort()"), _emscripten_fs_load_embedded_files:function($ptr$jscomp$10$$) {
   $ptr$jscomp$10$$ >>>= 0;
   do {
     var $name$jscomp$106_name_addr$$ = $HEAPU32$$[$ptr$jscomp$10$$ >>> 2 >>> 0];
     $ptr$jscomp$10$$ += 4;
-    var $len$jscomp$11$$ = $HEAPU32$$[$ptr$jscomp$10$$ >>> 2 >>> 0];
+    var $len$jscomp$10$$ = $HEAPU32$$[$ptr$jscomp$10$$ >>> 2 >>> 0];
     $ptr$jscomp$10$$ += 4;
     var $content$$ = $HEAPU32$$[$ptr$jscomp$10$$ >>> 2 >>> 0];
     $ptr$jscomp$10$$ += 4;
     $name$jscomp$106_name_addr$$ = $UTF8ToString$$($name$jscomp$106_name_addr$$);
     $FS$createPath$$("/", $PATH$dirname$$($name$jscomp$106_name_addr$$));
-    $FS$createDataFile$$($name$jscomp$106_name_addr$$, null, $HEAP8$$.subarray($content$$ >>> 0, $content$$ + $len$jscomp$11$$ >>> 0), !0, !0, !0);
+    $FS$createDataFile$$($name$jscomp$106_name_addr$$, null, $HEAP8$$.subarray($content$$ >>> 0, $content$$ + $len$jscomp$10$$ >>> 0), !0, !0, !0);
   } while ($HEAPU32$$[$ptr$jscomp$10$$ >>> 2 >>> 0]);
 }, _gmtime_js:function($date$jscomp$3_time$$, $tmPtr$$) {
   $date$jscomp$3_time$$ = $bigintToI53Checked$$($date$jscomp$3_time$$);
@@ -3522,12 +3490,12 @@ $wasmImports$$ = {__assert_fail:function($condition$jscomp$3$$, $filename$jscomp
   $HEAP32$$[$tmPtr$jscomp$1$$ + 16 >>> 2 >>> 0] = $date$jscomp$5_time$jscomp$1$$.getMonth();
   $HEAP32$$[$tmPtr$jscomp$1$$ + 20 >>> 2 >>> 0] = $date$jscomp$5_time$jscomp$1$$.getFullYear() - 1900;
   $HEAP32$$[$tmPtr$jscomp$1$$ + 24 >>> 2 >>> 0] = $date$jscomp$5_time$jscomp$1$$.getDay();
-  var $summerOffset_year$jscomp$inline_479$$ = $date$jscomp$5_time$jscomp$1$$.getFullYear();
-  $HEAP32$$[$tmPtr$jscomp$1$$ + 28 >>> 2 >>> 0] = (0 !== $summerOffset_year$jscomp$inline_479$$ % 4 || 0 === $summerOffset_year$jscomp$inline_479$$ % 100 && 0 !== $summerOffset_year$jscomp$inline_479$$ % 400 ? $MONTH_DAYS_REGULAR_CUMULATIVE$$ : $MONTH_DAYS_LEAP_CUMULATIVE$$)[$date$jscomp$5_time$jscomp$1$$.getMonth()] + $date$jscomp$5_time$jscomp$1$$.getDate() - 1 | 0;
+  var $summerOffset_year$jscomp$inline_512$$ = $date$jscomp$5_time$jscomp$1$$.getFullYear();
+  $HEAP32$$[$tmPtr$jscomp$1$$ + 28 >>> 2 >>> 0] = (0 !== $summerOffset_year$jscomp$inline_512$$ % 4 || 0 === $summerOffset_year$jscomp$inline_512$$ % 100 && 0 !== $summerOffset_year$jscomp$inline_512$$ % 400 ? $MONTH_DAYS_REGULAR_CUMULATIVE$$ : $MONTH_DAYS_LEAP_CUMULATIVE$$)[$date$jscomp$5_time$jscomp$1$$.getMonth()] + $date$jscomp$5_time$jscomp$1$$.getDate() - 1 | 0;
   $HEAP32$$[$tmPtr$jscomp$1$$ + 36 >>> 2 >>> 0] = -(60 * $date$jscomp$5_time$jscomp$1$$.getTimezoneOffset());
-  $summerOffset_year$jscomp$inline_479$$ = (new Date($date$jscomp$5_time$jscomp$1$$.getFullYear(), 6, 1)).getTimezoneOffset();
+  $summerOffset_year$jscomp$inline_512$$ = (new Date($date$jscomp$5_time$jscomp$1$$.getFullYear(), 6, 1)).getTimezoneOffset();
   var $winterOffset$$ = (new Date($date$jscomp$5_time$jscomp$1$$.getFullYear(), 0, 1)).getTimezoneOffset();
-  $HEAP32$$[$tmPtr$jscomp$1$$ + 32 >>> 2 >>> 0] = ($summerOffset_year$jscomp$inline_479$$ != $winterOffset$$ && $date$jscomp$5_time$jscomp$1$$.getTimezoneOffset() == Math.min($winterOffset$$, $summerOffset_year$jscomp$inline_479$$)) | 0;
+  $HEAP32$$[$tmPtr$jscomp$1$$ + 32 >>> 2 >>> 0] = ($summerOffset_year$jscomp$inline_512$$ != $winterOffset$$ && $date$jscomp$5_time$jscomp$1$$.getTimezoneOffset() == Math.min($winterOffset$$, $summerOffset_year$jscomp$inline_512$$)) | 0;
 }, _tzset_js:function($timezone_winterName$$, $daylight_extractZone_summerName$$, $std_name$$, $dst_name$$) {
   $std_name$$ >>>= 0;
   $dst_name$$ >>>= 0;
@@ -3777,10 +3745,10 @@ $x4$jscomp$1$$, $x5$jscomp$1$$, $x6$jscomp$1$$, $x7$jscomp$1$$), emscripten_glCr
 }, emscripten_glGetAttachedShaders:function($program$jscomp$71_result$jscomp$7$$, $i$jscomp$39_maxCount$$, $count$jscomp$47$$, $shaders$$) {
   $shaders$$ >>>= 0;
   $program$jscomp$71_result$jscomp$7$$ = $GLctx$$.getAttachedShaders($GL$programs$$[$program$jscomp$71_result$jscomp$7$$]);
-  var $len$jscomp$13$$ = $program$jscomp$71_result$jscomp$7$$.length;
-  $len$jscomp$13$$ > $i$jscomp$39_maxCount$$ && ($len$jscomp$13$$ = $i$jscomp$39_maxCount$$);
-  $HEAP32$$[$count$jscomp$47$$ >>> 0 >>> 2 >>> 0] = $len$jscomp$13$$;
-  for ($i$jscomp$39_maxCount$$ = 0; $i$jscomp$39_maxCount$$ < $len$jscomp$13$$; ++$i$jscomp$39_maxCount$$) {
+  var $len$jscomp$12$$ = $program$jscomp$71_result$jscomp$7$$.length;
+  $len$jscomp$12$$ > $i$jscomp$39_maxCount$$ && ($len$jscomp$12$$ = $i$jscomp$39_maxCount$$);
+  $HEAP32$$[$count$jscomp$47$$ >>> 0 >>> 2 >>> 0] = $len$jscomp$12$$;
+  for ($i$jscomp$39_maxCount$$ = 0; $i$jscomp$39_maxCount$$ < $len$jscomp$12$$; ++$i$jscomp$39_maxCount$$) {
     $HEAP32$$[$shaders$$ + 4 * $i$jscomp$39_maxCount$$ >>> 2 >>> 0] = $GL$shaders$$.indexOf($program$jscomp$71_result$jscomp$7$$[$i$jscomp$39_maxCount$$]);
   }
 }, emscripten_glGetAttribLocation:function($program$jscomp$72$$, $name$jscomp$116$$) {
@@ -3874,34 +3842,34 @@ $x4$jscomp$1$$, $x5$jscomp$1$$, $x6$jscomp$1$$, $x7$jscomp$1$$), emscripten_glCr
   $pname$jscomp$32$$ ? ($log$jscomp$3_shader$jscomp$17_source$jscomp$19$$ = $GLctx$$.getShaderSource($GL$shaders$$[$log$jscomp$3_shader$jscomp$17_source$jscomp$19$$]), $HEAP32$$[$p$jscomp$12$$ >>> 2 >>> 0] = $log$jscomp$3_shader$jscomp$17_source$jscomp$19$$ ? $log$jscomp$3_shader$jscomp$17_source$jscomp$19$$.length + 1 : 0) : $HEAP32$$[$p$jscomp$12$$ >>> 2 >>> 0] = $GLctx$$.getShaderParameter($GL$shaders$$[$log$jscomp$3_shader$jscomp$17_source$jscomp$19$$], $pname$jscomp$32$$) : $GL$lastError$$ ||= 
   1281;
 }, emscripten_glGetString:function($name_$jscomp$4$$) {
-  var $glslVersion_ret$jscomp$16_s$jscomp$6$$ = $GL$stringCache$$[$name_$jscomp$4$$];
-  if (!$glslVersion_ret$jscomp$16_s$jscomp$6$$) {
+  var $glslVersion_ret$jscomp$15_s$jscomp$6$$ = $GL$stringCache$$[$name_$jscomp$4$$];
+  if (!$glslVersion_ret$jscomp$15_s$jscomp$6$$) {
     switch($name_$jscomp$4$$) {
       case 7939:
-        $glslVersion_ret$jscomp$16_s$jscomp$6$$ = $stringToNewUTF8$$($webglGetExtensions$$().join(" "));
+        $glslVersion_ret$jscomp$15_s$jscomp$6$$ = $stringToNewUTF8$$($webglGetExtensions$$().join(" "));
         break;
       case 7936:
       case 7937:
       case 37445:
       case 37446:
-        ($glslVersion_ret$jscomp$16_s$jscomp$6$$ = $GLctx$$.getParameter($name_$jscomp$4$$)) || ($GL$lastError$$ ||= 1280);
-        $glslVersion_ret$jscomp$16_s$jscomp$6$$ = $glslVersion_ret$jscomp$16_s$jscomp$6$$ ? $stringToNewUTF8$$($glslVersion_ret$jscomp$16_s$jscomp$6$$) : 0;
+        ($glslVersion_ret$jscomp$15_s$jscomp$6$$ = $GLctx$$.getParameter($name_$jscomp$4$$)) || ($GL$lastError$$ ||= 1280);
+        $glslVersion_ret$jscomp$15_s$jscomp$6$$ = $glslVersion_ret$jscomp$15_s$jscomp$6$$ ? $stringToNewUTF8$$($glslVersion_ret$jscomp$15_s$jscomp$6$$) : 0;
         break;
       case 7938:
-        $glslVersion_ret$jscomp$16_s$jscomp$6$$ = $stringToNewUTF8$$(`OpenGL ES 2.0 (${$GLctx$$.getParameter(7938)})`);
+        $glslVersion_ret$jscomp$15_s$jscomp$6$$ = $stringToNewUTF8$$(`OpenGL ES 2.0 (${$GLctx$$.getParameter(7938)})`);
         break;
       case 35724:
-        $glslVersion_ret$jscomp$16_s$jscomp$6$$ = $GLctx$$.getParameter(35724);
-        var $ver_num$$ = $glslVersion_ret$jscomp$16_s$jscomp$6$$.match(/^WebGL GLSL ES ([0-9]\.[0-9][0-9]?)(?:$| .*)/);
-        null !== $ver_num$$ && (3 == $ver_num$$[1].length && ($ver_num$$[1] += "0"), $glslVersion_ret$jscomp$16_s$jscomp$6$$ = `OpenGL ES GLSL ES ${$ver_num$$[1]} (${$glslVersion_ret$jscomp$16_s$jscomp$6$$})`);
-        $glslVersion_ret$jscomp$16_s$jscomp$6$$ = $stringToNewUTF8$$($glslVersion_ret$jscomp$16_s$jscomp$6$$);
+        $glslVersion_ret$jscomp$15_s$jscomp$6$$ = $GLctx$$.getParameter(35724);
+        var $ver_num$$ = $glslVersion_ret$jscomp$15_s$jscomp$6$$.match(/^WebGL GLSL ES ([0-9]\.[0-9][0-9]?)(?:$| .*)/);
+        null !== $ver_num$$ && (3 == $ver_num$$[1].length && ($ver_num$$[1] += "0"), $glslVersion_ret$jscomp$15_s$jscomp$6$$ = `OpenGL ES GLSL ES ${$ver_num$$[1]} (${$glslVersion_ret$jscomp$15_s$jscomp$6$$})`);
+        $glslVersion_ret$jscomp$15_s$jscomp$6$$ = $stringToNewUTF8$$($glslVersion_ret$jscomp$15_s$jscomp$6$$);
         break;
       default:
         $GL$lastError$$ ||= 1280;
     }
-    $GL$stringCache$$[$name_$jscomp$4$$] = $glslVersion_ret$jscomp$16_s$jscomp$6$$;
+    $GL$stringCache$$[$name_$jscomp$4$$] = $glslVersion_ret$jscomp$15_s$jscomp$6$$;
   }
-  return $glslVersion_ret$jscomp$16_s$jscomp$6$$;
+  return $glslVersion_ret$jscomp$15_s$jscomp$6$$;
 }, emscripten_glGetTexParameterfv:function($target$jscomp$120$$, $pname$jscomp$33$$, $params$jscomp$6$$) {
   ($params$jscomp$6$$ >>>= 0) ? $HEAPF32$$[$params$jscomp$6$$ >>> 2 >>> 0] = $GLctx$$.getTexParameter($target$jscomp$120$$, $pname$jscomp$33$$) : $GL$lastError$$ ||= 1281;
 }, emscripten_glGetTexParameteriv:function($target$jscomp$121$$, $pname$jscomp$34$$, $params$jscomp$7$$) {
@@ -3953,13 +3921,13 @@ $GL$renderbuffers$$[$rb_renderbuffer$jscomp$5$$]) ? $GLctx$$.isRenderbuffer($rb_
   $GLctx$$.sampleCoverage($value$jscomp$114$$, !!$invert$jscomp$1$$);
 }, emscripten_glScissor:($x0$jscomp$27$$, $x1$jscomp$16$$, $x2$jscomp$9$$, $x3$jscomp$6$$) => $GLctx$$.scissor($x0$jscomp$27$$, $x1$jscomp$16$$, $x2$jscomp$9$$, $x3$jscomp$6$$), emscripten_glShaderBinary:function() {
   $GL$lastError$$ ||= 1280;
-}, emscripten_glShaderSource:function($shader$jscomp$19$$, $count$jscomp$49$$, $string$jscomp$15_string$jscomp$inline_286$$, $length$jscomp$52_length$jscomp$inline_287$$) {
-  $string$jscomp$15_string$jscomp$inline_286$$ >>>= 0;
-  $length$jscomp$52_length$jscomp$inline_287$$ >>>= 0;
-  for (var $source$jscomp$inline_288$$ = "", $i$jscomp$inline_289$$ = 0; $i$jscomp$inline_289$$ < $count$jscomp$49$$; ++$i$jscomp$inline_289$$) {
-    $source$jscomp$inline_288$$ += $UTF8ToString$$($HEAPU32$$[$string$jscomp$15_string$jscomp$inline_286$$ + 4 * $i$jscomp$inline_289$$ >>> 2 >>> 0], $length$jscomp$52_length$jscomp$inline_287$$ ? $HEAPU32$$[$length$jscomp$52_length$jscomp$inline_287$$ + 4 * $i$jscomp$inline_289$$ >>> 2 >>> 0] : void 0);
+}, emscripten_glShaderSource:function($shader$jscomp$19$$, $count$jscomp$49$$, $string$jscomp$15_string$jscomp$inline_283$$, $length$jscomp$52_length$jscomp$inline_284$$) {
+  $string$jscomp$15_string$jscomp$inline_283$$ >>>= 0;
+  $length$jscomp$52_length$jscomp$inline_284$$ >>>= 0;
+  for (var $source$jscomp$inline_285$$ = "", $i$jscomp$inline_286$$ = 0; $i$jscomp$inline_286$$ < $count$jscomp$49$$; ++$i$jscomp$inline_286$$) {
+    $source$jscomp$inline_285$$ += $UTF8ToString$$($HEAPU32$$[$string$jscomp$15_string$jscomp$inline_283$$ + 4 * $i$jscomp$inline_286$$ >>> 2 >>> 0], $length$jscomp$52_length$jscomp$inline_284$$ ? $HEAPU32$$[$length$jscomp$52_length$jscomp$inline_284$$ + 4 * $i$jscomp$inline_286$$ >>> 2 >>> 0] : void 0);
   }
-  $GLctx$$.shaderSource($GL$shaders$$[$shader$jscomp$19$$], $source$jscomp$inline_288$$);
+  $GLctx$$.shaderSource($GL$shaders$$[$shader$jscomp$19$$], $source$jscomp$inline_285$$);
 }, emscripten_glStencilFunc:($x0$jscomp$28$$, $x1$jscomp$17$$, $x2$jscomp$10$$) => $GLctx$$.stencilFunc($x0$jscomp$28$$, $x1$jscomp$17$$, $x2$jscomp$10$$), emscripten_glStencilFuncSeparate:($x0$jscomp$29$$, $x1$jscomp$18$$, $x2$jscomp$11$$, $x3$jscomp$7$$) => $GLctx$$.stencilFuncSeparate($x0$jscomp$29$$, $x1$jscomp$18$$, $x2$jscomp$11$$, $x3$jscomp$7$$), emscripten_glStencilMask:$x0$jscomp$30$$ => $GLctx$$.stencilMask($x0$jscomp$30$$), emscripten_glStencilMaskSeparate:($x0$jscomp$31$$, $x1$jscomp$19$$) => 
 $GLctx$$.stencilMaskSeparate($x0$jscomp$31$$, $x1$jscomp$19$$), emscripten_glStencilOp:($x0$jscomp$32$$, $x1$jscomp$20$$, $x2$jscomp$12$$) => $GLctx$$.stencilOp($x0$jscomp$32$$, $x1$jscomp$20$$, $x2$jscomp$12$$), emscripten_glStencilOpSeparate:($x0$jscomp$33$$, $x1$jscomp$21$$, $x2$jscomp$13$$, $x3$jscomp$8$$) => $GLctx$$.stencilOpSeparate($x0$jscomp$33$$, $x1$jscomp$21$$, $x2$jscomp$13$$, $x3$jscomp$8$$), emscripten_glTexImage2D:function($target$jscomp$123$$, $level$jscomp$22$$, $internalFormat$jscomp$2$$, 
 $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$, $type$jscomp$189$$, $pixelData$jscomp$1_pixels$jscomp$3$$) {
@@ -4167,22 +4135,22 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
     return $err$$(`Cannot enlarge memory, requested ${$requestedSize$$} bytes, but the limit is ${4294901760} bytes!`), !1;
   }
   for (var $cutDown$$ = 1; 4 >= $cutDown$$; $cutDown$$ *= 2) {
-    var $oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$ = $oldSize$$ * (1 + .2 / $cutDown$$);
-    $oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$ = Math.min($oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$, $requestedSize$$ + 100663296);
-    var $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$ = Math, $JSCompiler_temp_const$jscomp$30_size$jscomp$inline_294$$ = $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$.min;
-    $oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$ = Math.max($requestedSize$$, $oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$);
+    var $oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$ = $oldSize$$ * (1 + .2 / $cutDown$$);
+    $oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$ = Math.min($oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$, $requestedSize$$ + 100663296);
+    var $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$ = Math, $JSCompiler_temp_const$jscomp$30_size$jscomp$inline_291$$ = $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$.min;
+    $oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$ = Math.max($requestedSize$$, $oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$);
     $assert$$(65536, "alignment argument is required");
-    $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$ = $JSCompiler_temp_const$jscomp$30_size$jscomp$inline_294$$.call($JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$, 4294901760, 65536 * Math.ceil($oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$ / 65536));
+    $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$ = $JSCompiler_temp_const$jscomp$30_size$jscomp$inline_291$$.call($JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$, 4294901760, 65536 * Math.ceil($oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$ / 65536));
     a: {
-      $JSCompiler_temp_const$jscomp$30_size$jscomp$inline_294$$ = $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$;
-      $oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$ = $wasmMemory$$.buffer.byteLength;
+      $JSCompiler_temp_const$jscomp$30_size$jscomp$inline_291$$ = $JSCompiler_temp_const$jscomp$31_newSize$jscomp$2$$;
+      $oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$ = $wasmMemory$$.buffer.byteLength;
       try {
-        $wasmMemory$$.grow(($JSCompiler_temp_const$jscomp$30_size$jscomp$inline_294$$ - $oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$ + 65535) / 65536 | 0);
+        $wasmMemory$$.grow(($JSCompiler_temp_const$jscomp$30_size$jscomp$inline_291$$ - $oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$ + 65535) / 65536 | 0);
         $updateMemoryViews$$();
         var $JSCompiler_inline_result$jscomp$33$$ = 1;
         break a;
-      } catch ($e$jscomp$inline_297$$) {
-        $err$$(`growMemory: Attempted to grow heap from ${$oldHeapSize$jscomp$inline_295_overGrownHeapSize_size$jscomp$inline_291$$} bytes to ${$JSCompiler_temp_const$jscomp$30_size$jscomp$inline_294$$} bytes, but got error: ${$e$jscomp$inline_297$$}`);
+      } catch ($e$jscomp$inline_294$$) {
+        $err$$(`growMemory: Attempted to grow heap from ${$oldHeapSize$jscomp$inline_292_overGrownHeapSize_size$jscomp$inline_288$$} bytes to ${$JSCompiler_temp_const$jscomp$30_size$jscomp$inline_291$$} bytes, but got error: ${$e$jscomp$inline_294$$}`);
       }
       $JSCompiler_inline_result$jscomp$33$$ = void 0;
     }
@@ -4283,13 +4251,13 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
   1 !== $attributes$jscomp$1_contextAttributes$jscomp$1$$.$majorVersion$ && $err$$("WebGL 2 requested but only WebGL 1 is supported (set -sMAX_WEBGL_VERSION=2 to fix the problem)");
   $canvas$jscomp$13_target$jscomp$162$$ = $findEventTarget$$($canvas$jscomp$13_target$jscomp$162$$);
   return !$canvas$jscomp$13_target$jscomp$162$$ || $attributes$jscomp$1_contextAttributes$jscomp$1$$.$explicitSwapControl$ ? 0 : $GL$createContext$$($canvas$jscomp$13_target$jscomp$162$$, $attributes$jscomp$1_contextAttributes$jscomp$1$$);
-}, emscripten_webgl_destroy_context:function($contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$) {
-  $contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$ >>>= 0;
-  $GL$currentContext$$ == $contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$ && ($GL$currentContext$$ = 0);
-  $GL$currentContext$$ === $GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$] && ($GL$currentContext$$ = null);
-  "object" == typeof $JSEvents$$ && $JSEvents$$.$removeAllHandlersOnTarget$($GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$].$GLctx$.canvas);
-  $GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$]?.$GLctx$.canvas && ($GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$].$GLctx$.canvas.$GLctxObject$ = void 0);
-  $GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_299$$] = null;
+}, emscripten_webgl_destroy_context:function($contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$) {
+  $contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$ >>>= 0;
+  $GL$currentContext$$ == $contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$ && ($GL$currentContext$$ = 0);
+  $GL$currentContext$$ === $GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$] && ($GL$currentContext$$ = null);
+  "object" == typeof $JSEvents$$ && $JSEvents$$.$removeAllHandlersOnTarget$($GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$].$GLctx$.canvas);
+  $GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$]?.$GLctx$.canvas && ($GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$].$GLctx$.canvas.$GLctxObject$ = void 0);
+  $GL$contexts$$[$contextHandle$jscomp$5_contextHandle$jscomp$inline_296$$] = null;
 }, emscripten_webgl_make_context_current:function($contextHandle$jscomp$6$$) {
   return $GL$makeContextCurrent$$($contextHandle$jscomp$6$$ >>> 0) ? 0 : -5;
 }, emwgpuAdapterRequestDevice:function($adapter_adapterPtr$$, $futureId$jscomp$1$$, $deviceLostFutureId$$, $devicePtr$jscomp$1$$, $queuePtr$jscomp$1$$, $descriptor$jscomp$3$$) {
@@ -4321,7 +4289,7 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
         $limitOffset$jscomp$3_ptr$jscomp$48$$ = $limitsPtr$$ + $limitOffset$jscomp$3_ptr$jscomp$48$$;
         var $limitPart2$$ = $HEAPU32$$[$limitOffset$jscomp$3_ptr$jscomp$48$$ + 4 >>> 2 >>> 0];
         if (4294967295 != $HEAPU32$$[$limitOffset$jscomp$3_ptr$jscomp$48$$ >>> 2 >>> 0] || 4294967295 != $limitPart2$$) {
-          $requiredLimits$$[$name$jscomp$122$$] = 4294967296 * $HEAPU32$$[$limitOffset$jscomp$3_ptr$jscomp$48$$ + 4 >>> 2 >>> 0] + $HEAPU32$$[$limitOffset$jscomp$3_ptr$jscomp$48$$ >>> 2 >>> 0];
+          $requiredLimits$$[$name$jscomp$122$$] = $readI53FromI64$$($limitOffset$jscomp$3_ptr$jscomp$48$$);
         }
       }
       $setLimitU32IfDefined$$("maxTextureDimension1D", 4);
@@ -4363,33 +4331,39 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
     $desc$jscomp$5$$.label = $WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$3$$ + 4);
   }
   $WebGPU$Internals$futureInsert$$($futureId$jscomp$1$$, $adapter_adapterPtr$$.requestDevice($desc$jscomp$5$$).then($device$jscomp$2$$ => {
-    $WebGPU$Internals$jsObjectInsert$$($queuePtr$jscomp$1$$, $device$jscomp$2$$.queue);
-    $WebGPU$Internals$jsObjectInsert$$($devicePtr$jscomp$1$$, $device$jscomp$2$$);
-    $deviceLostFutureId$$ && $WebGPU$Internals$futureInsert$$($deviceLostFutureId$$, $device$jscomp$2$$.lost.then($info$jscomp$4$$ => {
-      $device$jscomp$2$$.onuncapturederror = () => {
+    $callUserCallback$$(() => {
+      $WebGPU$Internals$jsObjects$$[$queuePtr$jscomp$1$$ >>> 0] = $device$jscomp$2$$.queue;
+      $WebGPU$Internals$jsObjects$$[$devicePtr$jscomp$1$$ >>> 0] = $device$jscomp$2$$;
+      $assert$$($deviceLostFutureId$$);
+      $WebGPU$Internals$futureInsert$$($deviceLostFutureId$$, $device$jscomp$2$$.lost.then($info$jscomp$4$$ => {
+        $callUserCallback$$(() => {
+          $device$jscomp$2$$.onuncapturederror = () => {
+          };
+          var $sp$jscomp$3$$ = $_emscripten_stack_get_current$$(), $messagePtr$jscomp$1$$ = $stringToUTF8OnStack$$($info$jscomp$4$$.message);
+          $_emwgpuOnDeviceLostCompleted$$($deviceLostFutureId$$, $emwgpuStringToInt_DeviceLostReason$$[$info$jscomp$4$$.reason], $messagePtr$jscomp$1$$);
+          $__emscripten_stack_restore$$($sp$jscomp$3$$);
+        });
+      }));
+      $assert$$("undefined" != typeof GPUValidationError);
+      $assert$$("undefined" != typeof GPUOutOfMemoryError);
+      $assert$$("undefined" != typeof GPUInternalError);
+      $device$jscomp$2$$.onuncapturederror = $ev$jscomp$2_messagePtr$jscomp$2$$ => {
+        var $type$jscomp$193$$ = 5;
+        $ev$jscomp$2_messagePtr$jscomp$2$$.error instanceof GPUValidationError ? $type$jscomp$193$$ = 2 : $ev$jscomp$2_messagePtr$jscomp$2$$.error instanceof GPUOutOfMemoryError ? $type$jscomp$193$$ = 3 : $ev$jscomp$2_messagePtr$jscomp$2$$.error instanceof GPUInternalError && ($type$jscomp$193$$ = 4);
+        var $sp$jscomp$4$$ = $_emscripten_stack_get_current$$();
+        $ev$jscomp$2_messagePtr$jscomp$2$$ = $stringToUTF8OnStack$$($ev$jscomp$2_messagePtr$jscomp$2$$.error.message);
+        $_emwgpuOnUncapturedError$$($devicePtr$jscomp$1$$, $type$jscomp$193$$, $ev$jscomp$2_messagePtr$jscomp$2$$);
+        $__emscripten_stack_restore$$($sp$jscomp$4$$);
       };
-      var $sp$jscomp$3$$ = $_emscripten_stack_get_current$$(), $messagePtr$jscomp$1$$ = $stringToUTF8OnStack$$($info$jscomp$4$$.message);
-      $_emwgpuOnDeviceLostCompleted$$($deviceLostFutureId$$, $emwgpuStringToInt_DeviceLostReason$$[$info$jscomp$4$$.reason], $messagePtr$jscomp$1$$);
-      $__emscripten_stack_restore$$($sp$jscomp$3$$);
-    }));
-    $assert$$("undefined" != typeof GPUValidationError);
-    $assert$$("undefined" != typeof GPUOutOfMemoryError);
-    $assert$$("undefined" != typeof GPUInternalError);
-    $device$jscomp$2$$.onuncapturederror = $ev$jscomp$2_messagePtr$jscomp$2$$ => {
-      var $type$jscomp$193$$ = 5;
-      $ev$jscomp$2_messagePtr$jscomp$2$$.error instanceof GPUValidationError ? $type$jscomp$193$$ = 2 : $ev$jscomp$2_messagePtr$jscomp$2$$.error instanceof GPUOutOfMemoryError ? $type$jscomp$193$$ = 3 : $ev$jscomp$2_messagePtr$jscomp$2$$.error instanceof GPUInternalError && ($type$jscomp$193$$ = 4);
-      var $sp$jscomp$4$$ = $_emscripten_stack_get_current$$();
-      $ev$jscomp$2_messagePtr$jscomp$2$$ = $stringToUTF8OnStack$$($ev$jscomp$2_messagePtr$jscomp$2$$.error.message);
-      $_emwgpuOnUncapturedError$$($devicePtr$jscomp$1$$, $type$jscomp$193$$, $ev$jscomp$2_messagePtr$jscomp$2$$);
-      $__emscripten_stack_restore$$($sp$jscomp$4$$);
-    };
-    $_emwgpuOnRequestDeviceCompleted$$($futureId$jscomp$1$$, 1, $devicePtr$jscomp$1$$, 0);
-  }, $ex_messagePtr$jscomp$3$$ => {
-    var $sp$jscomp$5$$ = $_emscripten_stack_get_current$$();
-    $ex_messagePtr$jscomp$3$$ = $stringToUTF8OnStack$$($ex_messagePtr$jscomp$3$$.message);
-    $_emwgpuOnRequestDeviceCompleted$$($futureId$jscomp$1$$, 3, $devicePtr$jscomp$1$$, $ex_messagePtr$jscomp$3$$);
-    $deviceLostFutureId$$ && $_emwgpuOnDeviceLostCompleted$$($deviceLostFutureId$$, 4, $ex_messagePtr$jscomp$3$$);
-    $__emscripten_stack_restore$$($sp$jscomp$5$$);
+      $_emwgpuOnRequestDeviceCompleted$$($futureId$jscomp$1$$, 1, $devicePtr$jscomp$1$$, 0);
+    });
+  }, $ex$$ => {
+    $callUserCallback$$(() => {
+      var $sp$jscomp$5$$ = $_emscripten_stack_get_current$$(), $messagePtr$jscomp$3$$ = $stringToUTF8OnStack$$($ex$$.message);
+      $_emwgpuOnRequestDeviceCompleted$$($futureId$jscomp$1$$, 3, $devicePtr$jscomp$1$$, $messagePtr$jscomp$3$$);
+      $deviceLostFutureId$$ && $_emwgpuOnDeviceLostCompleted$$($deviceLostFutureId$$, 4, $messagePtr$jscomp$3$$);
+      $__emscripten_stack_restore$$($sp$jscomp$5$$);
+    });
   }));
 }, emwgpuDelete:function($ptr$jscomp$49$$) {
   delete $WebGPU$Internals$jsObjects$$[$ptr$jscomp$49$$ >>> 0];
@@ -4400,65 +4374,68 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
   $assert$$($desc$jscomp$6_descriptor$jscomp$4$$);
   $assert$$(0 === $HEAPU32$$[$desc$jscomp$6_descriptor$jscomp$4$$ >>> 2 >>> 0]);
   var $mappedAtCreation$$ = !!$HEAPU32$$[$desc$jscomp$6_descriptor$jscomp$4$$ + 32 >>> 2 >>> 0];
-  $desc$jscomp$6_descriptor$jscomp$4$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($desc$jscomp$6_descriptor$jscomp$4$$ + 4), usage:$HEAPU32$$[$desc$jscomp$6_descriptor$jscomp$4$$ + 16 >>> 2 >>> 0], size:4294967296 * $HEAPU32$$[$desc$jscomp$6_descriptor$jscomp$4$$ + 28 >>> 2 >>> 0] + $HEAPU32$$[$desc$jscomp$6_descriptor$jscomp$4$$ + 24 >>> 2 >>> 0], mappedAtCreation:$mappedAtCreation$$};
+  $desc$jscomp$6_descriptor$jscomp$4$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($desc$jscomp$6_descriptor$jscomp$4$$ + 4), usage:$HEAPU32$$[$desc$jscomp$6_descriptor$jscomp$4$$ + 16 >>> 2 >>> 0], size:$readI53FromI64$$($desc$jscomp$6_descriptor$jscomp$4$$ + 24), mappedAtCreation:$mappedAtCreation$$};
   $device$jscomp$3_devicePtr$jscomp$2$$ = $WebGPU$getJsObject$$($device$jscomp$3_devicePtr$jscomp$2$$);
   try {
     var $buffer$jscomp$46$$ = $device$jscomp$3_devicePtr$jscomp$2$$.createBuffer($desc$jscomp$6_descriptor$jscomp$4$$);
   } catch ($ex$jscomp$1$$) {
     return $assert$$($ex$jscomp$1$$ instanceof RangeError), $assert$$($mappedAtCreation$$), $err$$("createBuffer threw:", $ex$jscomp$1$$), !1;
   }
-  $WebGPU$Internals$jsObjectInsert$$($bufferPtr$jscomp$1$$, $buffer$jscomp$46$$);
+  $WebGPU$Internals$jsObjects$$[$bufferPtr$jscomp$1$$ >>> 0] = $buffer$jscomp$46$$;
   return !0;
-}, emwgpuDeviceCreateShaderModule:function($device$jscomp$4_devicePtr$jscomp$3$$, $desc$jscomp$7_descriptor$jscomp$5$$, $shaderModulePtr$$) {
+}, emwgpuDeviceCreateShaderModule:function($device$jscomp$4_devicePtr$jscomp$3$$, $desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$, $ptr$jscomp$inline_313_shaderModulePtr$$) {
   $device$jscomp$4_devicePtr$jscomp$3$$ >>>= 0;
-  $desc$jscomp$7_descriptor$jscomp$5$$ >>>= 0;
-  $shaderModulePtr$$ >>>= 0;
-  $assert$$($desc$jscomp$7_descriptor$jscomp$5$$);
-  var $nextInChainPtr$$ = $HEAPU32$$[$desc$jscomp$7_descriptor$jscomp$5$$ >>> 2 >>> 0];
+  $desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$ >>>= 0;
+  $ptr$jscomp$inline_313_shaderModulePtr$$ >>>= 0;
+  $assert$$($desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$);
+  var $nextInChainPtr$$ = $HEAPU32$$[$desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$ >>> 2 >>> 0];
   $assert$$(0 !== $nextInChainPtr$$);
-  var $sType$$ = $HEAPU32$$[$nextInChainPtr$$ + 4 >>> 2 >>> 0];
-  $desc$jscomp$7_descriptor$jscomp$5$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($desc$jscomp$7_descriptor$jscomp$5$$ + 4), code:""};
+  var $sType$$ = $HEAP32$$[$nextInChainPtr$$ + 4 >>> 2 >>> 0];
+  $desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$ + 4), code:""};
   switch($sType$$) {
     case 2:
-      $desc$jscomp$7_descriptor$jscomp$5$$.code = $WebGPU$makeStringFromStringView$$($nextInChainPtr$$ + 8);
+      $desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$.code = $WebGPU$makeStringFromStringView$$($nextInChainPtr$$ + 8);
       break;
     default:
       $abort$$("unrecognized ShaderModule sType");
   }
   $device$jscomp$4_devicePtr$jscomp$3$$ = $WebGPU$getJsObject$$($device$jscomp$4_devicePtr$jscomp$3$$);
-  $WebGPU$Internals$jsObjectInsert$$($shaderModulePtr$$, $device$jscomp$4_devicePtr$jscomp$3$$.createShaderModule($desc$jscomp$7_descriptor$jscomp$5$$));
+  $desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$ = $device$jscomp$4_devicePtr$jscomp$3$$.createShaderModule($desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$);
+  $WebGPU$Internals$jsObjects$$[$ptr$jscomp$inline_313_shaderModulePtr$$ >>> 0] = $desc$jscomp$7_descriptor$jscomp$5_jsObject$jscomp$inline_314$$;
 }, emwgpuDeviceDestroy:$device$jscomp$5_devicePtr$jscomp$4$$ => {
   $device$jscomp$5_devicePtr$jscomp$4$$ = $WebGPU$getJsObject$$($device$jscomp$5_devicePtr$jscomp$4$$);
   $device$jscomp$5_devicePtr$jscomp$4$$.onuncapturederror = null;
   $device$jscomp$5_devicePtr$jscomp$4$$.destroy();
 }, emwgpuGetPreferredFormat:() => {
-  var $format$jscomp$26$$ = navigator.gpu.getPreferredCanvasFormat();
-  return $emwgpuStringToInt_PreferredFormat$$[$format$jscomp$26$$];
+  var $format$jscomp$27$$ = navigator.gpu.getPreferredCanvasFormat();
+  return $emwgpuStringToInt_PreferredFormat$$[$format$jscomp$27$$];
 }, emwgpuInstanceRequestAdapter:function($instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$, $futureId$jscomp$2$$, $options$jscomp$107$$, $adapterPtr$jscomp$1$$) {
   $futureId$jscomp$2$$ = $bigintToI53Checked$$($futureId$jscomp$2$$);
   $options$jscomp$107$$ >>>= 0;
   $adapterPtr$jscomp$1$$ >>>= 0;
   if ($options$jscomp$107$$) {
     $assert$$($options$jscomp$107$$);
-    var $opts$jscomp$4_sp$jscomp$6$$ = {featureLevel:$WebGPU$FeatureLevel$$[$HEAPU32$$[$options$jscomp$107$$ + 4 >>> 2 >>> 0]], powerPreference:$WebGPU$PowerPreference$$[$HEAPU32$$[$options$jscomp$107$$ + 8 >>> 2 >>> 0]], forceFallbackAdapter:!!$HEAPU32$$[$options$jscomp$107$$ + 12 >>> 2 >>> 0]};
+    var $opts$jscomp$4_sp$jscomp$6$$ = {featureLevel:$WebGPU$FeatureLevel$$[$HEAP32$$[$options$jscomp$107$$ + 4 >>> 2 >>> 0]], powerPreference:$WebGPU$PowerPreference$$[$HEAP32$$[$options$jscomp$107$$ + 8 >>> 2 >>> 0]], forceFallbackAdapter:!!$HEAPU32$$[$options$jscomp$107$$ + 12 >>> 2 >>> 0]};
     $instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ = $HEAPU32$$[$options$jscomp$107$$ >>> 2 >>> 0];
-    0 !== $instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ && ($assert$$(11 === $HEAPU32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ + 4 >>> 2 >>> 0]), $assert$$(0 === $HEAPU32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ >>> 2 >>> 0]), $assert$$($instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$), $assert$$(0 === $HEAPU32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ >>> 2 >>> 0]), $opts$jscomp$4_sp$jscomp$6$$.$xrCompatible$ = !!$HEAPU32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ + 
+    0 !== $instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ && ($assert$$(11 === $HEAP32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ + 4 >>> 2 >>> 0]), $assert$$(0 === $HEAPU32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ >>> 2 >>> 0]), $assert$$($instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$), $assert$$(0 === $HEAPU32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ >>> 2 >>> 0]), $opts$jscomp$4_sp$jscomp$6$$.$xrCompatible$ = !!$HEAPU32$$[$instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ + 
     8 >>> 2 >>> 0]);
   }
-  "gpu" in navigator ? $WebGPU$Internals$futureInsert$$($futureId$jscomp$2$$, navigator.gpu.requestAdapter($opts$jscomp$4_sp$jscomp$6$$).then($adapter$jscomp$1_sp$jscomp$7$$ => {
-    if ($adapter$jscomp$1_sp$jscomp$7$$) {
-      $WebGPU$Internals$jsObjectInsert$$($adapterPtr$jscomp$1$$, $adapter$jscomp$1_sp$jscomp$7$$), $_emwgpuOnRequestAdapterCompleted$$($futureId$jscomp$2$$, 1, $adapterPtr$jscomp$1$$, 0);
-    } else {
-      $adapter$jscomp$1_sp$jscomp$7$$ = $_emscripten_stack_get_current$$();
-      var $messagePtr$jscomp$5$$ = $stringToUTF8OnStack$$("WebGPU not available on this browser (requestAdapter returned null)");
-      $_emwgpuOnRequestAdapterCompleted$$($futureId$jscomp$2$$, 3, $adapterPtr$jscomp$1$$, $messagePtr$jscomp$5$$);
-      $__emscripten_stack_restore$$($adapter$jscomp$1_sp$jscomp$7$$);
-    }
-  }, $ex$jscomp$2_messagePtr$jscomp$6$$ => {
-    var $sp$jscomp$8$$ = $_emscripten_stack_get_current$$();
-    $ex$jscomp$2_messagePtr$jscomp$6$$ = $stringToUTF8OnStack$$($ex$jscomp$2_messagePtr$jscomp$6$$.message);
-    $_emwgpuOnRequestAdapterCompleted$$($futureId$jscomp$2$$, 4, $adapterPtr$jscomp$1$$, $ex$jscomp$2_messagePtr$jscomp$6$$);
-    $__emscripten_stack_restore$$($sp$jscomp$8$$);
+  "gpu" in navigator ? $WebGPU$Internals$futureInsert$$($futureId$jscomp$2$$, navigator.gpu.requestAdapter($opts$jscomp$4_sp$jscomp$6$$).then($adapter$jscomp$1$$ => {
+    $callUserCallback$$(() => {
+      if ($adapter$jscomp$1$$) {
+        $WebGPU$Internals$jsObjects$$[$adapterPtr$jscomp$1$$ >>> 0] = $adapter$jscomp$1$$, $_emwgpuOnRequestAdapterCompleted$$($futureId$jscomp$2$$, 1, $adapterPtr$jscomp$1$$, 0);
+      } else {
+        var $sp$jscomp$7$$ = $_emscripten_stack_get_current$$(), $messagePtr$jscomp$5$$ = $stringToUTF8OnStack$$("WebGPU not available on this browser (requestAdapter returned null)");
+        $_emwgpuOnRequestAdapterCompleted$$($futureId$jscomp$2$$, 3, $adapterPtr$jscomp$1$$, $messagePtr$jscomp$5$$);
+        $__emscripten_stack_restore$$($sp$jscomp$7$$);
+      }
+    });
+  }, $ex$jscomp$2$$ => {
+    $callUserCallback$$(() => {
+      var $sp$jscomp$8$$ = $_emscripten_stack_get_current$$(), $messagePtr$jscomp$6$$ = $stringToUTF8OnStack$$($ex$jscomp$2$$.message);
+      $_emwgpuOnRequestAdapterCompleted$$($futureId$jscomp$2$$, 4, $adapterPtr$jscomp$1$$, $messagePtr$jscomp$6$$);
+      $__emscripten_stack_restore$$($sp$jscomp$8$$);
+    });
   })) : ($opts$jscomp$4_sp$jscomp$6$$ = $_emscripten_stack_get_current$$(), $instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$ = $stringToUTF8OnStack$$("WebGPU not available on this browser (navigator.gpu is not available)"), $_emwgpuOnRequestAdapterCompleted$$($futureId$jscomp$2$$, 3, $adapterPtr$jscomp$1$$, $instancePtr_messagePtr$jscomp$4_nextInChainPtr$jscomp$1$$), $__emscripten_stack_restore$$($opts$jscomp$4_sp$jscomp$6$$));
 }, environ_get:function($__environ$$, $environ_buf$$) {
   $__environ$$ >>>= 0;
@@ -4487,11 +4464,11 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
     var $stream$jscomp$57$$ = $FS$getStreamChecked$$($fd$jscomp$38$$);
     $FS$close$$($stream$jscomp$57$$);
     return 0;
-  } catch ($e$jscomp$60$$) {
-    if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$60$$.name) {
-      throw $e$jscomp$60$$;
+  } catch ($e$jscomp$59$$) {
+    if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$59$$.name) {
+      throw $e$jscomp$59$$;
     }
-    return $e$jscomp$60$$.$errno$;
+    return $e$jscomp$59$$.$errno$;
   }
 }, fd_fdstat_get:function($fd$jscomp$39$$, $pbuf$$) {
   $pbuf$$ >>>= 0;
@@ -4502,68 +4479,68 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
     $HEAP64$$[$pbuf$$ + 8 >>> 3 >>> 0] = BigInt(0);
     $HEAP64$$[$pbuf$$ + 16 >>> 3 >>> 0] = BigInt(0);
     return 0;
+  } catch ($e$jscomp$60$$) {
+    if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$60$$.name) {
+      throw $e$jscomp$60$$;
+    }
+    return $e$jscomp$60$$.$errno$;
+  }
+}, fd_read:function($fd$jscomp$40_iov$jscomp$inline_326$$, $iov$jscomp$1_ret$jscomp$inline_329$$, $iovcnt$jscomp$1_iovcnt$jscomp$inline_327$$, $pnum$$) {
+  $iov$jscomp$1_ret$jscomp$inline_329$$ >>>= 0;
+  $iovcnt$jscomp$1_iovcnt$jscomp$inline_327$$ >>>= 0;
+  $pnum$$ >>>= 0;
+  try {
+    a: {
+      var $stream$jscomp$inline_325$$ = $FS$getStreamChecked$$($fd$jscomp$40_iov$jscomp$inline_326$$);
+      $fd$jscomp$40_iov$jscomp$inline_326$$ = $iov$jscomp$1_ret$jscomp$inline_329$$;
+      for (var $offset$jscomp$inline_328$$, $i$jscomp$inline_330$$ = $iov$jscomp$1_ret$jscomp$inline_329$$ = 0; $i$jscomp$inline_330$$ < $iovcnt$jscomp$1_iovcnt$jscomp$inline_327$$; $i$jscomp$inline_330$$++) {
+        var $ptr$jscomp$inline_331$$ = $HEAPU32$$[$fd$jscomp$40_iov$jscomp$inline_326$$ >>> 2 >>> 0], $len$jscomp$inline_332$$ = $HEAPU32$$[$fd$jscomp$40_iov$jscomp$inline_326$$ + 4 >>> 2 >>> 0];
+        $fd$jscomp$40_iov$jscomp$inline_326$$ += 8;
+        var $stream$jscomp$inline_514$$ = $stream$jscomp$inline_325$$, $offset$jscomp$inline_515$$ = $ptr$jscomp$inline_331$$, $length$jscomp$inline_516$$ = $len$jscomp$inline_332$$, $position$jscomp$inline_517$$ = $offset$jscomp$inline_328$$, $buffer$jscomp$inline_518$$ = $HEAP8$$;
+        $assert$$(0 <= $offset$jscomp$inline_515$$);
+        if (0 > $length$jscomp$inline_516$$ || 0 > $position$jscomp$inline_517$$) {
+          throw new $FS$ErrnoError$$(28);
+        }
+        if (null === $stream$jscomp$inline_514$$.fd) {
+          throw new $FS$ErrnoError$$(8);
+        }
+        if (1 === ($stream$jscomp$inline_514$$.flags & 2097155)) {
+          throw new $FS$ErrnoError$$(8);
+        }
+        if ($FS$isDir$$($stream$jscomp$inline_514$$.node.mode)) {
+          throw new $FS$ErrnoError$$(31);
+        }
+        if (!$stream$jscomp$inline_514$$.$stream_ops$.read) {
+          throw new $FS$ErrnoError$$(28);
+        }
+        var $seeking$jscomp$inline_519$$ = "undefined" != typeof $position$jscomp$inline_517$$;
+        if (!$seeking$jscomp$inline_519$$) {
+          $position$jscomp$inline_517$$ = $stream$jscomp$inline_514$$.position;
+        } else if (!$stream$jscomp$inline_514$$.seekable) {
+          throw new $FS$ErrnoError$$(70);
+        }
+        var $bytesRead$jscomp$inline_520$$ = $stream$jscomp$inline_514$$.$stream_ops$.read($stream$jscomp$inline_514$$, $buffer$jscomp$inline_518$$, $offset$jscomp$inline_515$$, $length$jscomp$inline_516$$, $position$jscomp$inline_517$$);
+        $seeking$jscomp$inline_519$$ || ($stream$jscomp$inline_514$$.position += $bytesRead$jscomp$inline_520$$);
+        var $curr$jscomp$inline_333$$ = $bytesRead$jscomp$inline_520$$;
+        if (0 > $curr$jscomp$inline_333$$) {
+          var $num$jscomp$8$$ = -1;
+          break a;
+        }
+        $iov$jscomp$1_ret$jscomp$inline_329$$ += $curr$jscomp$inline_333$$;
+        if ($curr$jscomp$inline_333$$ < $len$jscomp$inline_332$$) {
+          break;
+        }
+        "undefined" != typeof $offset$jscomp$inline_328$$ && ($offset$jscomp$inline_328$$ += $curr$jscomp$inline_333$$);
+      }
+      $num$jscomp$8$$ = $iov$jscomp$1_ret$jscomp$inline_329$$;
+    }
+    $HEAPU32$$[$pnum$$ >>> 2 >>> 0] = $num$jscomp$8$$;
+    return 0;
   } catch ($e$jscomp$61$$) {
     if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$61$$.name) {
       throw $e$jscomp$61$$;
     }
     return $e$jscomp$61$$.$errno$;
-  }
-}, fd_read:function($fd$jscomp$40_iov$jscomp$inline_314$$, $iov$jscomp$1_ret$jscomp$inline_317$$, $iovcnt$jscomp$1_iovcnt$jscomp$inline_315$$, $pnum$$) {
-  $iov$jscomp$1_ret$jscomp$inline_317$$ >>>= 0;
-  $iovcnt$jscomp$1_iovcnt$jscomp$inline_315$$ >>>= 0;
-  $pnum$$ >>>= 0;
-  try {
-    a: {
-      var $stream$jscomp$inline_313$$ = $FS$getStreamChecked$$($fd$jscomp$40_iov$jscomp$inline_314$$);
-      $fd$jscomp$40_iov$jscomp$inline_314$$ = $iov$jscomp$1_ret$jscomp$inline_317$$;
-      for (var $offset$jscomp$inline_316$$, $i$jscomp$inline_318$$ = $iov$jscomp$1_ret$jscomp$inline_317$$ = 0; $i$jscomp$inline_318$$ < $iovcnt$jscomp$1_iovcnt$jscomp$inline_315$$; $i$jscomp$inline_318$$++) {
-        var $ptr$jscomp$inline_319$$ = $HEAPU32$$[$fd$jscomp$40_iov$jscomp$inline_314$$ >>> 2 >>> 0], $len$jscomp$inline_320$$ = $HEAPU32$$[$fd$jscomp$40_iov$jscomp$inline_314$$ + 4 >>> 2 >>> 0];
-        $fd$jscomp$40_iov$jscomp$inline_314$$ += 8;
-        var $stream$jscomp$inline_481$$ = $stream$jscomp$inline_313$$, $offset$jscomp$inline_482$$ = $ptr$jscomp$inline_319$$, $length$jscomp$inline_483$$ = $len$jscomp$inline_320$$, $position$jscomp$inline_484$$ = $offset$jscomp$inline_316$$, $buffer$jscomp$inline_485$$ = $HEAP8$$;
-        $assert$$(0 <= $offset$jscomp$inline_482$$);
-        if (0 > $length$jscomp$inline_483$$ || 0 > $position$jscomp$inline_484$$) {
-          throw new $FS$ErrnoError$$(28);
-        }
-        if (null === $stream$jscomp$inline_481$$.fd) {
-          throw new $FS$ErrnoError$$(8);
-        }
-        if (1 === ($stream$jscomp$inline_481$$.flags & 2097155)) {
-          throw new $FS$ErrnoError$$(8);
-        }
-        if ($FS$isDir$$($stream$jscomp$inline_481$$.node.mode)) {
-          throw new $FS$ErrnoError$$(31);
-        }
-        if (!$stream$jscomp$inline_481$$.$stream_ops$.read) {
-          throw new $FS$ErrnoError$$(28);
-        }
-        var $seeking$jscomp$inline_486$$ = "undefined" != typeof $position$jscomp$inline_484$$;
-        if (!$seeking$jscomp$inline_486$$) {
-          $position$jscomp$inline_484$$ = $stream$jscomp$inline_481$$.position;
-        } else if (!$stream$jscomp$inline_481$$.seekable) {
-          throw new $FS$ErrnoError$$(70);
-        }
-        var $bytesRead$jscomp$inline_487$$ = $stream$jscomp$inline_481$$.$stream_ops$.read($stream$jscomp$inline_481$$, $buffer$jscomp$inline_485$$, $offset$jscomp$inline_482$$, $length$jscomp$inline_483$$, $position$jscomp$inline_484$$);
-        $seeking$jscomp$inline_486$$ || ($stream$jscomp$inline_481$$.position += $bytesRead$jscomp$inline_487$$);
-        var $curr$jscomp$inline_321$$ = $bytesRead$jscomp$inline_487$$;
-        if (0 > $curr$jscomp$inline_321$$) {
-          var $num$jscomp$8$$ = -1;
-          break a;
-        }
-        $iov$jscomp$1_ret$jscomp$inline_317$$ += $curr$jscomp$inline_321$$;
-        if ($curr$jscomp$inline_321$$ < $len$jscomp$inline_320$$) {
-          break;
-        }
-        "undefined" != typeof $offset$jscomp$inline_316$$ && ($offset$jscomp$inline_316$$ += $curr$jscomp$inline_321$$);
-      }
-      $num$jscomp$8$$ = $iov$jscomp$1_ret$jscomp$inline_317$$;
-    }
-    $HEAPU32$$[$pnum$$ >>> 2 >>> 0] = $num$jscomp$8$$;
-    return 0;
-  } catch ($e$jscomp$62$$) {
-    if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$62$$.name) {
-      throw $e$jscomp$62$$;
-    }
-    return $e$jscomp$62$$.$errno$;
   }
 }, fd_seek:function($fd$jscomp$41$$, $offset$jscomp$87$$, $whence$jscomp$2$$, $newOffset$$) {
   $offset$jscomp$87$$ = $bigintToI53Checked$$($offset$jscomp$87$$);
@@ -4577,201 +4554,204 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
     $HEAP64$$[$newOffset$$ >>> 3 >>> 0] = BigInt($stream$jscomp$61$$.position);
     $stream$jscomp$61$$.$getdents$ && 0 === $offset$jscomp$87$$ && 0 === $whence$jscomp$2$$ && ($stream$jscomp$61$$.$getdents$ = null);
     return 0;
+  } catch ($e$jscomp$62$$) {
+    if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$62$$.name) {
+      throw $e$jscomp$62$$;
+    }
+    return $e$jscomp$62$$.$errno$;
+  }
+}, fd_write:function($fd$jscomp$42_iov$jscomp$inline_336$$, $iov$jscomp$3_ret$jscomp$inline_339$$, $iovcnt$jscomp$3_iovcnt$jscomp$inline_337$$, $pnum$jscomp$1$$) {
+  $iov$jscomp$3_ret$jscomp$inline_339$$ >>>= 0;
+  $iovcnt$jscomp$3_iovcnt$jscomp$inline_337$$ >>>= 0;
+  $pnum$jscomp$1$$ >>>= 0;
+  try {
+    a: {
+      var $stream$jscomp$inline_335$$ = $FS$getStreamChecked$$($fd$jscomp$42_iov$jscomp$inline_336$$);
+      $fd$jscomp$42_iov$jscomp$inline_336$$ = $iov$jscomp$3_ret$jscomp$inline_339$$;
+      for (var $offset$jscomp$inline_338$$, $i$jscomp$inline_340$$ = $iov$jscomp$3_ret$jscomp$inline_339$$ = 0; $i$jscomp$inline_340$$ < $iovcnt$jscomp$3_iovcnt$jscomp$inline_337$$; $i$jscomp$inline_340$$++) {
+        var $ptr$jscomp$inline_341$$ = $HEAPU32$$[$fd$jscomp$42_iov$jscomp$inline_336$$ >>> 2 >>> 0], $len$jscomp$inline_342$$ = $HEAPU32$$[$fd$jscomp$42_iov$jscomp$inline_336$$ + 4 >>> 2 >>> 0];
+        $fd$jscomp$42_iov$jscomp$inline_336$$ += 8;
+        var $curr$jscomp$inline_343$$ = $FS$write$$($stream$jscomp$inline_335$$, $HEAP8$$, $ptr$jscomp$inline_341$$, $len$jscomp$inline_342$$, $offset$jscomp$inline_338$$);
+        if (0 > $curr$jscomp$inline_343$$) {
+          var $num$jscomp$9$$ = -1;
+          break a;
+        }
+        $iov$jscomp$3_ret$jscomp$inline_339$$ += $curr$jscomp$inline_343$$;
+        if ($curr$jscomp$inline_343$$ < $len$jscomp$inline_342$$) {
+          break;
+        }
+        "undefined" != typeof $offset$jscomp$inline_338$$ && ($offset$jscomp$inline_338$$ += $curr$jscomp$inline_343$$);
+      }
+      $num$jscomp$9$$ = $iov$jscomp$3_ret$jscomp$inline_339$$;
+    }
+    $HEAPU32$$[$pnum$jscomp$1$$ >>> 2 >>> 0] = $num$jscomp$9$$;
+    return 0;
   } catch ($e$jscomp$63$$) {
     if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$63$$.name) {
       throw $e$jscomp$63$$;
     }
     return $e$jscomp$63$$.$errno$;
   }
-}, fd_write:function($fd$jscomp$42_iov$jscomp$inline_324$$, $iov$jscomp$3_ret$jscomp$inline_327$$, $iovcnt$jscomp$3_iovcnt$jscomp$inline_325$$, $pnum$jscomp$1$$) {
-  $iov$jscomp$3_ret$jscomp$inline_327$$ >>>= 0;
-  $iovcnt$jscomp$3_iovcnt$jscomp$inline_325$$ >>>= 0;
-  $pnum$jscomp$1$$ >>>= 0;
-  try {
-    a: {
-      var $stream$jscomp$inline_323$$ = $FS$getStreamChecked$$($fd$jscomp$42_iov$jscomp$inline_324$$);
-      $fd$jscomp$42_iov$jscomp$inline_324$$ = $iov$jscomp$3_ret$jscomp$inline_327$$;
-      for (var $offset$jscomp$inline_326$$, $i$jscomp$inline_328$$ = $iov$jscomp$3_ret$jscomp$inline_327$$ = 0; $i$jscomp$inline_328$$ < $iovcnt$jscomp$3_iovcnt$jscomp$inline_325$$; $i$jscomp$inline_328$$++) {
-        var $ptr$jscomp$inline_329$$ = $HEAPU32$$[$fd$jscomp$42_iov$jscomp$inline_324$$ >>> 2 >>> 0], $len$jscomp$inline_330$$ = $HEAPU32$$[$fd$jscomp$42_iov$jscomp$inline_324$$ + 4 >>> 2 >>> 0];
-        $fd$jscomp$42_iov$jscomp$inline_324$$ += 8;
-        var $curr$jscomp$inline_331$$ = $FS$write$$($stream$jscomp$inline_323$$, $HEAP8$$, $ptr$jscomp$inline_329$$, $len$jscomp$inline_330$$, $offset$jscomp$inline_326$$);
-        if (0 > $curr$jscomp$inline_331$$) {
-          var $num$jscomp$9$$ = -1;
-          break a;
-        }
-        $iov$jscomp$3_ret$jscomp$inline_327$$ += $curr$jscomp$inline_331$$;
-        if ($curr$jscomp$inline_331$$ < $len$jscomp$inline_330$$) {
-          break;
-        }
-        "undefined" != typeof $offset$jscomp$inline_326$$ && ($offset$jscomp$inline_326$$ += $curr$jscomp$inline_331$$);
-      }
-      $num$jscomp$9$$ = $iov$jscomp$3_ret$jscomp$inline_327$$;
-    }
-    $HEAPU32$$[$pnum$jscomp$1$$ >>> 2 >>> 0] = $num$jscomp$9$$;
-    return 0;
-  } catch ($e$jscomp$64$$) {
-    if ("undefined" == typeof $FS$$ || "ErrnoError" !== $e$jscomp$64$$.name) {
-      throw $e$jscomp$64$$;
-    }
-    return $e$jscomp$64$$.$errno$;
-  }
-}, wgpuBufferGetSize:function($bufferPtr$jscomp$2_ret$jscomp$19$$) {
-  $bufferPtr$jscomp$2_ret$jscomp$19$$ = $WebGPU$getJsObject$$($bufferPtr$jscomp$2_ret$jscomp$19$$ >>> 0).size;
-  return BigInt($bufferPtr$jscomp$2_ret$jscomp$19$$);
-}, wgpuCommandEncoderBeginRenderPass:function($commandEncoder_encoderPtr$$, $desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$) {
-  $commandEncoder_encoderPtr$$ >>>= 0;
-  $desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$ >>>= 0;
-  $assert$$($desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$);
-  var $JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ = $desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$;
-  $assert$$($JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$);
-  var $JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ >>> 2 >>> 0];
-  $desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$ = void 0;
-  0 !== $JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ && ($assert$$(3 === $HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ + 4 >>> 2 >>> 0]), $assert$$(0 === $HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ >>> 2 >>> 0]), $assert$$($JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$), $assert$$(0 === $HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ >>> 
-  2 >>> 0]), $desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$ = 4294967296 * $HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ + 12 >>> 2 >>> 0] + $HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ + 8 >>> 2 >>> 0]);
-  $JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ = $WebGPU$makeStringFromOptionalStringView$$($JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 4);
-  for (var $JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 12 >>> 2 >>> 0], $JSCompiler_temp_const$jscomp$inline_570_caPtr$jscomp$inline_556$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 16 >>> 2 >>> 0], $attachments$jscomp$inline_557$$ = [], $i$jscomp$inline_558$$ = 0; $i$jscomp$inline_558$$ < 
-  $JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$; ++$i$jscomp$inline_558$$) {
-    var $JSCompiler_temp_const$jscomp$inline_559$$ = $attachments$jscomp$inline_557$$, $JSCompiler_temp_const$jscomp$inline_560$$ = $JSCompiler_temp_const$jscomp$inline_559$$.push;
-    var $JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ = $JSCompiler_temp_const$jscomp$inline_570_caPtr$jscomp$inline_556$$ + 56 * $i$jscomp$inline_558$$;
-    var $viewPtr$jscomp$inline_563$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ + 4 >>> 2 >>> 0];
-    if (0 !== $viewPtr$jscomp$inline_563$$) {
-      var $depthSlice$jscomp$inline_564$$ = $HEAP32$$[$JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ + 8 >>> 2 >>> 0];
-      -1 == $depthSlice$jscomp$inline_564$$ && ($depthSlice$jscomp$inline_564$$ = void 0);
-      var $loadOpInt$jscomp$inline_565$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ + 16 >>> 2 >>> 0];
-      $assert$$(0 !== $loadOpInt$jscomp$inline_565$$);
-      var $storeOpInt$jscomp$inline_566$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ + 20 >>> 2 >>> 0];
-      $assert$$(0 !== $storeOpInt$jscomp$inline_566$$);
-      var $clearValue$jscomp$inline_567_ptr$jscomp$inline_609$$ = $JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ + 24;
-      $clearValue$jscomp$inline_567_ptr$jscomp$inline_609$$ = {r:$HEAPF64$$[$clearValue$jscomp$inline_567_ptr$jscomp$inline_609$$ >>> 3 >>> 0], g:$HEAPF64$$[$clearValue$jscomp$inline_567_ptr$jscomp$inline_609$$ + 8 >>> 3 >>> 0], b:$HEAPF64$$[$clearValue$jscomp$inline_567_ptr$jscomp$inline_609$$ + 16 >>> 3 >>> 0], a:$HEAPF64$$[$clearValue$jscomp$inline_567_ptr$jscomp$inline_609$$ + 24 >>> 3 >>> 0]};
-      $JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ = {view:$WebGPU$getJsObject$$($viewPtr$jscomp$inline_563$$), depthSlice:$depthSlice$jscomp$inline_564$$, resolveTarget:$WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ + 12 >>> 2 >>> 0]), clearValue:$clearValue$jscomp$inline_567_ptr$jscomp$inline_609$$, loadOp:$WebGPU$LoadOp$$[$loadOpInt$jscomp$inline_565$$], storeOp:$WebGPU$StoreOp$$[$storeOpInt$jscomp$inline_566$$]};
+}, wgpuBufferGetSize:function($bufferPtr$jscomp$2_ret$jscomp$18$$) {
+  $bufferPtr$jscomp$2_ret$jscomp$18$$ = $WebGPU$getJsObject$$($bufferPtr$jscomp$2_ret$jscomp$18$$ >>> 0).size;
+  return BigInt($bufferPtr$jscomp$2_ret$jscomp$18$$);
+}, wgpuCommandEncoderBeginRenderPass:function($encoderPtr_ptr$jscomp$53$$, $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$) {
+  $encoderPtr_ptr$jscomp$53$$ >>>= 0;
+  $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$ >>>= 0;
+  $assert$$($desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$);
+  var $JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ = $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$;
+  $assert$$($JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$);
+  var $JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ >>> 2 >>> 0];
+  $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$ = void 0;
+  0 !== $JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ && ($assert$$(3 === $HEAP32$$[$JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ + 4 >>> 2 >>> 0]), $assert$$(0 === $HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ >>> 2 >>> 0]), $assert$$($JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$), $assert$$(0 === $HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ >>> 
+  2 >>> 0]), $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$ = $readI53FromI64$$($JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ + 8));
+  $JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ = $WebGPU$makeStringFromOptionalStringView$$($JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 4);
+  for (var $JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 12 >>> 2 >>> 0], $JSCompiler_temp_const$jscomp$inline_595_caPtr$jscomp$inline_584$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 16 >>> 2 >>> 0], $attachments$jscomp$inline_585$$ = [], $i$jscomp$inline_586$$ = 0; $i$jscomp$inline_586$$ < 
+  $JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$; ++$i$jscomp$inline_586$$) {
+    var $JSCompiler_temp_const$jscomp$inline_587$$ = $attachments$jscomp$inline_585$$, $JSCompiler_temp_const$jscomp$inline_588$$ = $JSCompiler_temp_const$jscomp$inline_587$$.push;
+    var $JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ = $JSCompiler_temp_const$jscomp$inline_595_caPtr$jscomp$inline_584$$ + 56 * $i$jscomp$inline_586$$;
+    var $JSCompiler_temp_const$jscomp$632_viewPtr$jscomp$inline_591$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ + 4 >>> 2 >>> 0];
+    if (0 !== $JSCompiler_temp_const$jscomp$632_viewPtr$jscomp$inline_591$$) {
+      var $JSCompiler_temp_const$jscomp$631_depthSlice$jscomp$inline_592$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ + 8 >>> 2 >>> 0];
+      4294967295 == $JSCompiler_temp_const$jscomp$631_depthSlice$jscomp$inline_592$$ && ($JSCompiler_temp_const$jscomp$631_depthSlice$jscomp$inline_592$$ = void 0);
+      $JSCompiler_temp_const$jscomp$632_viewPtr$jscomp$inline_591$$ = $WebGPU$getJsObject$$($JSCompiler_temp_const$jscomp$632_viewPtr$jscomp$inline_591$$);
+      var $JSCompiler_temp_const$jscomp$630$$ = $WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ + 12 >>> 2 >>> 0]), $ptr$jscomp$inline_639$$ = $JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ + 24;
+      $JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ = {view:$JSCompiler_temp_const$jscomp$632_viewPtr$jscomp$inline_591$$, depthSlice:$JSCompiler_temp_const$jscomp$631_depthSlice$jscomp$inline_592$$, resolveTarget:$JSCompiler_temp_const$jscomp$630$$, clearValue:{r:$HEAPF64$$[$ptr$jscomp$inline_639$$ >>> 3 >>> 0], g:$HEAPF64$$[$ptr$jscomp$inline_639$$ + 8 >>> 3 >>> 0], b:$HEAPF64$$[$ptr$jscomp$inline_639$$ + 16 >>> 3 >>> 0], a:$HEAPF64$$[$ptr$jscomp$inline_639$$ + 24 >>> 3 >>> 
+      0]}, loadOp:$WebGPU$LoadOp$$[$HEAP32$$[$JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ + 16 >>> 2 >>> 0]], storeOp:$WebGPU$StoreOp$$[$HEAP32$$[$JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ + 20 >>> 2 >>> 0]]};
     } else {
-      $JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$ = void 0;
+      $JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$ = void 0;
     }
-    $JSCompiler_temp_const$jscomp$inline_560$$.call($JSCompiler_temp_const$jscomp$inline_559$$, $JSCompiler_inline_result$jscomp$inline_561_caPtr$jscomp$inline_562$$);
+    $JSCompiler_temp_const$jscomp$inline_588$$.call($JSCompiler_temp_const$jscomp$inline_587$$, $JSCompiler_inline_result$jscomp$inline_589_caPtr$jscomp$inline_590$$);
   }
-  $JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 20 >>> 2 >>> 0];
-  $JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ = 0 !== $JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ ? {view:$WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 4 >>> 2 >>> 0]), depthClearValue:$HEAPF32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 16 >>> 2 >>> 0], depthLoadOp:$WebGPU$LoadOp$$[$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 
-  8 >>> 2 >>> 0]], depthStoreOp:$WebGPU$StoreOp$$[$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 12 >>> 2 >>> 0]], depthReadOnly:!!$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 20 >>> 2 >>> 0], stencilClearValue:$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 32 >>> 2 >>> 0], stencilLoadOp:$WebGPU$LoadOp$$[$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 
-  24 >>> 2 >>> 0]], stencilStoreOp:$WebGPU$StoreOp$$[$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 28 >>> 2 >>> 0]], stencilReadOnly:!!$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$ + 36 >>> 2 >>> 0]} : void 0;
-  $JSCompiler_temp_const$jscomp$inline_570_caPtr$jscomp$inline_556$$ = $WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 24 >>> 2 >>> 0]);
-  $JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 28 >>> 2 >>> 0];
-  $JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ = 0 !== $JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ ? {querySet:$WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 4 >>> 2 >>> 0]), beginningOfPassWriteIndex:$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 
-  8 >>> 2 >>> 0], endOfPassWriteIndex:$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$ + 12 >>> 2 >>> 0]} : void 0;
-  $desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$ = {label:$JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$, colorAttachments:$attachments$jscomp$inline_557$$, depthStencilAttachment:$JSCompiler_temp_const$jscomp$inline_568_count$jscomp$inline_555_dsaPtr$jscomp$inline_569$$, occlusionQuerySet:$JSCompiler_temp_const$jscomp$inline_570_caPtr$jscomp$inline_556$$, timestampWrites:$JSCompiler_inline_result$jscomp$inline_571_descriptor$jscomp$inline_551_ptr$jscomp$inline_572$$, 
-  maxDrawCount:$desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$};
-  $commandEncoder_encoderPtr$$ = $WebGPU$getJsObject$$($commandEncoder_encoderPtr$$);
-  $JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$ = $_emwgpuCreateRenderPassEncoder$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$, $commandEncoder_encoderPtr$$.beginRenderPass($desc$jscomp$8_descriptor$jscomp$6_maxDrawCount$jscomp$inline_553$$));
-  return $JSCompiler_temp_const$jscomp$inline_554_nextInChainPtr$jscomp$inline_552_ptr$jscomp$53$$;
-}, wgpuCommandEncoderFinish:function($commandEncoder$jscomp$1_encoderPtr$jscomp$1$$) {
-  $commandEncoder$jscomp$1_encoderPtr$jscomp$1$$ = $WebGPU$getJsObject$$($commandEncoder$jscomp$1_encoderPtr$jscomp$1$$ >>> 0);
-  var $ptr$jscomp$54$$ = $_emwgpuCreateCommandBuffer$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($ptr$jscomp$54$$, $commandEncoder$jscomp$1_encoderPtr$jscomp$1$$.finish());
-  return $ptr$jscomp$54$$;
-}, wgpuDeviceCreateBindGroup:function($device$jscomp$6_devicePtr$jscomp$5$$, $descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$) {
-  $device$jscomp$6_devicePtr$jscomp$5$$ >>>= 0;
-  $descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ >>>= 0;
-  $assert$$($descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$);
-  $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ >>> 2 >>> 0]);
-  var $JSCompiler_temp_const$jscomp$394_desc$jscomp$10$$ = $WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ + 4), $JSCompiler_temp_const$jscomp$393_ptr$jscomp$55$$ = $WebGPU$getJsObject$$($HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ + 12 >>> 2 >>> 0]), $count$jscomp$inline_496$$ = $HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ + 16 >>> 2 >>> 0];
-  $descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ = $HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ + 20 >>> 2 >>> 0];
-  for (var $entries$jscomp$inline_498$$ = [], $i$jscomp$inline_499$$ = 0; $i$jscomp$inline_499$$ < $count$jscomp$inline_496$$; ++$i$jscomp$inline_499$$) {
-    var $JSCompiler_temp_const$jscomp$inline_500$$ = $entries$jscomp$inline_498$$, $JSCompiler_temp_const$jscomp$inline_501$$ = $JSCompiler_temp_const$jscomp$inline_500$$.push;
-    var $JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ = $descriptor$jscomp$9_entriesPtrs$jscomp$inline_497$$ + 40 * $i$jscomp$inline_499$$;
-    $assert$$($JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$);
-    var $bufferPtr$jscomp$inline_504$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ + 8 >>> 2 >>> 0], $ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ + 32 >>> 2 >>> 0], $textureViewPtr$jscomp$inline_506$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ + 36 >>> 2 >>> 0];
-    $assert$$(1 === (0 !== $bufferPtr$jscomp$inline_504$$) + (0 !== $ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$) + (0 !== $textureViewPtr$jscomp$inline_506$$));
-    var $binding$jscomp$inline_507$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ + 4 >>> 2 >>> 0];
-    $bufferPtr$jscomp$inline_504$$ ? ($ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ = $JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ + 24, $ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ = $HEAPU32$$[$ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ >>> 2 >>> 0] + 4294967296 * $HEAP32$$[$ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ + 4 >>> 2 >>> 0], -1 == 
-    $ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ && ($ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ = void 0), $JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ = {binding:$binding$jscomp$inline_507$$, resource:{buffer:$WebGPU$getJsObject$$($bufferPtr$jscomp$inline_504$$), offset:4294967296 * $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ + 4 + 16 >>> 2 >>> 0] + $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ + 
-    16 >>> 2 >>> 0], size:$ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$}}) : $JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$ = $ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$ ? {binding:$binding$jscomp$inline_507$$, resource:$WebGPU$getJsObject$$($ptr$jscomp$inline_575_samplerPtr$jscomp$inline_505_size$jscomp$inline_508$$)} : {binding:$binding$jscomp$inline_507$$, resource:$WebGPU$getJsObject$$($textureViewPtr$jscomp$inline_506$$)};
-    $JSCompiler_temp_const$jscomp$inline_501$$.call($JSCompiler_temp_const$jscomp$inline_500$$, $JSCompiler_inline_result$jscomp$inline_502_entryPtr$jscomp$inline_503$$);
+  $JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 20 >>> 2 >>> 0];
+  $JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ = 0 !== $JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ ? {view:$WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 4 >>> 2 >>> 0]), depthClearValue:$HEAPF32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 16 >>> 2 >>> 0], depthLoadOp:$WebGPU$LoadOp$$[$HEAP32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 
+  8 >>> 2 >>> 0]], depthStoreOp:$WebGPU$StoreOp$$[$HEAP32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 12 >>> 2 >>> 0]], depthReadOnly:!!$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 20 >>> 2 >>> 0], stencilClearValue:$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 32 >>> 2 >>> 0], stencilLoadOp:$WebGPU$LoadOp$$[$HEAP32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 
+  24 >>> 2 >>> 0]], stencilStoreOp:$WebGPU$StoreOp$$[$HEAP32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 28 >>> 2 >>> 0]], stencilReadOnly:!!$HEAPU32$$[$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$ + 36 >>> 2 >>> 0]} : void 0;
+  $JSCompiler_temp_const$jscomp$inline_595_caPtr$jscomp$inline_584$$ = $WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 24 >>> 2 >>> 0]);
+  $JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 28 >>> 2 >>> 0];
+  $JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ = 0 !== $JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ ? {querySet:$WebGPU$getJsObject$$($HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 4 >>> 2 >>> 0]), beginningOfPassWriteIndex:$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 
+  8 >>> 2 >>> 0], endOfPassWriteIndex:$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$ + 12 >>> 2 >>> 0]} : void 0;
+  $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$ = {label:$JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$, colorAttachments:$attachments$jscomp$inline_585$$, depthStencilAttachment:$JSCompiler_temp_const$jscomp$inline_593_count$jscomp$inline_583_dsaPtr$jscomp$inline_594$$, occlusionQuerySet:$JSCompiler_temp_const$jscomp$inline_595_caPtr$jscomp$inline_584$$, timestampWrites:$JSCompiler_inline_result$jscomp$inline_596_descriptor$jscomp$inline_579_ptr$jscomp$inline_597$$, 
+  maxDrawCount:$desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$};
+  $JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$ = $WebGPU$getJsObject$$($encoderPtr_ptr$jscomp$53$$);
+  $encoderPtr_ptr$jscomp$53$$ = $_emwgpuCreateRenderPassEncoder$$(0);
+  $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$ = $JSCompiler_temp_const$jscomp$inline_582_commandEncoder_nextInChainPtr$jscomp$inline_580$$.beginRenderPass($desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$);
+  $WebGPU$Internals$jsObjects$$[$encoderPtr_ptr$jscomp$53$$ >>> 0] = $desc$jscomp$8_descriptor$jscomp$6_jsObject$jscomp$inline_642_maxDrawCount$jscomp$inline_581$$;
+  return $encoderPtr_ptr$jscomp$53$$;
+}, wgpuCommandEncoderFinish:function($encoderPtr$jscomp$1_ptr$jscomp$54$$) {
+  var $commandEncoder$jscomp$1_jsObject$jscomp$inline_355$$ = $WebGPU$getJsObject$$($encoderPtr$jscomp$1_ptr$jscomp$54$$ >>> 0);
+  $encoderPtr$jscomp$1_ptr$jscomp$54$$ = $_emwgpuCreateCommandBuffer$$(0);
+  $commandEncoder$jscomp$1_jsObject$jscomp$inline_355$$ = $commandEncoder$jscomp$1_jsObject$jscomp$inline_355$$.finish();
+  $WebGPU$Internals$jsObjects$$[$encoderPtr$jscomp$1_ptr$jscomp$54$$ >>> 0] = $commandEncoder$jscomp$1_jsObject$jscomp$inline_355$$;
+  return $encoderPtr$jscomp$1_ptr$jscomp$54$$;
+}, wgpuDeviceCreateBindGroup:function($devicePtr$jscomp$5_ptr$jscomp$55$$, $descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$) {
+  $devicePtr$jscomp$5_ptr$jscomp$55$$ >>>= 0;
+  $descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ >>>= 0;
+  $assert$$($descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$);
+  $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ >>> 2 >>> 0]);
+  var $JSCompiler_temp_const$jscomp$427_desc$jscomp$10_jsObject$jscomp$inline_601$$ = $WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ + 4), $JSCompiler_temp_const$jscomp$426_device$jscomp$6$$ = $WebGPU$getJsObject$$($HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ + 12 >>> 2 >>> 0]), $count$jscomp$inline_526$$ = $HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ + 16 >>> 2 >>> 0];
+  $descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ = $HEAPU32$$[$descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ + 20 >>> 2 >>> 0];
+  for (var $entries$jscomp$inline_528$$ = [], $i$jscomp$inline_529$$ = 0; $i$jscomp$inline_529$$ < $count$jscomp$inline_526$$; ++$i$jscomp$inline_529$$) {
+    var $JSCompiler_temp_const$jscomp$inline_530$$ = $entries$jscomp$inline_528$$, $JSCompiler_temp_const$jscomp$inline_531$$ = $JSCompiler_temp_const$jscomp$inline_530$$.push;
+    var $JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ = $descriptor$jscomp$9_entriesPtrs$jscomp$inline_527$$ + 40 * $i$jscomp$inline_529$$;
+    $assert$$($JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$);
+    var $bufferPtr$jscomp$inline_534$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ + 8 >>> 2 >>> 0], $samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ + 32 >>> 2 >>> 0], $textureViewPtr$jscomp$inline_536$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ + 36 >>> 2 >>> 0];
+    $assert$$(1 === (0 !== $bufferPtr$jscomp$inline_534$$) + (0 !== $samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$) + (0 !== $textureViewPtr$jscomp$inline_536$$));
+    var $binding$jscomp$inline_537$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ + 4 >>> 2 >>> 0];
+    $bufferPtr$jscomp$inline_534$$ ? ($samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$ = $readI53FromI64$$($JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ + 24), -1 == $samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$ && ($samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$ = void 0), $JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ = {binding:$binding$jscomp$inline_537$$, resource:{buffer:$WebGPU$getJsObject$$($bufferPtr$jscomp$inline_534$$), 
+    offset:$readI53FromI64$$($JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ + 16), size:$samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$}}) : $JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$ = $samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$ ? {binding:$binding$jscomp$inline_537$$, resource:$WebGPU$getJsObject$$($samplerPtr$jscomp$inline_535_size$jscomp$inline_538$$)} : {binding:$binding$jscomp$inline_537$$, resource:$WebGPU$getJsObject$$($textureViewPtr$jscomp$inline_536$$)};
+    $JSCompiler_temp_const$jscomp$inline_531$$.call($JSCompiler_temp_const$jscomp$inline_530$$, $JSCompiler_inline_result$jscomp$inline_532_entryPtr$jscomp$inline_533$$);
   }
-  $JSCompiler_temp_const$jscomp$394_desc$jscomp$10$$ = {label:$JSCompiler_temp_const$jscomp$394_desc$jscomp$10$$, layout:$JSCompiler_temp_const$jscomp$393_ptr$jscomp$55$$, entries:$entries$jscomp$inline_498$$};
-  $device$jscomp$6_devicePtr$jscomp$5$$ = $WebGPU$getJsObject$$($device$jscomp$6_devicePtr$jscomp$5$$);
-  $JSCompiler_temp_const$jscomp$393_ptr$jscomp$55$$ = $_emwgpuCreateBindGroup$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($JSCompiler_temp_const$jscomp$393_ptr$jscomp$55$$, $device$jscomp$6_devicePtr$jscomp$5$$.createBindGroup($JSCompiler_temp_const$jscomp$394_desc$jscomp$10$$));
-  return $JSCompiler_temp_const$jscomp$393_ptr$jscomp$55$$;
-}, wgpuDeviceCreateBindGroupLayout:function($device$jscomp$7_devicePtr$jscomp$6$$, $descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$) {
-  $device$jscomp$7_devicePtr$jscomp$6$$ >>>= 0;
-  $descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$ >>>= 0;
-  $assert$$($descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$);
-  $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$ >>> 2 >>> 0]);
-  var $JSCompiler_temp_const$jscomp$542_desc$jscomp$11$$ = $WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$ + 4), $count$jscomp$inline_577_ptr$jscomp$56$$ = $HEAPU32$$[$descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$ + 12 >>> 2 >>> 0];
-  $descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$ = $HEAPU32$$[$descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$ + 16 >>> 2 >>> 0];
-  for (var $entries$jscomp$inline_579$$ = [], $i$jscomp$inline_580$$ = 0; $i$jscomp$inline_580$$ < $count$jscomp$inline_577_ptr$jscomp$56$$; ++$i$jscomp$inline_580$$) {
-    var $JSCompiler_temp_const$jscomp$inline_581$$ = $entries$jscomp$inline_579$$, $JSCompiler_temp_const$jscomp$inline_582$$ = $JSCompiler_temp_const$jscomp$inline_581$$.push, $JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ = $descriptor$jscomp$10_entriesPtrs$jscomp$inline_578$$ + 88 * $i$jscomp$inline_580$$;
-    $assert$$($JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$);
-    var $JSCompiler_temp_const$jscomp$inline_585_bindingArraySize$jscomp$inline_584$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 16 >>> 2 >>> 0];
-    $assert$$(0 == $JSCompiler_temp_const$jscomp$inline_585_bindingArraySize$jscomp$inline_584$$ || 1 == $JSCompiler_temp_const$jscomp$inline_585_bindingArraySize$jscomp$inline_584$$);
-    $JSCompiler_temp_const$jscomp$inline_585_bindingArraySize$jscomp$inline_584$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 4 >>> 2 >>> 0];
-    var $JSCompiler_temp_const$jscomp$inline_586$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 8 >>> 2 >>> 0];
-    var $JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$ = $JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 24;
-    $assert$$($JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$);
-    var $JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$ + 4 >>> 2 >>> 0];
-    $JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$ = $JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$ ? {type:$WebGPU$BufferBindingType$$[$JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$], hasDynamicOffset:!!$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$ + 
-    8 >>> 2 >>> 0], minBindingSize:4294967296 * $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$ + 4 + 16 >>> 2 >>> 0] + $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$ + 16 >>> 2 >>> 0]} : void 0;
-    $JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$ = $JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 48;
-    $assert$$($JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$);
-    $JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$ = ($JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$ + 
-    4 >>> 2 >>> 0]) ? {type:$WebGPU$SamplerBindingType$$[$JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$]} : void 0;
-    var $JSCompiler_inline_result$jscomp$inline_595_JSCompiler_temp_const$jscomp$inline_598_entryPtr$jscomp$inline_596$$ = $JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 56;
-    $assert$$($JSCompiler_inline_result$jscomp$inline_595_JSCompiler_temp_const$jscomp$inline_598_entryPtr$jscomp$inline_596$$);
-    var $accessInt$jscomp$inline_601_sampleTypeInt$jscomp$inline_597$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_595_JSCompiler_temp_const$jscomp$inline_598_entryPtr$jscomp$inline_596$$ + 4 >>> 2 >>> 0];
-    $JSCompiler_inline_result$jscomp$inline_595_JSCompiler_temp_const$jscomp$inline_598_entryPtr$jscomp$inline_596$$ = $accessInt$jscomp$inline_601_sampleTypeInt$jscomp$inline_597$$ ? {sampleType:$WebGPU$TextureSampleType$$[$accessInt$jscomp$inline_601_sampleTypeInt$jscomp$inline_597$$], viewDimension:$WebGPU$TextureViewDimension$$[$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_595_JSCompiler_temp_const$jscomp$inline_598_entryPtr$jscomp$inline_596$$ + 8 >>> 2 >>> 0]], multisampled:!!$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_595_JSCompiler_temp_const$jscomp$inline_598_entryPtr$jscomp$inline_596$$ + 
+  $JSCompiler_temp_const$jscomp$427_desc$jscomp$10_jsObject$jscomp$inline_601$$ = {label:$JSCompiler_temp_const$jscomp$427_desc$jscomp$10_jsObject$jscomp$inline_601$$, layout:$JSCompiler_temp_const$jscomp$426_device$jscomp$6$$, entries:$entries$jscomp$inline_528$$};
+  $JSCompiler_temp_const$jscomp$426_device$jscomp$6$$ = $WebGPU$getJsObject$$($devicePtr$jscomp$5_ptr$jscomp$55$$);
+  $devicePtr$jscomp$5_ptr$jscomp$55$$ = $_emwgpuCreateBindGroup$$(0);
+  $JSCompiler_temp_const$jscomp$427_desc$jscomp$10_jsObject$jscomp$inline_601$$ = $JSCompiler_temp_const$jscomp$426_device$jscomp$6$$.createBindGroup($JSCompiler_temp_const$jscomp$427_desc$jscomp$10_jsObject$jscomp$inline_601$$);
+  $WebGPU$Internals$jsObjects$$[$devicePtr$jscomp$5_ptr$jscomp$55$$ >>> 0] = $JSCompiler_temp_const$jscomp$427_desc$jscomp$10_jsObject$jscomp$inline_601$$;
+  return $devicePtr$jscomp$5_ptr$jscomp$55$$;
+}, wgpuDeviceCreateBindGroupLayout:function($devicePtr$jscomp$6_ptr$jscomp$56$$, $descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$) {
+  $devicePtr$jscomp$6_ptr$jscomp$56$$ >>>= 0;
+  $descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$ >>>= 0;
+  $assert$$($descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$);
+  $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$ >>> 2 >>> 0]);
+  var $JSCompiler_temp_const$jscomp$570_desc$jscomp$11_jsObject$jscomp$inline_645$$ = $WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$ + 4), $count$jscomp$inline_603_device$jscomp$7$$ = $HEAPU32$$[$descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$ + 12 >>> 2 >>> 0];
+  $descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$ = $HEAPU32$$[$descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$ + 16 >>> 2 >>> 0];
+  for (var $entries$jscomp$inline_605$$ = [], $i$jscomp$inline_606$$ = 0; $i$jscomp$inline_606$$ < $count$jscomp$inline_603_device$jscomp$7$$; ++$i$jscomp$inline_606$$) {
+    var $JSCompiler_temp_const$jscomp$inline_607$$ = $entries$jscomp$inline_605$$, $JSCompiler_temp_const$jscomp$inline_608$$ = $JSCompiler_temp_const$jscomp$inline_607$$.push, $JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ = $descriptor$jscomp$10_entriesPtrs$jscomp$inline_604$$ + 88 * $i$jscomp$inline_606$$;
+    $assert$$($JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$);
+    var $JSCompiler_temp_const$jscomp$inline_611_bindingArraySize$jscomp$inline_610$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 16 >>> 2 >>> 0];
+    $assert$$(0 == $JSCompiler_temp_const$jscomp$inline_611_bindingArraySize$jscomp$inline_610$$ || 1 == $JSCompiler_temp_const$jscomp$inline_611_bindingArraySize$jscomp$inline_610$$);
+    $JSCompiler_temp_const$jscomp$inline_611_bindingArraySize$jscomp$inline_610$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 4 >>> 2 >>> 0];
+    var $JSCompiler_temp_const$jscomp$inline_612$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 8 >>> 2 >>> 0];
+    var $JSCompiler_inline_result$jscomp$inline_613_JSCompiler_temp_const$jscomp$inline_616_entryPtr$jscomp$inline_614$$ = $JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 24;
+    $assert$$($JSCompiler_inline_result$jscomp$inline_613_JSCompiler_temp_const$jscomp$inline_616_entryPtr$jscomp$inline_614$$);
+    var $JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_613_JSCompiler_temp_const$jscomp$inline_616_entryPtr$jscomp$inline_614$$ + 4 >>> 2 >>> 0];
+    $JSCompiler_inline_result$jscomp$inline_613_JSCompiler_temp_const$jscomp$inline_616_entryPtr$jscomp$inline_614$$ = $JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$ ? {type:$WebGPU$BufferBindingType$$[$JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$], hasDynamicOffset:!!$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_613_JSCompiler_temp_const$jscomp$inline_616_entryPtr$jscomp$inline_614$$ + 
+    8 >>> 2 >>> 0], minBindingSize:$readI53FromI64$$($JSCompiler_inline_result$jscomp$inline_613_JSCompiler_temp_const$jscomp$inline_616_entryPtr$jscomp$inline_614$$ + 16)} : void 0;
+    $JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$ = $JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 48;
+    $assert$$($JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$);
+    $JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$ = ($JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$ + 
+    4 >>> 2 >>> 0]) ? {type:$WebGPU$SamplerBindingType$$[$JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$]} : void 0;
+    var $JSCompiler_inline_result$jscomp$inline_621_JSCompiler_temp_const$jscomp$inline_624_entryPtr$jscomp$inline_622$$ = $JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 56;
+    $assert$$($JSCompiler_inline_result$jscomp$inline_621_JSCompiler_temp_const$jscomp$inline_624_entryPtr$jscomp$inline_622$$);
+    var $accessInt$jscomp$inline_627_sampleTypeInt$jscomp$inline_623$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_621_JSCompiler_temp_const$jscomp$inline_624_entryPtr$jscomp$inline_622$$ + 4 >>> 2 >>> 0];
+    $JSCompiler_inline_result$jscomp$inline_621_JSCompiler_temp_const$jscomp$inline_624_entryPtr$jscomp$inline_622$$ = $accessInt$jscomp$inline_627_sampleTypeInt$jscomp$inline_623$$ ? {sampleType:$WebGPU$TextureSampleType$$[$accessInt$jscomp$inline_627_sampleTypeInt$jscomp$inline_623$$], viewDimension:$WebGPU$TextureViewDimension$$[$HEAP32$$[$JSCompiler_inline_result$jscomp$inline_621_JSCompiler_temp_const$jscomp$inline_624_entryPtr$jscomp$inline_622$$ + 8 >>> 2 >>> 0]], multisampled:!!$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_621_JSCompiler_temp_const$jscomp$inline_624_entryPtr$jscomp$inline_622$$ + 
     12 >>> 2 >>> 0]} : void 0;
-    $JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ += 72;
-    $assert$$($JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$);
-    $JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ = ($accessInt$jscomp$inline_601_sampleTypeInt$jscomp$inline_597$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 4 >>> 2 >>> 0]) ? {access:$WebGPU$StorageTextureAccess$$[$accessInt$jscomp$inline_601_sampleTypeInt$jscomp$inline_597$$], format:$WebGPU$TextureFormat$$[$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 
-    8 >>> 2 >>> 0]], viewDimension:$WebGPU$TextureViewDimension$$[$HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$ + 12 >>> 2 >>> 0]]} : void 0;
-    $JSCompiler_temp_const$jscomp$inline_582$$.call($JSCompiler_temp_const$jscomp$inline_581$$, {binding:$JSCompiler_temp_const$jscomp$inline_585_bindingArraySize$jscomp$inline_584$$, visibility:$JSCompiler_temp_const$jscomp$inline_586$$, buffer:$JSCompiler_inline_result$jscomp$inline_587_JSCompiler_temp_const$jscomp$inline_590_entryPtr$jscomp$inline_588$$, sampler:$JSCompiler_inline_result$jscomp$inline_591_JSCompiler_temp_const$jscomp$inline_594_entryPtr$jscomp$inline_592_typeInt$jscomp$inline_589_typeInt$jscomp$inline_593$$, 
-    texture:$JSCompiler_inline_result$jscomp$inline_595_JSCompiler_temp_const$jscomp$inline_598_entryPtr$jscomp$inline_596$$, storageTexture:$JSCompiler_inline_result$jscomp$inline_599_entryPtr$jscomp$inline_583_entryPtr$jscomp$inline_600$$});
+    $JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ += 72;
+    $assert$$($JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$);
+    $JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ = ($accessInt$jscomp$inline_627_sampleTypeInt$jscomp$inline_623$$ = $HEAPU32$$[$JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 4 >>> 2 >>> 0]) ? {access:$WebGPU$StorageTextureAccess$$[$accessInt$jscomp$inline_627_sampleTypeInt$jscomp$inline_623$$], format:$WebGPU$TextureFormat$$[$HEAP32$$[$JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 
+    8 >>> 2 >>> 0]], viewDimension:$WebGPU$TextureViewDimension$$[$HEAP32$$[$JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$ + 12 >>> 2 >>> 0]]} : void 0;
+    $JSCompiler_temp_const$jscomp$inline_608$$.call($JSCompiler_temp_const$jscomp$inline_607$$, {binding:$JSCompiler_temp_const$jscomp$inline_611_bindingArraySize$jscomp$inline_610$$, visibility:$JSCompiler_temp_const$jscomp$inline_612$$, buffer:$JSCompiler_inline_result$jscomp$inline_613_JSCompiler_temp_const$jscomp$inline_616_entryPtr$jscomp$inline_614$$, sampler:$JSCompiler_inline_result$jscomp$inline_617_JSCompiler_temp_const$jscomp$inline_620_entryPtr$jscomp$inline_618_typeInt$jscomp$inline_615_typeInt$jscomp$inline_619$$, 
+    texture:$JSCompiler_inline_result$jscomp$inline_621_JSCompiler_temp_const$jscomp$inline_624_entryPtr$jscomp$inline_622$$, storageTexture:$JSCompiler_inline_result$jscomp$inline_625_entryPtr$jscomp$inline_609_entryPtr$jscomp$inline_626$$});
   }
-  $JSCompiler_temp_const$jscomp$542_desc$jscomp$11$$ = {label:$JSCompiler_temp_const$jscomp$542_desc$jscomp$11$$, entries:$entries$jscomp$inline_579$$};
-  $device$jscomp$7_devicePtr$jscomp$6$$ = $WebGPU$getJsObject$$($device$jscomp$7_devicePtr$jscomp$6$$);
-  $count$jscomp$inline_577_ptr$jscomp$56$$ = $_emwgpuCreateBindGroupLayout$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($count$jscomp$inline_577_ptr$jscomp$56$$, $device$jscomp$7_devicePtr$jscomp$6$$.createBindGroupLayout($JSCompiler_temp_const$jscomp$542_desc$jscomp$11$$));
-  return $count$jscomp$inline_577_ptr$jscomp$56$$;
-}, wgpuDeviceCreateCommandEncoder:function($device$jscomp$8_devicePtr$jscomp$7$$, $descriptor$jscomp$11_ptr$jscomp$57$$) {
-  $device$jscomp$8_devicePtr$jscomp$7$$ >>>= 0;
-  $descriptor$jscomp$11_ptr$jscomp$57$$ >>>= 0;
-  if ($descriptor$jscomp$11_ptr$jscomp$57$$) {
-    $assert$$($descriptor$jscomp$11_ptr$jscomp$57$$);
-    $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$11_ptr$jscomp$57$$ >>> 2 >>> 0]);
-    var $desc$jscomp$12$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$11_ptr$jscomp$57$$ + 4)};
+  $JSCompiler_temp_const$jscomp$570_desc$jscomp$11_jsObject$jscomp$inline_645$$ = {label:$JSCompiler_temp_const$jscomp$570_desc$jscomp$11_jsObject$jscomp$inline_645$$, entries:$entries$jscomp$inline_605$$};
+  $count$jscomp$inline_603_device$jscomp$7$$ = $WebGPU$getJsObject$$($devicePtr$jscomp$6_ptr$jscomp$56$$);
+  $devicePtr$jscomp$6_ptr$jscomp$56$$ = $_emwgpuCreateBindGroupLayout$$(0);
+  $JSCompiler_temp_const$jscomp$570_desc$jscomp$11_jsObject$jscomp$inline_645$$ = $count$jscomp$inline_603_device$jscomp$7$$.createBindGroupLayout($JSCompiler_temp_const$jscomp$570_desc$jscomp$11_jsObject$jscomp$inline_645$$);
+  $WebGPU$Internals$jsObjects$$[$devicePtr$jscomp$6_ptr$jscomp$56$$ >>> 0] = $JSCompiler_temp_const$jscomp$570_desc$jscomp$11_jsObject$jscomp$inline_645$$;
+  return $devicePtr$jscomp$6_ptr$jscomp$56$$;
+}, wgpuDeviceCreateCommandEncoder:function($devicePtr$jscomp$7_ptr$jscomp$57$$, $descriptor$jscomp$11_device$jscomp$8$$) {
+  $devicePtr$jscomp$7_ptr$jscomp$57$$ >>>= 0;
+  $descriptor$jscomp$11_device$jscomp$8$$ >>>= 0;
+  if ($descriptor$jscomp$11_device$jscomp$8$$) {
+    $assert$$($descriptor$jscomp$11_device$jscomp$8$$);
+    $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$11_device$jscomp$8$$ >>> 2 >>> 0]);
+    var $desc$jscomp$12_jsObject$jscomp$inline_368$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$11_device$jscomp$8$$ + 4)};
   }
-  $device$jscomp$8_devicePtr$jscomp$7$$ = $WebGPU$getJsObject$$($device$jscomp$8_devicePtr$jscomp$7$$);
-  $descriptor$jscomp$11_ptr$jscomp$57$$ = $_emwgpuCreateCommandEncoder$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($descriptor$jscomp$11_ptr$jscomp$57$$, $device$jscomp$8_devicePtr$jscomp$7$$.createCommandEncoder($desc$jscomp$12$$));
-  return $descriptor$jscomp$11_ptr$jscomp$57$$;
-}, wgpuDeviceCreatePipelineLayout:function($device$jscomp$9_devicePtr$jscomp$8$$, $desc$jscomp$13_descriptor$jscomp$12$$) {
-  $device$jscomp$9_devicePtr$jscomp$8$$ >>>= 0;
-  $desc$jscomp$13_descriptor$jscomp$12$$ >>>= 0;
-  $assert$$($desc$jscomp$13_descriptor$jscomp$12$$);
-  $assert$$(0 === $HEAPU32$$[$desc$jscomp$13_descriptor$jscomp$12$$ >>> 2 >>> 0]);
-  for (var $bglCount_ptr$jscomp$58$$ = $HEAPU32$$[$desc$jscomp$13_descriptor$jscomp$12$$ + 12 >>> 2 >>> 0], $bglPtr$$ = $HEAPU32$$[$desc$jscomp$13_descriptor$jscomp$12$$ + 16 >>> 2 >>> 0], $bgls$$ = [], $i$jscomp$65$$ = 0; $i$jscomp$65$$ < $bglCount_ptr$jscomp$58$$; ++$i$jscomp$65$$) {
+  $descriptor$jscomp$11_device$jscomp$8$$ = $WebGPU$getJsObject$$($devicePtr$jscomp$7_ptr$jscomp$57$$);
+  $devicePtr$jscomp$7_ptr$jscomp$57$$ = $_emwgpuCreateCommandEncoder$$(0);
+  $desc$jscomp$12_jsObject$jscomp$inline_368$$ = $descriptor$jscomp$11_device$jscomp$8$$.createCommandEncoder($desc$jscomp$12_jsObject$jscomp$inline_368$$);
+  $WebGPU$Internals$jsObjects$$[$devicePtr$jscomp$7_ptr$jscomp$57$$ >>> 0] = $desc$jscomp$12_jsObject$jscomp$inline_368$$;
+  return $devicePtr$jscomp$7_ptr$jscomp$57$$;
+}, wgpuDeviceCreatePipelineLayout:function($devicePtr$jscomp$8_ptr$jscomp$58$$, $desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$) {
+  $devicePtr$jscomp$8_ptr$jscomp$58$$ >>>= 0;
+  $desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$ >>>= 0;
+  $assert$$($desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$);
+  $assert$$(0 === $HEAPU32$$[$desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$ >>> 2 >>> 0]);
+  for (var $bglCount_device$jscomp$9$$ = $HEAPU32$$[$desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$ + 12 >>> 2 >>> 0], $bglPtr$$ = $HEAPU32$$[$desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$ + 16 >>> 2 >>> 0], $bgls$$ = [], $i$jscomp$65$$ = 0; $i$jscomp$65$$ < $bglCount_device$jscomp$9$$; ++$i$jscomp$65$$) {
     $bgls$$.push($WebGPU$getJsObject$$($HEAPU32$$[$bglPtr$$ + 4 * $i$jscomp$65$$ >>> 2 >>> 0]));
   }
-  $desc$jscomp$13_descriptor$jscomp$12$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($desc$jscomp$13_descriptor$jscomp$12$$ + 4), bindGroupLayouts:$bgls$$};
-  $device$jscomp$9_devicePtr$jscomp$8$$ = $WebGPU$getJsObject$$($device$jscomp$9_devicePtr$jscomp$8$$);
-  $bglCount_ptr$jscomp$58$$ = $_emwgpuCreatePipelineLayout$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($bglCount_ptr$jscomp$58$$, $device$jscomp$9_devicePtr$jscomp$8$$.createPipelineLayout($desc$jscomp$13_descriptor$jscomp$12$$));
-  return $bglCount_ptr$jscomp$58$$;
-}, wgpuDeviceCreateRenderPipeline:function($device$jscomp$10_devicePtr$jscomp$9$$, $desc$jscomp$14_descriptor$jscomp$13$$) {
-  $device$jscomp$10_devicePtr$jscomp$9$$ >>>= 0;
-  $desc$jscomp$14_descriptor$jscomp$13$$ = $WebGPU$makeRenderPipelineDesc$$($desc$jscomp$14_descriptor$jscomp$13$$ >>> 0);
-  $device$jscomp$10_devicePtr$jscomp$9$$ = $WebGPU$getJsObject$$($device$jscomp$10_devicePtr$jscomp$9$$);
-  var $ptr$jscomp$59$$ = $_emwgpuCreateRenderPipeline$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($ptr$jscomp$59$$, $device$jscomp$10_devicePtr$jscomp$9$$.createRenderPipeline($desc$jscomp$14_descriptor$jscomp$13$$));
-  return $ptr$jscomp$59$$;
+  $desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$ + 4), bindGroupLayouts:$bgls$$};
+  $bglCount_device$jscomp$9$$ = $WebGPU$getJsObject$$($devicePtr$jscomp$8_ptr$jscomp$58$$);
+  $devicePtr$jscomp$8_ptr$jscomp$58$$ = $_emwgpuCreatePipelineLayout$$(0);
+  $desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$ = $bglCount_device$jscomp$9$$.createPipelineLayout($desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$);
+  $WebGPU$Internals$jsObjects$$[$devicePtr$jscomp$8_ptr$jscomp$58$$ >>> 0] = $desc$jscomp$13_descriptor$jscomp$12_jsObject$jscomp$inline_371$$;
+  return $devicePtr$jscomp$8_ptr$jscomp$58$$;
+}, wgpuDeviceCreateRenderPipeline:function($devicePtr$jscomp$9_ptr$jscomp$59$$, $desc$jscomp$14_descriptor$jscomp$13_jsObject$jscomp$inline_374$$) {
+  $devicePtr$jscomp$9_ptr$jscomp$59$$ >>>= 0;
+  $desc$jscomp$14_descriptor$jscomp$13_jsObject$jscomp$inline_374$$ = $WebGPU$makeRenderPipelineDesc$$($desc$jscomp$14_descriptor$jscomp$13_jsObject$jscomp$inline_374$$ >>> 0);
+  var $device$jscomp$10$$ = $WebGPU$getJsObject$$($devicePtr$jscomp$9_ptr$jscomp$59$$);
+  $devicePtr$jscomp$9_ptr$jscomp$59$$ = $_emwgpuCreateRenderPipeline$$(0);
+  $desc$jscomp$14_descriptor$jscomp$13_jsObject$jscomp$inline_374$$ = $device$jscomp$10$$.createRenderPipeline($desc$jscomp$14_descriptor$jscomp$13_jsObject$jscomp$inline_374$$);
+  $WebGPU$Internals$jsObjects$$[$devicePtr$jscomp$9_ptr$jscomp$59$$ >>> 0] = $desc$jscomp$14_descriptor$jscomp$13_jsObject$jscomp$inline_374$$;
+  return $devicePtr$jscomp$9_ptr$jscomp$59$$;
 }, wgpuDeviceCreateTexture:function($device$jscomp$11_devicePtr$jscomp$10$$, $descriptor$jscomp$14_viewFormatsPtr$$) {
   $device$jscomp$11_devicePtr$jscomp$10$$ >>>= 0;
   $descriptor$jscomp$14_viewFormatsPtr$$ >>>= 0;
   $assert$$($descriptor$jscomp$14_viewFormatsPtr$$);
   $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ >>> 2 >>> 0]);
-  var $desc$jscomp$15$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$14_viewFormatsPtr$$ + 4), size:$WebGPU$makeExtent3D$$($descriptor$jscomp$14_viewFormatsPtr$$ + 28), mipLevelCount:$HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 44 >>> 2 >>> 0], sampleCount:$HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 48 >>> 2 >>> 0], dimension:$WebGPU$TextureDimension$$[$HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 24 >>> 2 >>> 0]], format:$WebGPU$TextureFormat$$[$HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 
+  var $desc$jscomp$15$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$14_viewFormatsPtr$$ + 4), size:$WebGPU$makeExtent3D$$($descriptor$jscomp$14_viewFormatsPtr$$ + 28), mipLevelCount:$HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 44 >>> 2 >>> 0], sampleCount:$HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 48 >>> 2 >>> 0], dimension:$WebGPU$TextureDimension$$[$HEAP32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 24 >>> 2 >>> 0]], format:$WebGPU$TextureFormat$$[$HEAP32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 
   40 >>> 2 >>> 0]], usage:$HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 16 >>> 2 >>> 0]}, $ptr$jscomp$60_viewFormatCount$$ = $HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 52 >>> 2 >>> 0];
-  $ptr$jscomp$60_viewFormatCount$$ && ($descriptor$jscomp$14_viewFormatsPtr$$ = $HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 56 >>> 2 >>> 0], $desc$jscomp$15$$.viewFormats = Array.from($HEAP32$$.subarray($descriptor$jscomp$14_viewFormatsPtr$$ >>> 2 >>> 0, $descriptor$jscomp$14_viewFormatsPtr$$ + 4 * $ptr$jscomp$60_viewFormatCount$$ >>> 2 >>> 0), $format$jscomp$27$$ => $WebGPU$TextureFormat$$[$format$jscomp$27$$]));
+  $ptr$jscomp$60_viewFormatCount$$ && ($descriptor$jscomp$14_viewFormatsPtr$$ = $HEAPU32$$[$descriptor$jscomp$14_viewFormatsPtr$$ + 56 >>> 2 >>> 0], $desc$jscomp$15$$.viewFormats = Array.from($HEAP32$$.subarray($descriptor$jscomp$14_viewFormatsPtr$$ >>> 2 >>> 0, $descriptor$jscomp$14_viewFormatsPtr$$ + 4 * $ptr$jscomp$60_viewFormatCount$$ >>> 2 >>> 0), $format$jscomp$28$$ => $WebGPU$TextureFormat$$[$format$jscomp$28$$]));
   $device$jscomp$11_devicePtr$jscomp$10$$ = $WebGPU$getJsObject$$($device$jscomp$11_devicePtr$jscomp$10$$);
   $ptr$jscomp$60_viewFormatCount$$ = $_emwgpuCreateTexture$$(0);
   $WebGPU$Internals$jsObjectInsert$$($ptr$jscomp$60_viewFormatCount$$, $device$jscomp$11_devicePtr$jscomp$10$$.createTexture($desc$jscomp$15$$));
@@ -4781,7 +4761,7 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
   $assert$$($descriptor$jscomp$15_ptr$jscomp$61$$);
   $context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$ = $HEAPU32$$[$descriptor$jscomp$15_ptr$jscomp$61$$ >>> 2 >>> 0];
   $assert$$(0 !== $context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$);
-  $assert$$(262144 === $HEAPU32$$[$context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$ + 4 >>> 2 >>> 0]);
+  $assert$$(262144 === $HEAP32$$[$context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$ + 4 >>> 2 >>> 0]);
   $assert$$($context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$);
   $assert$$(0 === $HEAPU32$$[$context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$ >>> 2 >>> 0]);
   $context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$ = $HEAPU32$$[$context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$ + 8 >>> 2 >>> 0];
@@ -4793,7 +4773,7 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
   }
   $context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$.$surfaceLabelWebGPU$ = $WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$15_ptr$jscomp$61$$ + 4);
   $descriptor$jscomp$15_ptr$jscomp$61$$ = $_emwgpuCreateSurface$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($descriptor$jscomp$15_ptr$jscomp$61$$, $context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$);
+  $WebGPU$Internals$jsObjects$$[$descriptor$jscomp$15_ptr$jscomp$61$$ >>> 0] = $context$jscomp$8_instancePtr$jscomp$1_nextInChainPtr$jscomp$3_selectorPtr$$;
   return $descriptor$jscomp$15_ptr$jscomp$61$$;
 }, wgpuQueueSubmit:function($queue_queuePtr$jscomp$2$$, $cmds_commandCount$$, $commands$$) {
   $queue_queuePtr$jscomp$2$$ >>>= 0;
@@ -4830,14 +4810,14 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
   $pass$jscomp$1_passPtr$jscomp$1$$ = $WebGPU$getJsObject$$($pass$jscomp$1_passPtr$jscomp$1$$);
   $group_groupPtr$$ = $WebGPU$getJsObject$$($group_groupPtr$$);
   0 == $dynamicOffsetCount$$ ? $pass$jscomp$1_passPtr$jscomp$1$$.setBindGroup($groupIndex$$, $group_groupPtr$$) : $pass$jscomp$1_passPtr$jscomp$1$$.setBindGroup($groupIndex$$, $group_groupPtr$$, $HEAPU32$$, $dynamicOffsetsPtr$$ >>> 2, $dynamicOffsetCount$$);
-}, wgpuRenderPassEncoderSetIndexBuffer:function($pass$jscomp$2_passPtr$jscomp$2$$, $buffer$jscomp$49_bufferPtr$jscomp$5$$, $format$jscomp$28$$, $offset$jscomp$89$$, $size$jscomp$41$$) {
+}, wgpuRenderPassEncoderSetIndexBuffer:function($pass$jscomp$2_passPtr$jscomp$2$$, $buffer$jscomp$49_bufferPtr$jscomp$5$$, $format$jscomp$29$$, $offset$jscomp$89$$, $size$jscomp$41$$) {
   $buffer$jscomp$49_bufferPtr$jscomp$5$$ >>>= 0;
   $offset$jscomp$89$$ = $bigintToI53Checked$$($offset$jscomp$89$$);
   $size$jscomp$41$$ = $bigintToI53Checked$$($size$jscomp$41$$);
   $pass$jscomp$2_passPtr$jscomp$2$$ = $WebGPU$getJsObject$$($pass$jscomp$2_passPtr$jscomp$2$$ >>> 0);
   $buffer$jscomp$49_bufferPtr$jscomp$5$$ = $WebGPU$getJsObject$$($buffer$jscomp$49_bufferPtr$jscomp$5$$);
   -1 == $size$jscomp$41$$ && ($size$jscomp$41$$ = void 0);
-  $pass$jscomp$2_passPtr$jscomp$2$$.setIndexBuffer($buffer$jscomp$49_bufferPtr$jscomp$5$$, $WebGPU$IndexFormat$$[$format$jscomp$28$$], $offset$jscomp$89$$, $size$jscomp$41$$);
+  $pass$jscomp$2_passPtr$jscomp$2$$.setIndexBuffer($buffer$jscomp$49_bufferPtr$jscomp$5$$, $WebGPU$IndexFormat$$[$format$jscomp$29$$], $offset$jscomp$89$$, $size$jscomp$41$$);
 }, wgpuRenderPassEncoderSetPipeline:function($pass$jscomp$3_passPtr$jscomp$3$$, $pipeline_pipelinePtr$$) {
   $pipeline_pipelinePtr$$ >>>= 0;
   $pass$jscomp$3_passPtr$jscomp$3$$ = $WebGPU$getJsObject$$($pass$jscomp$3_passPtr$jscomp$3$$ >>> 0);
@@ -4857,30 +4837,30 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
   $context$jscomp$9_surfacePtr$$ >>>= 0;
   $config$jscomp$6_nextInChainPtr$jscomp$4$$ >>>= 0;
   $assert$$($config$jscomp$6_nextInChainPtr$jscomp$4$$);
-  var $configuration$jscomp$5_devicePtr$jscomp$11$$ = $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 4 >>> 2 >>> 0];
   $context$jscomp$9_surfacePtr$$ = $WebGPU$getJsObject$$($context$jscomp$9_surfacePtr$$);
-  var $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$ = $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 44 >>> 2 >>> 0];
-  $assert$$(1 === $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$ || 0 === $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$);
-  $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$ = [$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 24 >>> 2 >>> 0], $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 28 >>> 2 >>> 0]];
-  0 !== $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$[0] && ($context$jscomp$9_surfacePtr$$.canvas.width = $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$[0]);
-  0 !== $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$[1] && ($context$jscomp$9_surfacePtr$$.canvas.height = $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$[1]);
-  $configuration$jscomp$5_devicePtr$jscomp$11$$ = {device:$WebGPU$getJsObject$$($configuration$jscomp$5_devicePtr$jscomp$11$$), format:$WebGPU$TextureFormat$$[$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 8 >>> 2 >>> 0]], usage:$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 16 >>> 2 >>> 0], alphaMode:$WebGPU$CompositeAlphaMode$$[$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 40 >>> 2 >>> 0]]};
-  if ($canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$ = $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 32 >>> 2 >>> 0]) {
+  var $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$ = $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 44 >>> 2 >>> 0];
+  $assert$$(1 === $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$ || 0 === $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$);
+  $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$ = [$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 24 >>> 2 >>> 0], $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 28 >>> 2 >>> 0]];
+  0 !== $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$[0] && ($context$jscomp$9_surfacePtr$$.canvas.width = $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$[0]);
+  0 !== $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$[1] && ($context$jscomp$9_surfacePtr$$.canvas.height = $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$[1]);
+  $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$ = {device:$WebGPU$getJsObject$$($HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 4 >>> 2 >>> 0]), format:$WebGPU$TextureFormat$$[$HEAP32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 8 >>> 2 >>> 0]], usage:$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 16 >>> 2 >>> 0], alphaMode:$WebGPU$CompositeAlphaMode$$[$HEAP32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 40 >>> 2 >>> 0]]};
+  var $viewFormatCount$jscomp$1$$ = $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 32 >>> 2 >>> 0];
+  if ($viewFormatCount$jscomp$1$$) {
     var $viewFormatsPtr$jscomp$1$$ = $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 36 >>> 2 >>> 0];
-    $configuration$jscomp$5_devicePtr$jscomp$11$$.viewFormats = Array.from($HEAP32$$.subarray($viewFormatsPtr$jscomp$1$$ >>> 2 >>> 0, $viewFormatsPtr$jscomp$1$$ + 4 * $canvasSize$jscomp$2_presentMode_viewFormatCount$jscomp$1$$ >>> 2 >>> 0), $format$jscomp$29$$ => $WebGPU$TextureFormat$$[$format$jscomp$29$$]);
+    $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$.viewFormats = Array.from($HEAP32$$.subarray($viewFormatsPtr$jscomp$1$$ >>> 2 >>> 0, $viewFormatsPtr$jscomp$1$$ + 4 * $viewFormatCount$jscomp$1$$ >>> 2 >>> 0), $format$jscomp$30$$ => $WebGPU$TextureFormat$$[$format$jscomp$30$$]);
   }
   $config$jscomp$6_nextInChainPtr$jscomp$4$$ = $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ >>> 2 >>> 0];
-  0 !== $config$jscomp$6_nextInChainPtr$jscomp$4$$ && ($assert$$(10 === $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 4 >>> 2 >>> 0]), $assert$$(0 === $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ >>> 2 >>> 0]), $assert$$($config$jscomp$6_nextInChainPtr$jscomp$4$$), $assert$$(0 === $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ >>> 2 >>> 0]), $configuration$jscomp$5_devicePtr$jscomp$11$$.colorSpace = $WebGPU$PredefinedColorSpace$$[$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 
-  8 >>> 2 >>> 0]], $configuration$jscomp$5_devicePtr$jscomp$11$$.$toneMapping$ = {mode:$WebGPU$ToneMappingMode$$[$HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 12 >>> 2 >>> 0]]});
-  $context$jscomp$9_surfacePtr$$.configure($configuration$jscomp$5_devicePtr$jscomp$11$$);
+  0 !== $config$jscomp$6_nextInChainPtr$jscomp$4$$ && ($assert$$(10 === $HEAP32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 4 >>> 2 >>> 0]), $assert$$(0 === $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ >>> 2 >>> 0]), $assert$$($config$jscomp$6_nextInChainPtr$jscomp$4$$), $assert$$(0 === $HEAPU32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ >>> 2 >>> 0]), $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$.colorSpace = $WebGPU$PredefinedColorSpace$$[$HEAP32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 
+  8 >>> 2 >>> 0]], $canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$.$toneMapping$ = {mode:$WebGPU$ToneMappingMode$$[$HEAP32$$[$config$jscomp$6_nextInChainPtr$jscomp$4$$ + 12 >>> 2 >>> 0]]});
+  $context$jscomp$9_surfacePtr$$.configure($canvasSize$jscomp$2_configuration$jscomp$5_presentMode$$);
 }, wgpuSurfaceGetCurrentTexture:function($context$jscomp$10_surfacePtr$jscomp$1$$, $surfaceTexturePtr$$) {
   $context$jscomp$10_surfacePtr$jscomp$1$$ >>>= 0;
   $surfaceTexturePtr$$ >>>= 0;
   $assert$$($surfaceTexturePtr$$);
   $context$jscomp$10_surfacePtr$jscomp$1$$ = $WebGPU$getJsObject$$($context$jscomp$10_surfacePtr$jscomp$1$$);
   try {
-    var $texturePtr$$ = $_emwgpuCreateTexture$$(0);
-    $WebGPU$Internals$jsObjectInsert$$($texturePtr$$, $context$jscomp$10_surfacePtr$jscomp$1$$.getCurrentTexture());
+    var $texturePtr$$ = $_emwgpuCreateTexture$$(0), $jsObject$jscomp$inline_380$$ = $context$jscomp$10_surfacePtr$jscomp$1$$.getCurrentTexture();
+    $WebGPU$Internals$jsObjects$$[$texturePtr$$ >>> 0] = $jsObject$jscomp$inline_380$$;
     $HEAPU32$$[$surfaceTexturePtr$$ + 4 >>> 2 >>> 0] = $texturePtr$$;
     $HEAP32$$[$surfaceTexturePtr$$ + 8 >>> 2 >>> 0] = 1;
   } catch ($ex$jscomp$3$$) {
@@ -4888,21 +4868,29 @@ $width$jscomp$39$$, $height$jscomp$36$$, $border$jscomp$6$$, $format$jscomp$24$$
   }
 }, wgpuSurfaceUnconfigure:function($surfacePtr$jscomp$2$$) {
   $WebGPU$getJsObject$$($surfacePtr$jscomp$2$$ >>> 0).unconfigure();
-}, wgpuTextureCreateView:function($texture$jscomp$11_texturePtr$jscomp$1$$, $descriptor$jscomp$16_ptr$jscomp$62$$) {
-  $texture$jscomp$11_texturePtr$jscomp$1$$ >>>= 0;
-  $descriptor$jscomp$16_ptr$jscomp$62$$ >>>= 0;
-  if ($descriptor$jscomp$16_ptr$jscomp$62$$) {
-    $assert$$($descriptor$jscomp$16_ptr$jscomp$62$$);
-    $assert$$(0 === $HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ >>> 2 >>> 0]);
-    var $desc$jscomp$16_mipLevelCount$$ = $HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ + 24 >>> 2 >>> 0];
-    var $arrayLayerCount$$ = $HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ + 32 >>> 2 >>> 0];
-    $desc$jscomp$16_mipLevelCount$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$16_ptr$jscomp$62$$ + 4), format:$WebGPU$TextureFormat$$[$HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ + 12 >>> 2 >>> 0]], dimension:$WebGPU$TextureViewDimension$$[$HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ + 16 >>> 2 >>> 0]], baseMipLevel:$HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ + 20 >>> 2 >>> 0], mipLevelCount:4294967295 === $desc$jscomp$16_mipLevelCount$$ ? void 0 : $desc$jscomp$16_mipLevelCount$$, 
-    baseArrayLayer:$HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ + 28 >>> 2 >>> 0], arrayLayerCount:4294967295 === $arrayLayerCount$$ ? void 0 : $arrayLayerCount$$, aspect:$WebGPU$TextureAspect$$[$HEAPU32$$[$descriptor$jscomp$16_ptr$jscomp$62$$ + 36 >>> 2 >>> 0]]};
+}, wgpuTextureCreateView:function($ptr$jscomp$62_texturePtr$jscomp$1$$, $descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$) {
+  $ptr$jscomp$62_texturePtr$jscomp$1$$ >>>= 0;
+  $descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ >>>= 0;
+  if ($descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$) {
+    var $desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ = $HEAPU32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ >>> 2 >>> 0];
+    if (0 !== $desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$) {
+      $assert$$(12 === $HEAP32$$[$desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ + 4 >>> 2 >>> 0]);
+      $assert$$(0 === $HEAPU32$$[$desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ >>> 2 >>> 0]);
+      $assert$$($desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$);
+      $assert$$(0 === $HEAPU32$$[$desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ >>> 2 >>> 0]);
+      var $swizzle_swizzlePtr$$ = $desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ + 8;
+      $swizzle_swizzlePtr$$ = `${$WebGPU$ComponentSwizzle$$[$HEAP32$$[$swizzle_swizzlePtr$$ >>> 2 >>> 0]] || "r"}${$WebGPU$ComponentSwizzle$$[$HEAP32$$[$swizzle_swizzlePtr$$ + 4 >>> 2 >>> 0]] || "g"}${$WebGPU$ComponentSwizzle$$[$HEAP32$$[$swizzle_swizzlePtr$$ + 8 >>> 2 >>> 0]] || "b"}${$WebGPU$ComponentSwizzle$$[$HEAP32$$[$swizzle_swizzlePtr$$ + 12 >>> 2 >>> 0]] || "a"}`;
+    }
+    $desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ = $HEAPU32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 24 >>> 2 >>> 0];
+    var $arrayLayerCount$$ = $HEAPU32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 32 >>> 2 >>> 0];
+    $desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ = {label:$WebGPU$makeStringFromOptionalStringView$$($descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 4), format:$WebGPU$TextureFormat$$[$HEAP32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 12 >>> 2 >>> 0]], dimension:$WebGPU$TextureViewDimension$$[$HEAP32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 16 >>> 2 >>> 0]], baseMipLevel:$HEAPU32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 
+    20 >>> 2 >>> 0], mipLevelCount:4294967295 === $desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$ ? void 0 : $desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$, baseArrayLayer:$HEAPU32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 28 >>> 2 >>> 0], arrayLayerCount:4294967295 === $arrayLayerCount$$ ? void 0 : $arrayLayerCount$$, aspect:$WebGPU$TextureAspect$$[$HEAP32$$[$descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ + 36 >>> 2 >>> 0]], swizzle:$swizzle_swizzlePtr$$};
   }
-  $texture$jscomp$11_texturePtr$jscomp$1$$ = $WebGPU$getJsObject$$($texture$jscomp$11_texturePtr$jscomp$1$$);
-  $descriptor$jscomp$16_ptr$jscomp$62$$ = $_emwgpuCreateTextureView$$(0);
-  $WebGPU$Internals$jsObjectInsert$$($descriptor$jscomp$16_ptr$jscomp$62$$, $texture$jscomp$11_texturePtr$jscomp$1$$.createView($desc$jscomp$16_mipLevelCount$$));
-  return $descriptor$jscomp$16_ptr$jscomp$62$$;
+  $descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ = $WebGPU$getJsObject$$($ptr$jscomp$62_texturePtr$jscomp$1$$);
+  $ptr$jscomp$62_texturePtr$jscomp$1$$ = $_emwgpuCreateTextureView$$(0);
+  $descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$ = $descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$.createView($desc$jscomp$16_mipLevelCount_nextInChainPtr$jscomp$5$$);
+  $WebGPU$Internals$jsObjects$$[$ptr$jscomp$62_texturePtr$jscomp$1$$ >>> 0] = $descriptor$jscomp$16_jsObject$jscomp$inline_383_texture$jscomp$11$$;
+  return $ptr$jscomp$62_texturePtr$jscomp$1$$;
 }, wgpuTextureDestroy:function($texturePtr$jscomp$2$$) {
   $WebGPU$getJsObject$$($texturePtr$jscomp$2$$ >>> 0).destroy();
 }, wgpuTextureGetFormat:function($texture$jscomp$12_texturePtr$jscomp$3$$) {
@@ -4923,25 +4911,25 @@ function $applySignatureConversions$$() {
   return $wasmExports$jscomp$2$$;
 }
 var $calledRun$$;
-function $callMain$$($args$jscomp$20$$ = []) {
+function $callMain$$($args$jscomp$124$$ = []) {
   $assert$$(0 == $runDependencies$$, 'cannot call main when async dependencies remain! (listen on Module["onRuntimeInitialized"])');
   $assert$$("undefined" === typeof $onPreRuns$$ || 0 == $onPreRuns$$.length, "cannot call main when preRun functions remain to be called");
   var $entryFunction$$ = $_main$$;
-  $args$jscomp$20$$.unshift($thisProgram$$);
-  var $argc$$ = $args$jscomp$20$$.length, $argv$$ = $__emscripten_stack_alloc$$(4 * ($argc$$ + 1)), $argv_ptr$$ = $argv$$;
-  $args$jscomp$20$$.forEach($arg$jscomp$14$$ => {
+  $args$jscomp$124$$.unshift($thisProgram$$);
+  var $argc$$ = $args$jscomp$124$$.length, $argv$$ = $__emscripten_stack_alloc$$(4 * ($argc$$ + 1)), $argv_ptr$$ = $argv$$;
+  $args$jscomp$124$$.forEach($arg$jscomp$14$$ => {
     $HEAPU32$$[$argv_ptr$$ >>> 2 >>> 0] = $stringToUTF8OnStack$$($arg$jscomp$14$$);
     $argv_ptr$$ += 4;
   });
   $HEAPU32$$[$argv_ptr$$ >>> 2 >>> 0] = 0;
   try {
-    var $ret$jscomp$21$$ = $entryFunction$$($argc$$, $argv$$);
-    $exitJS$$($ret$jscomp$21$$, !0);
-  } catch ($e$jscomp$67$$) {
-    $handleException$$($e$jscomp$67$$);
+    var $ret$jscomp$20$$ = $entryFunction$$($argc$$, $argv$$);
+    $exitJS$$($ret$jscomp$20$$, !0);
+  } catch ($e$jscomp$66$$) {
+    $handleException$$($e$jscomp$66$$);
   }
 }
-function $run$$($args$jscomp$21$$ = $arguments_$$) {
+function $run$$($args$jscomp$125$$ = $arguments_$$) {
   function $doRun$$() {
     $assert$$(!$calledRun$$);
     $calledRun$$ = !0;
@@ -4953,29 +4941,29 @@ function $run$$($args$jscomp$21$$ = $arguments_$$) {
       if (!$Module$$.noFSInit && !$FS$initialized$$) {
         $assert$$(!$FS$initialized$$, "FS.init was previously called. If you want to initialize later with custom parameters, remove any earlier calls (note that one is automatically added to the generated code)");
         $FS$initialized$$ = !0;
-        $input$jscomp$inline_523_input$jscomp$inline_526_stdout$jscomp$inline_530$$ ??= $Module$$.stdin;
-        $output$jscomp$inline_524_output$jscomp$inline_527_stderr$jscomp$inline_531$$ ??= $Module$$.stdout;
-        $cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$ ??= $Module$$.stderr;
-        $input$jscomp$inline_523_input$jscomp$inline_526_stdout$jscomp$inline_530$$ ? $FS$createDevice$$("/dev", "stdin", $input$jscomp$inline_523_input$jscomp$inline_526_stdout$jscomp$inline_530$$) : $FS$symlink$$("/dev/tty", "/dev/stdin");
-        $output$jscomp$inline_524_output$jscomp$inline_527_stderr$jscomp$inline_531$$ ? $FS$createDevice$$("/dev", "stdout", null, $output$jscomp$inline_524_output$jscomp$inline_527_stderr$jscomp$inline_531$$) : $FS$symlink$$("/dev/tty", "/dev/stdout");
-        $cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$ ? $FS$createDevice$$("/dev", "stderr", null, $cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$) : $FS$symlink$$("/dev/tty1", "/dev/stderr");
-        var $cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$ = $FS$open$$("/dev/stdin", 0);
-        var $input$jscomp$inline_523_input$jscomp$inline_526_stdout$jscomp$inline_530$$ = $FS$open$$("/dev/stdout", 1);
-        var $output$jscomp$inline_524_output$jscomp$inline_527_stderr$jscomp$inline_531$$ = $FS$open$$("/dev/stderr", 1);
-        $assert$$(0 === $cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$.fd, `invalid handle for stdin (${$cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$.fd})`);
-        $assert$$(1 === $input$jscomp$inline_523_input$jscomp$inline_526_stdout$jscomp$inline_530$$.fd, `invalid handle for stdout (${$input$jscomp$inline_523_input$jscomp$inline_526_stdout$jscomp$inline_530$$.fd})`);
-        $assert$$(2 === $output$jscomp$inline_524_output$jscomp$inline_527_stderr$jscomp$inline_531$$.fd, `invalid handle for stderr (${$output$jscomp$inline_524_output$jscomp$inline_527_stderr$jscomp$inline_531$$.fd})`);
+        $input$jscomp$inline_553_input$jscomp$inline_556_stdout$jscomp$inline_560$$ ??= $Module$$.stdin;
+        $output$jscomp$inline_554_output$jscomp$inline_557_stderr$jscomp$inline_561$$ ??= $Module$$.stdout;
+        $cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$ ??= $Module$$.stderr;
+        $input$jscomp$inline_553_input$jscomp$inline_556_stdout$jscomp$inline_560$$ ? $FS$createDevice$$("/dev", "stdin", $input$jscomp$inline_553_input$jscomp$inline_556_stdout$jscomp$inline_560$$) : $FS$symlink$$("/dev/tty", "/dev/stdin");
+        $output$jscomp$inline_554_output$jscomp$inline_557_stderr$jscomp$inline_561$$ ? $FS$createDevice$$("/dev", "stdout", null, $output$jscomp$inline_554_output$jscomp$inline_557_stderr$jscomp$inline_561$$) : $FS$symlink$$("/dev/tty", "/dev/stdout");
+        $cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$ ? $FS$createDevice$$("/dev", "stderr", null, $cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$) : $FS$symlink$$("/dev/tty1", "/dev/stderr");
+        var $cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$ = $FS$open$$("/dev/stdin", 0);
+        var $input$jscomp$inline_553_input$jscomp$inline_556_stdout$jscomp$inline_560$$ = $FS$open$$("/dev/stdout", 1);
+        var $output$jscomp$inline_554_output$jscomp$inline_557_stderr$jscomp$inline_561$$ = $FS$open$$("/dev/stderr", 1);
+        $assert$$(0 === $cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$.fd, `invalid handle for stdin (${$cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$.fd})`);
+        $assert$$(1 === $input$jscomp$inline_553_input$jscomp$inline_556_stdout$jscomp$inline_560$$.fd, `invalid handle for stdout (${$input$jscomp$inline_553_input$jscomp$inline_556_stdout$jscomp$inline_560$$.fd})`);
+        $assert$$(2 === $output$jscomp$inline_554_output$jscomp$inline_557_stderr$jscomp$inline_561$$.fd, `invalid handle for stderr (${$output$jscomp$inline_554_output$jscomp$inline_557_stderr$jscomp$inline_561$$.fd})`);
       }
       $wasmExports$$.__wasm_call_ctors();
       $FS$ignorePermissions$$ = !1;
       $checkStackCookie$$();
       $Module$$.onRuntimeInitialized?.();
       $consumedModuleProp$$("onRuntimeInitialized");
-      $Module$$.noInitialRun || $callMain$$($args$jscomp$21$$);
+      $Module$$.noInitialRun || $callMain$$($args$jscomp$125$$);
       $checkStackCookie$$();
       if ($Module$$.postRun) {
         for ("function" == typeof $Module$$.postRun && ($Module$$.postRun = [$Module$$.postRun]); $Module$$.postRun.length;) {
-          $cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$ = $Module$$.postRun.shift(), $onPostRuns$$.push($cb$jscomp$inline_533_error$jscomp$inline_525_error$jscomp$inline_528_stdin$jscomp$inline_529$$);
+          $cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$ = $Module$$.postRun.shift(), $onPostRuns$$.push($cb$jscomp$inline_563_error$jscomp$inline_555_error$jscomp$inline_558_stdin$jscomp$inline_559$$);
         }
       }
       $consumedModuleProp$$("postRun");
@@ -5006,23 +4994,23 @@ function $checkUnflushedContent$$() {
     $has$$ = !0;
   };
   try {
-    $_fflush$$(0), ["stdout", "stderr"].forEach($name$jscomp$123_path$jscomp$inline_357$$ => {
-      $name$jscomp$123_path$jscomp$inline_357$$ = "/dev/" + $name$jscomp$123_path$jscomp$inline_357$$;
+    $_fflush$$(0), ["stdout", "stderr"].forEach($name$jscomp$123_path$jscomp$inline_390$$ => {
+      $name$jscomp$123_path$jscomp$inline_390$$ = "/dev/" + $name$jscomp$123_path$jscomp$inline_390$$;
       try {
-        var $lookup$jscomp$inline_359$$ = $FS$lookupPath$$($name$jscomp$123_path$jscomp$inline_357$$, {$follow$:!0});
-        $name$jscomp$123_path$jscomp$inline_357$$ = $lookup$jscomp$inline_359$$.path;
-      } catch ($e$jscomp$inline_361$$) {
+        var $lookup$jscomp$inline_392$$ = $FS$lookupPath$$($name$jscomp$123_path$jscomp$inline_390$$, {$follow$:!0});
+        $name$jscomp$123_path$jscomp$inline_390$$ = $lookup$jscomp$inline_392$$.path;
+      } catch ($e$jscomp$inline_394$$) {
       }
-      var $ret$jscomp$inline_360$$ = {$isRoot$:!1, exists:!1, error:0, name:null, path:null, object:null, $parentExists$:!1, $parentPath$:null, $parentObject$:null};
+      var $ret$jscomp$inline_393$$ = {$isRoot$:!1, exists:!1, error:0, name:null, path:null, object:null, $parentExists$:!1, $parentPath$:null, $parentObject$:null};
       try {
-        $lookup$jscomp$inline_359$$ = $FS$lookupPath$$($name$jscomp$123_path$jscomp$inline_357$$, {parent:!0}), $ret$jscomp$inline_360$$.$parentExists$ = !0, $ret$jscomp$inline_360$$.$parentPath$ = $lookup$jscomp$inline_359$$.path, $ret$jscomp$inline_360$$.$parentObject$ = $lookup$jscomp$inline_359$$.node, $ret$jscomp$inline_360$$.name = $PATH$basename$$($name$jscomp$123_path$jscomp$inline_357$$), $lookup$jscomp$inline_359$$ = $FS$lookupPath$$($name$jscomp$123_path$jscomp$inline_357$$, {$follow$:!0}), 
-        $ret$jscomp$inline_360$$.exists = !0, $ret$jscomp$inline_360$$.path = $lookup$jscomp$inline_359$$.path, $ret$jscomp$inline_360$$.object = $lookup$jscomp$inline_359$$.node, $ret$jscomp$inline_360$$.name = $lookup$jscomp$inline_359$$.node.name, $ret$jscomp$inline_360$$.$isRoot$ = "/" === $lookup$jscomp$inline_359$$.path;
-      } catch ($e$jscomp$inline_362$$) {
-        $ret$jscomp$inline_360$$.error = $e$jscomp$inline_362$$.$errno$;
+        $lookup$jscomp$inline_392$$ = $FS$lookupPath$$($name$jscomp$123_path$jscomp$inline_390$$, {parent:!0}), $ret$jscomp$inline_393$$.$parentExists$ = !0, $ret$jscomp$inline_393$$.$parentPath$ = $lookup$jscomp$inline_392$$.path, $ret$jscomp$inline_393$$.$parentObject$ = $lookup$jscomp$inline_392$$.node, $ret$jscomp$inline_393$$.name = $PATH$basename$$($name$jscomp$123_path$jscomp$inline_390$$), $lookup$jscomp$inline_392$$ = $FS$lookupPath$$($name$jscomp$123_path$jscomp$inline_390$$, {$follow$:!0}), 
+        $ret$jscomp$inline_393$$.exists = !0, $ret$jscomp$inline_393$$.path = $lookup$jscomp$inline_392$$.path, $ret$jscomp$inline_393$$.object = $lookup$jscomp$inline_392$$.node, $ret$jscomp$inline_393$$.name = $lookup$jscomp$inline_392$$.node.name, $ret$jscomp$inline_393$$.$isRoot$ = "/" === $lookup$jscomp$inline_392$$.path;
+      } catch ($e$jscomp$inline_395$$) {
+        $ret$jscomp$inline_393$$.error = $e$jscomp$inline_395$$.$errno$;
       }
-      $ret$jscomp$inline_360$$ && $TTY$ttys$$[$ret$jscomp$inline_360$$.object.rdev]?.output?.length && ($has$$ = !0);
+      $ret$jscomp$inline_393$$ && $TTY$ttys$$[$ret$jscomp$inline_393$$.object.rdev]?.output?.length && ($has$$ = !0);
     });
-  } catch ($e$jscomp$68$$) {
+  } catch ($e$jscomp$67$$) {
   }
   $out$$ = $oldOut$$;
   $err$$ = $oldErr$$;
@@ -5030,18 +5018,18 @@ function $checkUnflushedContent$$() {
 }
 var $wasmExports$$;
 (async function() {
-  function $receiveInstance$$($instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$) {
-    var $exports$jscomp$inline_364_wrapper$jscomp$inline_366$$ = $wasmExports$$ = $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$.exports;
-    $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$ = {};
-    for (let [$x$jscomp$inline_367$$, $original$jscomp$inline_368$$] of Object.entries($exports$jscomp$inline_364_wrapper$jscomp$inline_366$$)) {
-      "function" == typeof $original$jscomp$inline_368$$ ? ($exports$jscomp$inline_364_wrapper$jscomp$inline_366$$ = $Asyncify$instrumentFunction$$($original$jscomp$inline_368$$), $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$[$x$jscomp$inline_367$$] = $exports$jscomp$inline_364_wrapper$jscomp$inline_366$$) : $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$[$x$jscomp$inline_367$$] = $original$jscomp$inline_368$$;
+  function $receiveInstance$$($instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$) {
+    var $exports$jscomp$inline_397_wrapper$jscomp$inline_399$$ = $wasmExports$$ = $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$.exports;
+    $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$ = {};
+    for (let [$x$jscomp$inline_400$$, $original$jscomp$inline_401$$] of Object.entries($exports$jscomp$inline_397_wrapper$jscomp$inline_399$$)) {
+      "function" == typeof $original$jscomp$inline_401$$ ? ($exports$jscomp$inline_397_wrapper$jscomp$inline_399$$ = $Asyncify$instrumentFunction$$($original$jscomp$inline_401$$), $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$[$x$jscomp$inline_400$$] = $exports$jscomp$inline_397_wrapper$jscomp$inline_399$$) : $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$[$x$jscomp$inline_400$$] = $original$jscomp$inline_401$$;
     }
-    $wasmExports$$ = $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$;
+    $wasmExports$$ = $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$;
     $wasmExports$$ = $applySignatureConversions$$();
     $wasmMemory$$ = $wasmExports$$.memory;
     $assert$$($wasmMemory$$, "memory not found in wasm exports");
     $updateMemoryViews$$();
-    $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$ = $wasmExports$$;
+    $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$ = $wasmExports$$;
     $Module$$._main = $_main$$ = $createExportWrapper$$("__main_argc_argv", 2);
     $_malloc$$ = $createExportWrapper$$("malloc", 1);
     $_free$$ = $createExportWrapper$$("free", 1);
@@ -5074,22 +5062,22 @@ var $wasmExports$$;
     $_emwgpuOnRequestAdapterCompleted$$ = $createExportWrapper$$("emwgpuOnRequestAdapterCompleted", 4);
     $_emwgpuOnRequestDeviceCompleted$$ = $createExportWrapper$$("emwgpuOnRequestDeviceCompleted", 4);
     $_emwgpuOnUncapturedError$$ = $createExportWrapper$$("emwgpuOnUncapturedError", 3);
-    $_emscripten_stack_get_end$$ = $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$.emscripten_stack_get_end;
-    $_emscripten_stack_init$$ = $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$.emscripten_stack_init;
-    $__emscripten_stack_restore$$ = $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$._emscripten_stack_restore;
-    $__emscripten_stack_alloc$$ = $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$._emscripten_stack_alloc;
-    $_emscripten_stack_get_current$$ = $instance$jscomp$1_ret$jscomp$inline_365_wasmExports$jscomp$inline_370$$.emscripten_stack_get_current;
+    $_emscripten_stack_get_end$$ = $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$.emscripten_stack_get_end;
+    $_emscripten_stack_init$$ = $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$.emscripten_stack_init;
+    $__emscripten_stack_restore$$ = $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$._emscripten_stack_restore;
+    $__emscripten_stack_alloc$$ = $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$._emscripten_stack_alloc;
+    $_emscripten_stack_get_current$$ = $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$.emscripten_stack_get_current;
     $dynCalls$$.ii = $createExportWrapper$$("dynCall_ii", 2);
     $dynCalls$$.vi = dynCall_vi = $createExportWrapper$$("dynCall_vi", 2);
     $dynCalls$$.vii = dynCall_vii = $createExportWrapper$$("dynCall_vii", 3);
     $dynCalls$$.iii = dynCall_iii = $createExportWrapper$$("dynCall_iii", 3);
     $dynCalls$$.iiii = $dynCall_iiii$$ = $createExportWrapper$$("dynCall_iiii", 4);
-    $dynCalls$$.v = dynCall_v = $createExportWrapper$$("dynCall_v", 1);
     $dynCalls$$.iiiiii = $createExportWrapper$$("dynCall_iiiiii", 6);
     $dynCalls$$.viiiii = $createExportWrapper$$("dynCall_viiiii", 6);
     $dynCalls$$.viiii = $createExportWrapper$$("dynCall_viiii", 5);
     $dynCalls$$.iiiii = $createExportWrapper$$("dynCall_iiiii", 5);
     $dynCalls$$.viii = $createExportWrapper$$("dynCall_viii", 4);
+    $dynCalls$$.v = dynCall_v = $createExportWrapper$$("dynCall_v", 1);
     $dynCalls$$.viiifi = $createExportWrapper$$("dynCall_viiifi", 6);
     $dynCalls$$.jiji = $createExportWrapper$$("dynCall_jiji", 4);
     $dynCalls$$.viiiiii = $createExportWrapper$$("dynCall_viiiiii", 7);
