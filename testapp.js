@@ -1496,8 +1496,8 @@ var $SYSCALLS$varargs$$ = void 0, $stringToUTF8$$ = ($str$jscomp$13$$, $outPtr$$
         $MainLoop$setImmediate$$ = $func$jscomp$9$$ => {
           $setImmediates$$.push($func$jscomp$9$$);
           if ($ENVIRONMENT_IS_WORKER$$) {
-            let $$jscomp$logical$assign$tmp2034090597$5$$;
-            ($$jscomp$logical$assign$tmp2034090597$5$$ = $Module$$).setImmediates ?? ($$jscomp$logical$assign$tmp2034090597$5$$.setImmediates = []);
+            let $$jscomp$logical$assign$tmpm1554143674$5$$;
+            ($$jscomp$logical$assign$tmpm1554143674$5$$ = $Module$$).setImmediates ?? ($$jscomp$logical$assign$tmpm1554143674$5$$.setImmediates = []);
             $Module$$.setImmediates.push($func$jscomp$9$$);
             postMessage({target:"setimmediate"});
           } else {
