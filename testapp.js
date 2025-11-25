@@ -1496,8 +1496,8 @@ var $SYSCALLS$varargs$$ = void 0, $stringToUTF8$$ = ($str$jscomp$13$$, $outPtr$$
         $MainLoop$setImmediate$$ = $func$jscomp$9$$ => {
           $setImmediates$$.push($func$jscomp$9$$);
           if ($ENVIRONMENT_IS_WORKER$$) {
-            let $$jscomp$logical$assign$tmp425849384$5$$;
-            ($$jscomp$logical$assign$tmp425849384$5$$ = $Module$$).setImmediates ?? ($$jscomp$logical$assign$tmp425849384$5$$.setImmediates = []);
+            let $$jscomp$logical$assign$tmpm154824699$5$$;
+            ($$jscomp$logical$assign$tmpm154824699$5$$ = $Module$$).setImmediates ?? ($$jscomp$logical$assign$tmpm154824699$5$$.setImmediates = []);
             $Module$$.setImmediates.push($func$jscomp$9$$);
             postMessage({target:"setimmediate"});
           } else {
@@ -2802,34 +2802,34 @@ $Module$$.requestFullscreen = function($lockPointer$$, $resizeCanvas$$) {
   $canvasContainer$$.requestFullscreen = $canvasContainer$$.requestFullscreen || $canvasContainer$$.mozRequestFullScreen || $canvasContainer$$.msRequestFullscreen || ($canvasContainer$$.webkitRequestFullscreen ? () => $canvasContainer$$.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT) : null) || ($canvasContainer$$.webkitRequestFullScreen ? () => $canvasContainer$$.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT) : null);
   $canvasContainer$$.requestFullscreen();
 };
-var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
+var $ASM_CONSTS$$ = {1010380:$$0_reply_str$jscomp$17$$ => {
   $$0_reply_str$jscomp$17$$ = $UTF8ToString$$($$0_reply_str$jscomp$17$$) + "\n\nAbort/Retry/Ignore/AlwaysIgnore? [ariA] :";
   $$0_reply_str$jscomp$17$$ = window.prompt($$0_reply_str$jscomp$17$$, "i");
   null === $$0_reply_str$jscomp$17$$ && ($$0_reply_str$jscomp$17$$ = "i");
   return 1 === $$0_reply_str$jscomp$17$$.length ? $$0_reply_str$jscomp$17$$.charCodeAt(0) : -1;
-}, 1003875:() => {
+}, 1010595:() => {
   "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
   $Module$$.SDL3.$dummy_audio$ = {};
   $Module$$.SDL3.$dummy_audio$.$timers$ = [];
   $Module$$.SDL3.$dummy_audio$.$timers$[0] = void 0;
   $Module$$.SDL3.$dummy_audio$.$timers$[1] = void 0;
-}, 1004121:($$0$jscomp$1$$, $$1$$, $$2$$, $$3$$, $$4$$) => {
+}, 1010841:($$0$jscomp$1$$, $$1$$, $$2$$, $$3$$, $$4$$) => {
   var $a$jscomp$2$$ = $Module$$.SDL3.$dummy_audio$;
   void 0 !== $a$jscomp$2$$.$timers$[$$0$jscomp$1$$] && clearInterval($a$jscomp$2$$.$timers$[$$0$jscomp$1$$]);
   $a$jscomp$2$$.$timers$[$$0$jscomp$1$$] = setInterval(function() {
     $dynCall$$("vi", $$3$$, [$$4$$]);
   }, $$1$$ / $$2$$ * 1e3);
-}, 1004313:$$0$jscomp$2$$ => {
+}, 1011033:$$0$jscomp$2$$ => {
   var $a$jscomp$3$$ = $Module$$.SDL3.$dummy_audio$;
   void 0 !== $a$jscomp$3$$.$timers$[$$0$jscomp$2$$] && clearInterval($a$jscomp$3$$.$timers$[$$0$jscomp$2$$]);
   $a$jscomp$3$$.$timers$[$$0$jscomp$2$$] = void 0;
-}, 1004444:() => "undefined" !== typeof AudioContext || "undefined" !== typeof webkitAudioContext ? !0 : !1, 1004591:() => "undefined" !== typeof navigator.mediaDevices && "undefined" !== typeof navigator.mediaDevices.getUserMedia || "undefined" !== typeof navigator.webkitGetUserMedia ? !0 : !1, 1004825:$$0$jscomp$3$$ => {
+}, 1011164:() => "undefined" !== typeof AudioContext || "undefined" !== typeof webkitAudioContext ? !0 : !1, 1011311:() => "undefined" !== typeof navigator.mediaDevices && "undefined" !== typeof navigator.mediaDevices.getUserMedia || "undefined" !== typeof navigator.webkitGetUserMedia ? !0 : !1, 1011545:$$0$jscomp$3$$ => {
   "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
   var $SDL3$$ = $Module$$.SDL3;
   $$0$jscomp$3$$ ? $SDL3$$.$audio_recording$ = {} : $SDL3$$.$audio_playback$ = {};
   $SDL3$$.$audioContext$ || ("undefined" !== typeof AudioContext ? $SDL3$$.$audioContext$ = new AudioContext() : "undefined" !== typeof webkitAudioContext && ($SDL3$$.$audioContext$ = new webkitAudioContext()), $SDL3$$.$audioContext$ && "undefined" === typeof navigator.userActivation && $autoResumeAudioContext$$($SDL3$$.$audioContext$));
   return void 0 !== $SDL3$$.$audioContext$;
-}, 1005388:() => $Module$$.SDL3.$audioContext$.sampleRate, 1005439:($$0$jscomp$4$$, $$1$jscomp$1$$, $$2$jscomp$1$$, $$3$jscomp$1$$) => {
+}, 1012108:() => $Module$$.SDL3.$audioContext$.sampleRate, 1012159:($$0$jscomp$4$$, $$1$jscomp$1$$, $$2$jscomp$1$$, $$3$jscomp$1$$) => {
   function $no_microphone$$() {
   }
   function $have_microphone$$($stream$jscomp$64$$) {
@@ -2851,7 +2851,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     $dynCall$$("ip", $$2$jscomp$1$$, [$$3$jscomp$1$$]);
   }, $$1$jscomp$1$$ / $SDL3$jscomp$1$$.$audioContext$.sampleRate * 1e3);
   void 0 !== navigator.mediaDevices && void 0 !== navigator.mediaDevices.getUserMedia ? navigator.mediaDevices.getUserMedia({audio:!0, video:!1}).then($have_microphone$$).catch($no_microphone$$) : void 0 !== navigator.webkitGetUserMedia && navigator.webkitGetUserMedia({audio:!0, video:!1}, $have_microphone$$, $no_microphone$$);
-}, 1007280:($$0$jscomp$5$$, $$1$jscomp$2$$, $$2$jscomp$2$$, $$3$jscomp$2$$) => {
+}, 1014E3:($$0$jscomp$5$$, $$1$jscomp$2$$, $$2$jscomp$2$$, $$3$jscomp$2$$) => {
   var $SDL3$jscomp$2$$ = $Module$$.SDL3;
   $SDL3$jscomp$2$$.$audio_playback$.$scriptProcessorNode$ = $SDL3$jscomp$2$$.$audioContext$.createScriptProcessor($$1$jscomp$2$$, 0, $$0$jscomp$5$$);
   $SDL3$jscomp$2$$.$audio_playback$.$scriptProcessorNode$.onaudioprocess = function($e$jscomp$65$$) {
@@ -2864,7 +2864,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     $dynCall$$("ip", $$2$jscomp$2$$, [$$3$jscomp$2$$]);
     $SDL3$jscomp$2$$.$audio_playback$.$currentPlaybackBuffer$ = void 0;
   }, $$1$jscomp$2$$ / $SDL3$jscomp$2$$.$audioContext$.sampleRate * 1e3));
-}, 1008596:$$0$jscomp$6_tracks$$ => {
+}, 1015316:$$0$jscomp$6_tracks$$ => {
   var $SDL3$jscomp$3$$ = $Module$$.SDL3;
   if ($$0$jscomp$6_tracks$$) {
     void 0 !== $SDL3$jscomp$3$$.$audio_recording$.$silenceTimer$ && clearInterval($SDL3$jscomp$3$$.$audio_recording$.$silenceTimer$);
@@ -2882,7 +2882,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     void 0 != $SDL3$jscomp$3$$.$audio_playback$.$scriptProcessorNode$ && $SDL3$jscomp$3$$.$audio_playback$.$scriptProcessorNode$.disconnect(), void 0 !== $SDL3$jscomp$3$$.$audio_playback$.$silenceTimer$ && clearInterval($SDL3$jscomp$3$$.$audio_playback$.$silenceTimer$), $SDL3$jscomp$3$$.$audio_playback$ = void 0;
   }
   void 0 !== $SDL3$jscomp$3$$.$audioContext$ && void 0 === $SDL3$jscomp$3$$.$audio_playback$ && void 0 === $SDL3$jscomp$3$$.$audio_recording$ && ($SDL3$jscomp$3$$.$audioContext$.close(), $SDL3$jscomp$3$$.$audioContext$ = void 0);
-}, 1009752:($$0$jscomp$7_buf$jscomp$18$$, $$1$jscomp$3$$) => {
+}, 1016472:($$0$jscomp$7_buf$jscomp$18$$, $$1$jscomp$3$$) => {
   $$0$jscomp$7_buf$jscomp$18$$ >>>= 2;
   for (var $SDL3$jscomp$4$$ = $Module$$.SDL3, $numChannels$$ = $SDL3$jscomp$4$$.$audio_playback$.$currentPlaybackBuffer$.numberOfChannels, $c$jscomp$1$$ = 0; $c$jscomp$1$$ < $numChannels$$; ++$c$jscomp$1$$) {
     var $channelData$$ = $SDL3$jscomp$4$$.$audio_playback$.$currentPlaybackBuffer$.getChannelData($c$jscomp$1$$);
@@ -2893,7 +2893,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
       $channelData$$[$j$jscomp$1$$] = $HEAPF32$$[$$0$jscomp$7_buf$jscomp$18$$ + ($j$jscomp$1$$ * $numChannels$$ + $c$jscomp$1$$) >>> 0];
     }
   }
-}, 1010265:($$0$jscomp$8$$, $$1$jscomp$4$$) => {
+}, 1016985:($$0$jscomp$8$$, $$1$jscomp$4$$) => {
   for (var $SDL3$jscomp$5$$ = $Module$$.SDL3, $numChannels$jscomp$1$$ = $SDL3$jscomp$5$$.$audio_recording$.$currentRecordingBuffer$.numberOfChannels, $c$jscomp$2$$ = 0; $c$jscomp$2$$ < $numChannels$jscomp$1$$; ++$c$jscomp$2$$) {
     var $channelData$jscomp$1$$ = $SDL3$jscomp$5$$.$audio_recording$.$currentRecordingBuffer$.getChannelData($c$jscomp$2$$);
     if ($channelData$jscomp$1$$.length != $$1$jscomp$4$$) {
@@ -2909,10 +2909,10 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
       }
     }
   }
-}, 1010892:() => {
+}, 1017612:() => {
   "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
   $Module$$.SDL3.$camera$ = {};
-}, 1010993:() => void 0 === navigator.mediaDevices ? 0 : 1, 1011052:($$0$jscomp$9_constraints$jscomp$8$$, $$1$jscomp$5$$, $$2$jscomp$3$$, $$3$jscomp$3$$, $$4$jscomp$1$$, $$5$$, $$6$$) => {
+}, 1017713:() => void 0 === navigator.mediaDevices ? 0 : 1, 1017772:($$0$jscomp$9_constraints$jscomp$8$$, $$1$jscomp$5$$, $$2$jscomp$3$$, $$3$jscomp$3$$, $$4$jscomp$1$$, $$5$$, $$6$$) => {
   function $grabNextCameraFrame$$() {
     const $SDL3$jscomp$6$$ = $Module$$.SDL3;
     if ("undefined" !== typeof $SDL3$jscomp$6$$ && "undefined" !== typeof $SDL3$jscomp$6$$.$camera$ && "undefined" !== typeof $SDL3$jscomp$6$$.$camera$.stream) {
@@ -2963,10 +2963,10 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     console.error("Tried to open camera but it threw an error! " + $err$jscomp$6$$.name + ": " + $err$jscomp$6$$.message);
     $dynCall$$("iiiiii", $$5$$, [$device$jscomp$12$$, 0, 0, 0, 0]);
   });
-}, 1013343:() => {
+}, 1020063:() => {
   const $SDL3$jscomp$8$$ = $Module$$.SDL3;
   "undefined" !== typeof $SDL3$jscomp$8$$ && "undefined" !== typeof $SDL3$jscomp$8$$.$camera$ && "undefined" !== typeof $SDL3$jscomp$8$$.$camera$.stream && ($SDL3$jscomp$8$$.$camera$.stream.getTracks().forEach($track$jscomp$4$$ => $track$jscomp$4$$.stop()), $SDL3$jscomp$8$$.$camera$ = {});
-}, 1013594:($$0$jscomp$10_imgrgba$$, $$1$jscomp$6$$, $$2$jscomp$4$$) => {
+}, 1020314:($$0$jscomp$10_imgrgba$$, $$1$jscomp$6$$, $$2$jscomp$4$$) => {
   const $SDL3$jscomp$9$$ = $Module$$.SDL3;
   if ("undefined" === typeof $SDL3$jscomp$9$$ || "undefined" === typeof $SDL3$jscomp$9$$.$camera$ || "undefined" === typeof $SDL3$jscomp$9$$.$camera$.$ctx2d$) {
     return 0;
@@ -2975,9 +2975,9 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
   $$0$jscomp$10_imgrgba$$ = $SDL3$jscomp$9$$.$camera$.$ctx2d$.getImageData(0, 0, $$0$jscomp$10_imgrgba$$, $$1$jscomp$6$$).data;
   $HEAPU8$$.set($$0$jscomp$10_imgrgba$$, $$2$jscomp$4$$ >>> 0);
   return 1;
-}, 1013972:() => {
+}, 1020692:() => {
   "undefined" !== typeof $Module$$.SDL3 && ($Module$$.SDL3.$camera$ = void 0);
-}, 1014059:($$0$jscomp$11_data8_src$jscomp$5$$, $$1$jscomp$7_data$jscomp$104_data32_i$jscomp$68$$, $$2$jscomp$5_num$jscomp$10$$, $$3$jscomp$4_SDL3$jscomp$10_canvasId$$) => {
+}, 1020779:($$0$jscomp$11_data8_src$jscomp$5$$, $$1$jscomp$7_data$jscomp$104_data32_i$jscomp$68$$, $$2$jscomp$5_num$jscomp$10$$, $$3$jscomp$4_SDL3$jscomp$10_canvasId$$) => {
   $$3$jscomp$4_SDL3$jscomp$10_canvasId$$ = $UTF8ToString$$($$3$jscomp$4_SDL3$jscomp$10_canvasId$$);
   var $canvas$jscomp$16_j$jscomp$3$$ = document.querySelector($$3$jscomp$4_SDL3$jscomp$10_canvasId$$);
   $Module$$.SDL3 || ($Module$$.SDL3 = {});
@@ -3008,7 +3008,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     }
   }
   $$3$jscomp$4_SDL3$jscomp$10_canvasId$$.$ctx$.putImageData($$3$jscomp$4_SDL3$jscomp$10_canvasId$$.image, 0, 0);
-}, 1015288:($$0$jscomp$12_image$jscomp$3$$, $$1$jscomp$8_data32$jscomp$1$$, $$2$jscomp$6_url$jscomp$34$$, $$3$jscomp$5_urlBuf$$, $$4$jscomp$2_src$jscomp$6$$) => {
+}, 1022008:($$0$jscomp$12_image$jscomp$3$$, $$1$jscomp$8_data32$jscomp$1$$, $$2$jscomp$6_url$jscomp$34$$, $$3$jscomp$5_urlBuf$$, $$4$jscomp$2_src$jscomp$6$$) => {
   var $canvas$jscomp$17$$ = document.createElement("canvas");
   $canvas$jscomp$17$$.width = $$0$jscomp$12_image$jscomp$3$$;
   $canvas$jscomp$17$$.height = $$1$jscomp$8_data32$jscomp$1$$;
@@ -3022,11 +3022,11 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
   $$3$jscomp$5_urlBuf$$ = $_SDL_malloc$$($$2$jscomp$6_url$jscomp$34$$.length + 1);
   $stringToUTF8$$($$2$jscomp$6_url$jscomp$34$$, $$3$jscomp$5_urlBuf$$, $$2$jscomp$6_url$jscomp$34$$.length + 1);
   return $$3$jscomp$5_urlBuf$$;
-}, 1015946:$$0$jscomp$13$$ => {
+}, 1022666:$$0$jscomp$13$$ => {
   $Module$$.canvas && ($Module$$.canvas.style.cursor = $UTF8ToString$$($$0$jscomp$13$$));
-}, 1016029:() => {
+}, 1022749:() => {
   $Module$$.canvas && ($Module$$.canvas.style.cursor = "none");
-}, 1016098:($$0$jscomp$14$$, $$1$jscomp$9_SDL3$jscomp$11$$, $$2$jscomp$7$$) => {
+}, 1022818:($$0$jscomp$14$$, $$1$jscomp$9_SDL3$jscomp$11$$, $$2$jscomp$7$$) => {
   var $target$jscomp$163$$ = document.querySelector($UTF8ToString$$($$1$jscomp$9_SDL3$jscomp$11$$));
   if ($target$jscomp$163$$) {
     "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
@@ -3069,7 +3069,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     $target$jscomp$163$$.addEventListener("pointerup", $$1$jscomp$9_SDL3$jscomp$11$$.$eventHandlerPointerGeneric$);
     $target$jscomp$163$$.addEventListener("pointermove", $$1$jscomp$9_SDL3$jscomp$11$$.$eventHandlerPointerGeneric$);
   }
-}, 1017891:($$0$jscomp$15$$, $$1$jscomp$10$$, $$2$jscomp$8$$) => {
+}, 1024611:($$0$jscomp$15$$, $$1$jscomp$10$$, $$2$jscomp$8$$) => {
   var $target$jscomp$164$$ = document.querySelector($UTF8ToString$$($$1$jscomp$10$$));
   if ($target$jscomp$164$$) {
     "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
@@ -3123,7 +3123,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     $target$jscomp$164$$.addEventListener("dragend", $SDL3$jscomp$12$$.$eventHandlerDropDragend$);
     $target$jscomp$164$$.addEventListener("dragleave", $SDL3$jscomp$12$$.$eventHandlerDropDragend$);
   }
-}, 1020044:$$0$jscomp$16_target$jscomp$165$$ => {
+}, 1026764:$$0$jscomp$16_target$jscomp$165$$ => {
   if ($$0$jscomp$16_target$jscomp$165$$ = document.querySelector($UTF8ToString$$($$0$jscomp$16_target$jscomp$165$$))) {
     var $SDL3$jscomp$13$$ = $Module$$.SDL3;
     $$0$jscomp$16_target$jscomp$165$$.removeEventListener("dragleave", $SDL3$jscomp$13$$.$eventHandlerDropDragend$);
@@ -3148,7 +3148,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     $SDL3$jscomp$13$$.$eventHandlerDropDrop$ = void 0;
     $SDL3$jscomp$13$$.$eventHandlerDropDragend$ = void 0;
   }
-}, 1020874:$$0$jscomp$17_target$jscomp$166$$ => {
+}, 1027594:$$0$jscomp$17_target$jscomp$166$$ => {
   if ($$0$jscomp$17_target$jscomp$166$$ = document.querySelector($UTF8ToString$$($$0$jscomp$17_target$jscomp$166$$))) {
     var $SDL3$jscomp$14$$ = $Module$$.SDL3;
     $$0$jscomp$17_target$jscomp$166$$.removeEventListener("pointerenter", $SDL3$jscomp$14$$.$eventHandlerPointerEnter$);
@@ -3161,21 +3161,21 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     $SDL3$jscomp$14$$.$eventHandlerPointerLeave$ = void 0;
     $SDL3$jscomp$14$$.$eventHandlerPointerGeneric$ = void 0;
   }
-}, 1021559:() => window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)").matches ? 0 : window.matchMedia("(prefers-color-scheme: dark)").matches ? 1 : -1 : -1, 1021768:() => {
+}, 1028279:() => window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)").matches ? 0 : window.matchMedia("(prefers-color-scheme: dark)").matches ? 1 : -1 : -1, 1028488:() => {
   if ("undefined" !== typeof $Module$$.SDL3) {
     var $SDL3$jscomp$15$$ = $Module$$.SDL3;
     $SDL3$jscomp$15$$.$themeChangedMatchMedia$.removeEventListener("change", $SDL3$jscomp$15$$.$eventHandlerThemeChanged$);
     $SDL3$jscomp$15$$.$themeChangedMatchMedia$ = void 0;
     $SDL3$jscomp$15$$.$eventHandlerThemeChanged$ = void 0;
   }
-}, 1022021:() => window.innerWidth, 1022051:() => window.innerHeight, 1022082:$$0$jscomp$18$$ => {
+}, 1028741:() => window.innerWidth, 1028771:() => window.innerHeight, 1028802:$$0$jscomp$18$$ => {
   $Module$$.requestFullscreen = function() {
     $_requestFullscreenThroughSDL$$($$0$jscomp$18$$);
   };
-}, 1022191:() => {
+}, 1028911:() => {
   $Module$$.requestFullscreen = function() {
   };
-}, 1022265:() => {
+}, 1028985:() => {
   if (window.matchMedia) {
     "undefined" === typeof $Module$$.SDL3 && ($Module$$.SDL3 = {});
     var $SDL3$jscomp$16$$ = $Module$$.SDL3;
@@ -3185,7 +3185,7 @@ var $ASM_CONSTS$$ = {1003660:$$0_reply_str$jscomp$17$$ => {
     $SDL3$jscomp$16$$.$themeChangedMatchMedia$ = window.matchMedia("(prefers-color-scheme: dark)");
     $SDL3$jscomp$16$$.$themeChangedMatchMedia$.addEventListener("change", $SDL3$jscomp$16$$.$eventHandlerThemeChanged$);
   }
-}}, $_main$$ = $Module$$._main = $makeInvalidEarlyAccess$$("_main"), $_malloc$$ = $makeInvalidEarlyAccess$$("_malloc"), $_free$$ = $makeInvalidEarlyAccess$$("_free"), $_strerror$$ = $makeInvalidEarlyAccess$$("_strerror"), $_SDL_free$$ = $Module$$._SDL_free = $makeInvalidEarlyAccess$$("_SDL_free"), $_SDL_malloc$$ = $Module$$._SDL_malloc = $makeInvalidEarlyAccess$$("_SDL_malloc");
+}}, $_main$$ = $Module$$._main = $makeInvalidEarlyAccess$$("_main"), $_free$$ = $makeInvalidEarlyAccess$$("_free"), $_malloc$$ = $makeInvalidEarlyAccess$$("_malloc"), $_strerror$$ = $makeInvalidEarlyAccess$$("_strerror"), $_SDL_free$$ = $Module$$._SDL_free = $makeInvalidEarlyAccess$$("_SDL_free"), $_SDL_malloc$$ = $Module$$._SDL_malloc = $makeInvalidEarlyAccess$$("_SDL_malloc");
 $Module$$._SDL_calloc = $makeInvalidEarlyAccess$$("_SDL_calloc");
 $Module$$._SDL_realloc = $makeInvalidEarlyAccess$$("_SDL_realloc");
 var $_fflush$$ = $makeInvalidEarlyAccess$$("_fflush"), $_Emscripten_HandlePointerEnter$$ = $Module$$._Emscripten_HandlePointerEnter = $makeInvalidEarlyAccess$$("_Emscripten_HandlePointerEnter"), $_Emscripten_HandlePointerLeave$$ = $Module$$._Emscripten_HandlePointerLeave = $makeInvalidEarlyAccess$$("_Emscripten_HandlePointerLeave"), $_Emscripten_HandlePointerGeneric$$ = $Module$$._Emscripten_HandlePointerGeneric = $makeInvalidEarlyAccess$$("_Emscripten_HandlePointerGeneric"), $_Emscripten_SendDragEvent$$ = 
@@ -5031,8 +5031,8 @@ var $wasmExports$$;
     $updateMemoryViews$$();
     $instance$jscomp$1_ret$jscomp$inline_398_wasmExports$jscomp$inline_403$$ = $wasmExports$$;
     $Module$$._main = $_main$$ = $createExportWrapper$$("__main_argc_argv", 2);
-    $_malloc$$ = $createExportWrapper$$("malloc", 1);
     $_free$$ = $createExportWrapper$$("free", 1);
+    $_malloc$$ = $createExportWrapper$$("malloc", 1);
     $_strerror$$ = $createExportWrapper$$("strerror", 1);
     $Module$$._SDL_free = $_SDL_free$$ = $createExportWrapper$$("SDL_free", 1);
     $Module$$._SDL_malloc = $_SDL_malloc$$ = $createExportWrapper$$("SDL_malloc", 1);
@@ -5071,15 +5071,15 @@ var $wasmExports$$;
     $dynCalls$$.vi = dynCall_vi = $createExportWrapper$$("dynCall_vi", 2);
     $dynCalls$$.vii = dynCall_vii = $createExportWrapper$$("dynCall_vii", 3);
     $dynCalls$$.iii = dynCall_iii = $createExportWrapper$$("dynCall_iii", 3);
-    $dynCalls$$.iiii = $dynCall_iiii$$ = $createExportWrapper$$("dynCall_iiii", 4);
-    $dynCalls$$.iiiiii = $createExportWrapper$$("dynCall_iiiiii", 6);
     $dynCalls$$.viiiii = $createExportWrapper$$("dynCall_viiiii", 6);
     $dynCalls$$.viiii = $createExportWrapper$$("dynCall_viiii", 5);
+    $dynCalls$$.iiii = $dynCall_iiii$$ = $createExportWrapper$$("dynCall_iiii", 4);
     $dynCalls$$.iiiii = $createExportWrapper$$("dynCall_iiiii", 5);
     $dynCalls$$.viii = $createExportWrapper$$("dynCall_viii", 4);
     $dynCalls$$.v = dynCall_v = $createExportWrapper$$("dynCall_v", 1);
     $dynCalls$$.viiifi = $createExportWrapper$$("dynCall_viiifi", 6);
     $dynCalls$$.jiji = $createExportWrapper$$("dynCall_jiji", 4);
+    $dynCalls$$.iiiiii = $createExportWrapper$$("dynCall_iiiiii", 6);
     $dynCalls$$.viiiiii = $createExportWrapper$$("dynCall_viiiiii", 7);
     $dynCalls$$.i = $createExportWrapper$$("dynCall_i", 1);
     $dynCalls$$.viji = $createExportWrapper$$("dynCall_viji", 4);
